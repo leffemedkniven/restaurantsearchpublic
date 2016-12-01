@@ -1,14 +1,15 @@
-// Connect to database
-// Connect to database
-$dsn = 'mysql:unix_socket=/cloudsql/whatsdown-d627f:us-central1:whatsdown;dbname=DATABASE';
-$user = 'root';
-$pass = 'd0bb3';
+	// Connect to database
+	$dsn = 'mysql:unix_socket=/cloudsql/whatsdown-d627f:us-central1:whatsdown;dbname=DATABASE';
+	$user = 'root';
+	$password = 'd0bb3';
+
+	$connection = new PDO($dsn, $user, $password);
 
 	$request_method=$_SERVER["REQUEST_METHOD"];
 	switch($request_method)
 	{
 		case 'GET':
-			// Retrive restaurant
+			// Retrive restaurants
 			if(!empty($_GET["restaurant_id"]))
 			{
 				$restaurant_id=intval($_GET["restaurant_id"]);
@@ -16,7 +17,7 @@ $pass = 'd0bb3';
 			}
 			else
 			{
-				get_products();
+				get_restaurants();
 			}
 			break;
 		case 'POST':
@@ -39,4 +40,22 @@ $pass = 'd0bb3';
 			// Invalid Request Method
 			header("HTTP/1.0 405 Method Not Allowed");
 			break;
+	}
+
+	function get_restaurants($product_id=0)
+	{
+		global $connection;
+		$query="SELECT * FROM restaurants";
+		if($product_id != 0)
+		{
+			$query.=" WHERE id=".$product_id.;
+		}
+		$response=array();
+		$result=mysqli_query($connection, $query);
+		while($row=mysqli_fetch_array($result))
+		{
+			$response[]=$row;
+		}
+		header('Content-Type: application/json');
+		echo json_encode($response);
 	}
