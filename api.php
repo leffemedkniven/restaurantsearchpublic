@@ -6,6 +6,8 @@
 	$connection = new PDO($dsn, $user, $password);
 
 	$request_method=$_SERVER["REQUEST_METHOD"];
+
+
 	switch($request_method)
 	{
 		case 'GET':
@@ -54,7 +56,7 @@
 		}
 		$response=array();
 		$query->execute();
-		while($row=query->fetch())
+		while($row=$query->fetch())
 		{
 			$response[]=$row;
 		}
