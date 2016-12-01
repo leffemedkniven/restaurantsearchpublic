@@ -52,7 +52,7 @@
 		if($restaurant_ID != 0)
 		{
 			$query=$connection->prepare("SELECT * FROM restaurants WHERE restaurant_ID= :id");
-			$sth->bindParam(':id',$restaurant_ID);
+			$query->bindParam(':id',$restaurant_ID);
 		}
 		$response=array();
 		$query->execute();
