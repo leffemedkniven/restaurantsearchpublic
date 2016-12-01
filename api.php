@@ -1,5 +1,5 @@
 	// Connect to database
-	$dsn = 'mysql:unix_socket=/cloudsql/whatsdown-d627f:us-central1:whatsdown;dbname=DATABASE';
+	$dsn = 'mysql:unix_socket=/cloudsql/whatsdown-d627f:us-central1:whatsdown;dbname=whatsdown';
 	$user = 'root';
 	$password = 'd0bb3';
 
@@ -20,13 +20,13 @@
 				get_restaurants();
 			}
 			break;
-		<!-- case 'POST':
+		case 'POST':
 			// Insert restaurant
 			insert_restaurant();
 			//insert new review
 			create_review();
-			break; -->
-		<!-- case 'PUT':
+			break;
+		case 'PUT':
 			// Update restaurant
 			$restaurant_id=intval($_GET["restaurant_id"]);
 			update_restaurant($restaurant_id);
@@ -39,7 +39,7 @@
 		default:
 			// Invalid Request Method
 			header("HTTP/1.0 405 Method Not Allowed");
-			break; -->
+			break;
 	}
 
 	function get_restaurants($restaurant_ID=0)
