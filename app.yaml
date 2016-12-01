@@ -4,6 +4,6 @@ api_version: 1
 
 handlers:
 - url: /.*
-script: index.html
+  script: /index.php
 
-
+gcloud config set project whatsdown-d627f   && gcloud source repos clone default     ~/src/whatsdown-d627f/default1 && cd ~/src/whatsdown-d627f/default1   && git checkout gcloud
