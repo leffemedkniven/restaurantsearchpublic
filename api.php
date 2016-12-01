@@ -20,13 +20,13 @@
 				get_restaurants();
 			}
 			break;
-		case 'POST':
+		<!-- case 'POST':
 			// Insert restaurant
 			insert_restaurant();
 			//insert new review
 			create_review();
-			break;
-		case 'PUT':
+			break; -->
+		<!-- case 'PUT':
 			// Update restaurant
 			$restaurant_id=intval($_GET["restaurant_id"]);
 			update_restaurant($restaurant_id);
@@ -39,23 +39,25 @@
 		default:
 			// Invalid Request Method
 			header("HTTP/1.0 405 Method Not Allowed");
-			break;
+			break; -->
 	}
 
-	function get_restaurants($product_id=0)
+	function get_restaurants($restaurant_ID=0)
 	{
 		global $connection;
-		$query="SELECT * FROM restaurants";
-		if($product_id != 0)
+		$query=$connection->prepare("SELECT * FROM restaurants");
+
+		if($restaurant_ID != 0)
 		{
-			$query.=" WHERE id=".$product_id.;
+			$query=$connection->prepare("SELECT * FROM restaurants WHERE restaurant_ID= :id");
+			$sth->bindParam(':id',$restaurant_ID);
 		}
 		$response=array();
-		$result=mysqli_query($connection, $query);
-		while($row=mysqli_fetch_array($result))
+		$query->execute();
+		while($row=query->fetch())
 		{
 			$response[]=$row;
 		}
 		header('Content-Type: application/json');
 		echo json_encode($response);
-	}
+		}
