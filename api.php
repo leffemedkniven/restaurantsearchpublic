@@ -12,14 +12,16 @@
 	{
 		case 'GET':
 			// Retrive restaurants
-			if(!empty($_GET["restaurant_id"]))
+			if(!empty($_GET["restaurant_ID"]))
 			{
-				$restaurant_id=intval($_GET["restaurant_id"]);
-				get_restaurants($restaurant_id);
+				echo json_encode("if test");
+				//$restaurant_id=intval($_GET["restaurant_ID"]);
+				//get_restaurants($restaurant_ID);
 			}
 			else
 			{
-				get_restaurants();
+				echo json_encode("test");
+				//get_restaurants();
 			}
 			break;
 		case 'POST':
@@ -47,11 +49,11 @@
 	function get_restaurants($restaurant_ID=0)
 	{
 		global $connection;
-		$query=$connection->prepare("SELECT * FROM restaurants");
+		$query=$connection->prepare("SELECT * FROM Restaurants");
 
 		if($restaurant_ID != 0)
 		{
-			$query=$connection->prepare("SELECT * FROM restaurants WHERE restaurant_ID= :id");
+			$query=$connection->prepare("SELECT * FROM Restaurants WHERE restaurant_ID= :id");
 			$query->bindParam(':id',$restaurant_ID);
 		}
 		$response=array();
