@@ -71,33 +71,43 @@
 	function insert_restaurant()
 	{
 		global $connection;
-
-
-		$query=$connection->prepare("INSERT INTO restaurants(name, picture, description, location) VALUES (:name, :picture, :description, :location)");
-		$query->bindParam(':name',$name);
-		$query->bindParam(':picture',$picture);
-		$query->bindParam(':description',$description);
-		$query->bindParam(':location',$location);
-
 		$name=$_POST["name"];
 		$picture=$_POST["picture"];
 		$description=$_POST["description"];
 		$location=$_POST["location"];
+		
+		if( isset($_POST["name"], $_POST["picture"], $_POST["description"], $_POST["location"]) {
+			$query=$connection->prepare("INSERT INTO restaurants(name, picture, description, location) VALUES (:name, :picture, :description, :location)");
+			$query->bindParam(':name',$name);
+			$query->bindParam(':picture',$picture);
+			$query->bindParam(':description',$description);
+			$query->bindParam(':location',$location);
 
-    if($query->execute())
-    {
-      $response=array(
+    	if($query->execute())
+    	{
+      	$response=array(
         'status' => 1,
         'status_message' =>'Restaurant added.'
-      );
-    }
-		else
-	 {
-		 $response=array(
+      	);
+    	}
+			else
+	 		{
+		 		$response=array(
 			 'status' => 0,
 			 'status_message' =>'Addition failed, please try again.'
-		 );
-	 }
+		 		);
+	 		}
+		}
+		else
+		{
+		 		$response=array(
+			 'status' => 0,
+			 'status_message' =>'No Post vars set.'
+		 		);
+	 		}
+		}
+
+
 	 	header('Content-Type: application/json');
 	 	echo json_encode($response);
 		}
