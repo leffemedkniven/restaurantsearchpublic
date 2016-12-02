@@ -12,10 +12,6 @@ handlers:
 - url: /memes
   script: memes.php
 
-
-- url: /test
-  script: test.php
-
 - url: /.*
   script: index.php
 
