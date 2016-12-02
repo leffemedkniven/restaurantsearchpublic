@@ -75,8 +75,8 @@
 		$picture=$_POST["picture"];
 		$description=$_POST["description"];
 		$location=$_POST["location"];
-		
-		if( isset($_POST["name"], $_POST["picture"], $_POST["description"], $_POST["location"]) {
+
+		if(isset($_POST["name"], $_POST["picture"], $_POST["description"], $_POST["location"]) {
 			$query=$connection->prepare("INSERT INTO restaurants(name, picture, description, location) VALUES (:name, :picture, :description, :location)");
 			$query->bindParam(':name',$name);
 			$query->bindParam(':picture',$picture);
@@ -105,9 +105,6 @@
 			 'status_message' =>'No Post vars set.'
 		 		);
 	 		}
-		}
-
-
 	 	header('Content-Type: application/json');
 	 	echo json_encode($response);
 		}
