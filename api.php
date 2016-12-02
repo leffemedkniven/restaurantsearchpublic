@@ -1,9 +1,9 @@
 	// Connect to database
-	$dsn = 'mysql:unix_socket=/cloudsql/whatsdown-d627f:us-central1:whatsdown;dbname=whatsdown';
+	<!-- $dsn = 'mysql:unix_socket=/cloudsql/whatsdown-d627f:us-central1:whatsdown;dbname=whatsdown';
 	$user = 'root';
 	$password = 'd0bb3';
 
-	$connection = new PDO($dsn, $user, $password);
+	$connection = new PDO($dsn, $user, $password); -->
 
 	$request_method=$_SERVER["REQUEST_METHOD"];
 
