@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Facebook Login JavaScript Example</title>
+<title>Welcome</title>
 <meta charset="UTF-8">
 </head>
 <body>
+<!--
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8&appId=344026762636411";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <script>
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
@@ -43,7 +53,7 @@
 
   window.fbAsyncInit = function() {
   FB.init({
-    appId      : '	344026762636411',
+    appId      : '344026762636411',
     cookie     : true,  // enable cookies to allow the server to access 
                         // the session
     xfbml      : true,  // parse social plugins on this page
@@ -88,16 +98,17 @@
     });
   }
 </script>
-
+-->
 <!--
   Below we include the Login Button social plugin. This button uses
   the JavaScript SDK to present a graphical Login button that triggers
   the FB.login() function when clicked.
 -->
-
+<!--
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">One button pls
 </fb:login-button>
-
+-->
+<!--
 <div id="status">
 </div>
 <div
@@ -107,5 +118,7 @@
   data-show-faces="true">
 </div>	
 
+<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
+-->
 </body>
 </html>
