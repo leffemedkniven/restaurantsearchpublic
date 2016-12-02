@@ -3,14 +3,14 @@ api_version: 1
 
 
 handlers:
-- url: /test/.*
-  script: test.php
-
 - url: /api/.*
   script: api.php
 
+- url: /test
+  script: test.php
+
+- url: /memes
+  script: memes.php
+
 - url: /.*
   script: index.php
-
-- url: /memes/.*
-  script: memes.php
