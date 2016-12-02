@@ -30,7 +30,7 @@
 			// Insert restaurant
 			insert_restaurant();
 			//insert new review
-			create_review();
+			//create_review();
 			break;
 		case 'PUT':
 			// Update restaurant
