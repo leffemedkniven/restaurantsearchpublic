@@ -30,7 +30,7 @@
 			// Insert restaurant
 			insert_restaurant();
 			//insert new review
-			create_review();
+			//create_review();
 			break;
 		case 'PUT':
 			// Update restaurant
@@ -67,21 +67,22 @@
 		header('Content-Type: application/json');
 		echo json_encode($response);
 		}
-		// function insert_restaurant()
-		// {
-		// 	global $connection;
-		// 	$name=$_POST["name"];
-		// 	$picture=$_POST["picture"];
-		// 	$description=$_POST["description"];
-		// 	$location=$_POST["location"];
-		//
-		// 	$query=$connection->prepare("INSERT INTO restaurants(name, picture, description, location)
-		// 																	VALUES (name=:name, picture=:picture, description=:description, location=:location");
-		// 	$query->bindParam(':name',$name);
-		// 	$query->bindParam(':picture',$picture);
-		// 	$query->bindParam(':description',$description);
-		// 	$query->bindParam(':location',$location);
-		//
-		// 	query->execute();
-		//
-		// }
+
+	function insert_restaurant()
+	{
+		global $connection;
+		$name=$_POST["name"];
+		$picture=$_POST["picture"];
+		$description=$_POST["description"];
+		$location=$_POST["location"];
+
+		$query=$connection->prepare("INSERT INTO restaurants(name, picture, description, location)
+																		VALUES (name=:name, picture=:picture, description=:description, location=:location");
+		$query->bindParam(':name',$name);
+		$query->bindParam(':picture',$picture);
+		$query->bindParam(':description',$description);
+		$query->bindParam(':location',$location);
+
+		$query->execute();
+
+		}
