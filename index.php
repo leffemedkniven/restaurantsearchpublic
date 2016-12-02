@@ -98,7 +98,7 @@ MEMES
     });
   }
 </script>
--->
+
 <!--
   Below we include the Login Button social plugin. This button uses
   the JavaScript SDK to present a graphical Login button that triggers
@@ -107,19 +107,10 @@ MEMES
 
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">One button pls
 </fb:login-button>
--->
 
-<div id="status">
-</div>
-<div
-  class="fb-like"
-  data-share="true"
-  data-width="450"
-  data-show-faces="true">
-</div>	
-
+<!--The button-->
 <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
--->
+
 
 </body>
 </html>
