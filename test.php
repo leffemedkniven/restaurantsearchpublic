@@ -1,5 +1,12 @@
 <?php
 
+// Connect to database
+$dsn = 'mysql:unix_socket=/cloudsql/whatsdown-d627f:us-central1:whatsdown;dbname=whatsdown';
+$user = 'root';
+$password = 'd0bb3';
+
+$connection = new PDO($dsn, $user, $password);
+
 global $connection;
 $name="hej"
 $picture="nej"
@@ -13,4 +20,4 @@ $location="tjej"
   $query->bindParam(':description',$description);
   $query->bindParam(':location',$location);
 
-$query->execute()
+$query->execute();
