@@ -77,10 +77,10 @@
 		$location=$_POST["location"];
 
 		$query=$connection->prepare("INSERT INTO restaurants(name, picture, description, location) VALUES (:name, :picture, :description, :location)");
-		$query->bindParam(':name',$name);
-		$query->bindParam(':picture',$picture);
-		$query->bindParam(':description',$description);
-		$query->bindParam(':location',$location);
+		$query->bindParam(':name',$_POST["name"];);
+		$query->bindParam(':picture',$_POST["picture"]);
+		$query->bindParam(':description',$_POST["description"];
+		$query->bindParam(':location',$_POST["location"]);
 
 
     if($query->execute())
