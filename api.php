@@ -51,11 +51,11 @@
 	function get_restaurants($restaurant_ID=0)
 	{
 		global $connection;
-		$query=$connection->prepare("SELECT * FROM Restaurants");
+		$query=$connection->prepare("SELECT * FROM restaurants");
 
 		if($restaurant_ID != 0)
 		{
-			$query=$connection->prepare("SELECT * FROM Restaurants WHERE restaurant_ID= :id");
+			$query=$connection->prepare("SELECT * FROM restaurants WHERE restaurant_ID= :id");
 			$query->bindParam(':id',$restaurant_ID);
 		}
 		$response=array();
