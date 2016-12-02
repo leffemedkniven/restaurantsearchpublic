@@ -28,7 +28,7 @@ MEMES
       // Logged into your app and Facebook.
       testAPI();
       var accessToken = response.authResponse.accessToken;
-      window.location = "https://whatsdown-d627f.appspot.com/memes.php";
+      //window.location = "https://whatsdown-d627f.appspot.com/memes.php";
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
@@ -57,6 +57,10 @@ MEMES
                         // the session
     xfbml      : true,  // parse social plugins on this page
     version    : 'v2.8' // use graph api version 2.8
+  });
+
+  FB.Event.subscribe('auth.login', function () {
+  	window.location = "https://whatsdown-d627f.appspot.com/memes.php";
   });
 
   // Now that we've initialized the JavaScript SDK, we call 
