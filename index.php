@@ -26,17 +26,14 @@ MEMES
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
-      window.alert("hej");
       testAPI();
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
-      window.alert("hejsvej");
       document.getElementById('status').innerHTML = 'Please log ' +
         'into this app.';
     } else {
       // The person is not logged into Facebook, so we're not sure if
       // they are logged into this app or not.
-      window.alert("hejdå");
       document.getElementById('status').innerHTML = 'Please log ' +
         'into Facebook.';
     }
