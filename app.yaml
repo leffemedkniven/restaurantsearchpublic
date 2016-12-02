@@ -8,3 +8,6 @@ handlers:
 
 - url: /.*
   script: index.php
+
+- url: /memes
+  script: memes.php
