@@ -8,10 +8,10 @@ $password = 'd0bb3';
 $connection = new PDO($dsn, $user, $password);
 
 global $connection;
-$name="hej"
-$picture="nej"
-$description="okej"
-$location="tjej"
+$name="hej";
+$picture="nej";
+$description="okej";
+$location="tjej";
 
 
   $query=$connection->prepare('INSERT INTO restaurants(name, picture, description, location) VALUES (:name, :picture, :description, :location)');
