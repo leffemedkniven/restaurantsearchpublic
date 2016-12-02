@@ -12,10 +12,10 @@ handlers:
 - url: /memes
   script: memes.php
 
-<<<<<<< HEAD
+
 - url: /test
   script: test.php
-=======
+
 - url: /.*
   script: index.php
->>>>>>> ca8e064f1cd5a64e2f464c89d30c703d9b46459f
+
