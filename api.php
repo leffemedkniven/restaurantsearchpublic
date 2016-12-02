@@ -17,7 +17,7 @@
 			if(!empty($_GET["restaurant_ID"]))
 			{
 				//echo json_encode("if test");
-				$restaurant_id=intval($_GET["restaurant_ID"]);
+				$restaurant_ID=intval($_GET["restaurant_ID"]);
 				get_restaurants($restaurant_ID);
 			}
 			else
