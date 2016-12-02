@@ -60,7 +60,7 @@
 		}
 		$response=array();
 		$query->execute();
-		while($row=$query->fetch())
+		while($row=$query->fetch(PDO::FETCH_ASSOC))
 		{
 			$response[]=$row;
 		}
