@@ -9,8 +9,8 @@ handlers:
 - url: /.*
   script: index.php
 
-- url: /memes/.*
+- url: /memes
   script: memes.php
 
-- url: /test/.*
+- url: /test
   script: test.php
