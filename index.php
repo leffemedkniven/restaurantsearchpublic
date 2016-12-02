@@ -28,7 +28,7 @@ MEMES
       // Logged into your app and Facebook.
       testAPI();
       var accessToken = response.authResponse.accessToken;
-      window.location.replace(https://whatsdown-d627f.appspot.com/memes.php);
+      window.location = "https://whatsdown-d627f.appspot.com/memes.php";
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
