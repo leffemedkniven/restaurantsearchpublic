@@ -76,8 +76,8 @@
 		$description=$_POST["description"];
 		$location=$_POST["location"];
 
-		$query=$connection->prepare("INSERT INTO restaurants
-																		SET (name=:name, picture=:picture, description=:description, location=:location");
+		$query=$connection->prepare("INSERT INTO restaurants(name, picture, description, location)
+																		VALUES (:name, :picture, :description, :location");
 		$query->bindParam(':name',$name);
 		$query->bindParam(':picture',$picture);
 		$query->bindParam(':description',$description);
