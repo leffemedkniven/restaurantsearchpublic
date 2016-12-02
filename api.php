@@ -83,6 +83,21 @@
 		$query->bindParam(':description',$description);
 		$query->bindParam(':location',$location);
 
-		$query->execute();
 
+    if($query->execute())
+    {
+      $response=array(
+        'status' => 1,
+        'status_message' =>'Restaurant added.'
+      );
+    }
+		else
+	 {
+		 $response=array(
+			 'status' => 0,
+			 'status_message' =>'Addition failed, please try again.'
+		 );
+	 }
+	 	header('Content-Type: application/json');
+	 	echo json_encode($response);
 		}
