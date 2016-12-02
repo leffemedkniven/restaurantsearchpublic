@@ -1,9 +1,11 @@
+<?php
+
 	// Connect to database
-	<!-- $dsn = 'mysql:unix_socket=/cloudsql/whatsdown-d627f:us-central1:whatsdown;dbname=whatsdown';
+	$dsn = 'mysql:unix_socket=/cloudsql/whatsdown-d627f:us-central1:whatsdown;dbname=whatsdown';
 	$user = 'root';
 	$password = 'd0bb3';
 
-	$connection = new PDO($dsn, $user, $password); -->
+	$connection = new PDO($dsn, $user, $password);
 
 	$request_method=$_SERVER["REQUEST_METHOD"];
 
@@ -14,14 +16,14 @@
 			// Retrive restaurants
 			if(!empty($_GET["restaurant_ID"]))
 			{
-				echo json_encode("if test");
-				//$restaurant_id=intval($_GET["restaurant_ID"]);
-				//get_restaurants($restaurant_ID);
+				//echo json_encode("if test");
+				$restaurant_id=intval($_GET["restaurant_ID"]);
+				get_restaurants($restaurant_ID);
 			}
 			else
 			{
-				echo json_encode("test");
-				//get_restaurants();
+				//echo json_encode("test");
+				get_restaurants();
 			}
 			break;
 		case 'POST':
