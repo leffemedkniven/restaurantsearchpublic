@@ -71,13 +71,13 @@
 	function insert_restaurant()
 	{
 		global $connection;
-		$name=$_POST["name"];
-		$picture=$_POST["picture"];
-		$description=$_POST["description"];
-		$location=$_POST["location"];
+		$name=$_POST['name'];
+		$picture=$_POST['picture'];
+		$description=$_POST['description'];
+		$location=$_POST['location'];
 
 		//if(isset($name, $picture, $description, $location)) {
-			$query=$connection->prepare("INSERT INTO restaurants(name, picture, description, location) VALUES (:name, :picture, :description, :location)");
+			$query=$connection->prepare('INSERT INTO restaurants(name, picture, description, location) VALUES (:name, :picture, :description, :location)');
 			$query->bindParam(':name',$name);
 			$query->bindParam(':picture',$picture);
 			$query->bindParam(':description',$description);
