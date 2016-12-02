@@ -76,7 +76,7 @@
 		$description=$_POST["description"];
 		$location=$_POST["location"];
 
-		if(isset($name, $picture, $description, $location)) {
+		//if(isset($name, $picture, $description, $location)) {
 			$query=$connection->prepare("INSERT INTO restaurants(name, picture, description, location) VALUES (:name, :picture, :description, :location)");
 			$query->bindParam(':name',$name);
 			$query->bindParam(':picture',$picture);
@@ -97,14 +97,14 @@
 			 'status_message' =>'Addition failed, please try again.'
 		 		);
 	 		}
-		}
-		else
-		{
-		 		$response=array(
-			 'status' => 0,
-			 'status_message' =>'No Post vars set.'
-		 		);
-	 		}
+		// }
+		// else
+		// {
+		//  		$response=array(
+		// 	 'status' => 0,
+		// 	 'status_message' =>'No Post vars set.'
+		//  		);
+	 // 		}
 	 	header('Content-Type: application/json');
 	 	echo json_encode($response);
 		}
