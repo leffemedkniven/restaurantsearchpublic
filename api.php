@@ -276,10 +276,11 @@
 	function update_restaurant($restaurant_ID)
 	{
 		global $connection;
-		$name=$_POST['name'];
-		$picture=$_POST['picture'];
-		$description=$_POST['description'];
-		$location=$_POST['location'];
+		parse_str(file_get_contents("php://input"),$post_variables);
+		$name=$post_variables['name'];
+		$picture=$post_variables['picture'];
+		$description=$post_variables['description'];
+		$location=$post_variables['location'];
 
 		$query=$connection->prepare('UPDATE restaurants SET name=:name, picture=:picture, description=:description, location=:location WHERE restaurant_ID=:id');
 		$query->bindParam(':id',$restaurant_ID);
