@@ -16,19 +16,24 @@
 			// Retrive restaurants
 			if(!empty($_GET["restaurant_ID"]))
 			{
-				//echo json_encode("if test");
 				$restaurant_ID=intval($_GET["restaurant_ID"]);
 				get_restaurants($restaurant_ID);
 			}
-			else
+			else if(!empty($_GET["user_ID"]))
 			{
-				//echo json_encode("test");
+				get_user();
+			}
+			else if(!empty($_GET["restaurants"]))
+			{
 				get_restaurants();
 			}
 			break;
 		case 'POST':
 			// Insert restaurant
+			if(!empty($_GET["name"]))
+			{
 			insert_restaurant();
+			{
 			//insert new review
 			//create_review();
 			break;
@@ -98,7 +103,7 @@
 		function delete_restaurant($restaurant_ID)
 		{
 				global $connection;
-				
+
 				$query=$connection->prepare('DELETE FROM restaurants WHERE restaurant_ID=:id');
 				$query->bindParam(':id',$restaurant_ID);
 
