@@ -56,8 +56,17 @@
 			break;
 		case 'DELETE':
 			// Delete restaurant
-			$restaurant_ID=intval($_GET["restaurant_ID"]);
-			delete_restaurant($restaurant_ID);
+
+			if(!empty($_GET["deleteRestaurant"])){
+				$restaurant_ID=intval($_GET["restaurant_ID"]);
+				delete_restaurant($restaurant_ID);
+			}
+			else if(!empty($_GET["deleteReview"])){
+				$restaurant_ID=intval($_GET["review_ID"]);
+				delete_review($review_ID);
+			}
+
+
 			break;
 		default:
 			// Invalid Request Method
@@ -86,7 +95,7 @@
 		echo json_encode($response);
   }
 
-	function get_reviews($review_ID=0)
+	function get_reviews($restaurant_ID=0)
 	{
 		global $connection;
 		$query=$connection->prepare("SELECT * FROM reviews");
@@ -173,4 +182,22 @@
 
 		header('Content-Type: application/json');
 		echo json_encode($response);
+	}
+
+	function delete_review($review_ID)
+	{
+	  global $connection;
+
+	  $query=$connection->prepare('DELETE FROM reviews WHERE review_ID=:id');
+	  $query->bindParam(':id',$review_ID);
+
+	  if($query->execute()){
+	    $response=array('status' => 1, 'info' =>'Review deleted.');
+	  }
+	  else{
+	        $response=array('status' => 0, 'info' =>'Deletion failed, please try again.');
+	  }
+
+	  header('Content-Type: application/json');
+	  echo json_encode($response);
 	}
