@@ -282,7 +282,7 @@
 		$description=$post_variables['description'];
 		$location=$post_variables['location'];
 
-		$query=$connection->prepare('UPDATE restaurants SET name=:name, picture=:picture, description=:description, location=:location WHERE restaurant_ID=:id');
+		$query=$connection->prepare('UPDATE restaurants SET name=':name', picture=':picture', description=':description', location=':location' WHERE restaurant_ID=:id');
 		$query->bindParam(':id',$restaurant_ID);
 		$query->bindParam(':name',$name);
 		$query->bindParam(':picture',$picture);
