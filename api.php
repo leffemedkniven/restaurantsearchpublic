@@ -39,8 +39,8 @@
 			break;
 		case 'DELETE':
 			// Delete restaurant
-			$restaurant_id=intval($_GET["restaurant_ID"]);
-			delete_restaurant($restaurant_id);
+			$restaurant_ID=intval($_GET["restaurant_ID"]);
+			delete_restaurant($restaurant_ID);
 			break;
 		default:
 			// Invalid Request Method
@@ -97,6 +97,8 @@
 
 		function delete_restaurant($restaurant_ID)
 		{
+				global $connection;
+				
 				$query=$connection->prepare('DELETE FROM restaurants WHERE restaurant_ID=:id');
 				$query->bindParam(':id',$restaurant_ID);
 
