@@ -14,17 +14,11 @@
 	{
 		case 'GET':
 			// Retrive restaurants
-			if(!empty($_GET["restaurant_ID"]))
-			{
+			if(!empty($_GET["restaurant_ID"])){
 				$restaurant_ID=intval($_GET["restaurant_ID"]);
 				get_restaurants($restaurant_ID);
 			}
-			else if(!empty($_GET["restaurants"]))
-			{
-				get_restaurants();
-			}
-			else if(!empty($_GET["restaurants"]))
-			{
+			else if(!empty($_GET["restaurants"])){
 				get_restaurants();
 			}
 			else {
@@ -34,10 +28,11 @@
 			break;
 		case 'POST':
 			// Insert restaurant
-			if(!empty($_GET["name"]))
-			{
+			if(!empty($_GET["insertRestaurant"])){
 				insert_restaurant();
 			}
+			else if(!empty($_GET["insertReview"]))
+				insert_review();
 			else {
 				header("HTTP/1.0 405 Method Not Allowed");
 				break;
@@ -108,6 +103,33 @@
 	 	header('Content-Type: application/json');
 	 	echo json_encode($response);
 		}
+
+		function insert_review()
+		{
+			global $connection;
+			$user_ID=$_POST['user_ID'];
+			$restaurant_ID=$_POST['restaurant_ID'];
+			$review=$_POST['review'];
+			$rating=$_POST['rating'];
+
+				$query=$connection->prepare('INSERT INTO restaurants(name, picture, description, location) VALUES (:user_ID, :restaurant_ID, :review, :rating)');
+				$query->bindParam(':user_ID',$user_ID);
+				$query->bindParam(':restaurant_ID',$restaurant_ID);
+				$query->bindParam(':review',$review);
+				$query->bindParam(':rating',$rating);
+
+	    	if($query->execute())
+	    	{
+	      	$response=array('status' => 1, 'info' =>'Review added.');
+	    	}
+				else
+		 		{
+			 		$response=array('status' => 0, 'info' =>'Addition failed, please try again.');
+		 		}
+
+		 	header('Content-Type: application/json');
+		 	echo json_encode($response);
+			}
 
 		function delete_restaurant($restaurant_ID)
 		{
