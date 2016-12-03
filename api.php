@@ -34,8 +34,7 @@
 			break;
 		case 'POST':
 			// Insert restaurant
-
-			else if(!empty($_GET["name"]))
+			if(!empty($_GET["name"]))
 			{
 				insert_restaurant();
 			}
