@@ -72,8 +72,10 @@
 				$review_ID=intval($_GET["review_ID"]);
 				delete_review($review_ID);
 			}
-
-
+			else if(!empty($_GET["user_ID"])){
+				$user_ID=intval($_GET["user_ID"]);
+				delete_user($user_ID);
+			}
 			break;
 		default:
 			// Invalid Request Method
@@ -244,6 +246,24 @@
 
 	  if($query->execute()){
 	    $response=array('status' => 1, 'info' =>'Review deleted.');
+	  }
+	  else{
+	        $response=array('status' => 0, 'info' =>'Deletion failed, please try again.');
+	  }
+
+	  header('Content-Type: application/json');
+	  echo json_encode($response);
+	}
+
+	function delete_user($user_ID)
+	{
+	  global $connection;
+
+	  $query=$connection->prepare('DELETE FROM users WHERE user_ID=:id');
+	  $query->bindParam(':id',$user_ID);
+
+	  if($query->execute()){
+	    $response=array('status' => 1, 'info' =>'User deleted.');
 	  }
 	  else{
 	        $response=array('status' => 0, 'info' =>'Deletion failed, please try again.');
