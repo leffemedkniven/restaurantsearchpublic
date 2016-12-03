@@ -197,12 +197,12 @@
 	function insert_user()
 	{
 	  global $connection;
-	  $displayName=$_POST['displayName'];
+	  $displayname=$_POST['displayname'];
 	  $profilepic=$_POST['profilepic'];
 
 
-	  $query=$connection->prepare('INSERT INTO users(displayName, profilepic) VALUES (:displayName, :profilepic)');
-	  $query->bindParam(':displayName',$displayName);
+	  $query=$connection->prepare('INSERT INTO users(displayname, profilepic) VALUES (:displayname, :profilepic)');
+	  $query->bindParam(':displayname',$displayname);
 	  $query->bindParam(':profilepic',$profilepic);
 
 
