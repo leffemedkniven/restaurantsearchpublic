@@ -123,7 +123,7 @@
 		echo json_encode($response);
 	}
 
-	function get_users($restaurant_ID=0)
+	function get_users($user_ID=0)
 	{
 	  global $connection;
 	  $query=$connection->prepare("SELECT * FROM users");
