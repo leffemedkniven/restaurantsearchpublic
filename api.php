@@ -58,8 +58,8 @@
 			break;
 		case 'PUT':
 			// Update restaurant
-			$restaurant_id=intval($_GET["restaurant_ID"]);
-			update_restaurant($restaurant_id);
+			$restaurant_ID=intval($_GET["restaurant_ID"]);
+			update_restaurant($restaurant_ID);
 			break;
 		case 'DELETE':
 			// Delete restaurant
