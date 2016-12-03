@@ -34,7 +34,16 @@
 			break;
 		case 'POST':
 			// Insert restaurant
-			insert_restaurant();
+
+			else if(!empty($_GET["name"]))
+			{
+				insert_restaurant();
+			}
+			else {
+				header("HTTP/1.0 405 Method Not Allowed");
+				break;
+			}
+			break;
 			//insert new review
 			//create_review();
 			break;
