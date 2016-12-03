@@ -272,3 +272,29 @@
 	  header('Content-Type: application/json');
 	  echo json_encode($response);
 	}
+
+	function update_restaurant($restaurant_ID)
+	{
+		global $connection;
+		$name=$_POST['name'];
+		$picture=$_POST['picture'];
+		$description=$_POST['description'];
+		$location=$_POST['location'];
+
+		$query=$connection->prepare('UPDATE restaurants SET name=:name, picture=:picture, description=:description, location=:location WHERE restaurant_ID=:id');
+		$query->bindParam(':id',$restaurant_ID);
+		$query->bindParam(':name',$name);
+		$query->bindParam(':picture',$picture);
+		$query->bindParam(':description',$description);
+		$query->bindParam(':location',$location);
+
+		if($query->execute()){
+			$response=array('status' => 1, 'info' =>'Restaurant updated.');
+		}
+		else{
+			$response=array('status' => 0, 'info' =>'Update failed, please try again.');
+		}
+
+		header('Content-Type: application/json');
+		echo json_encode($response);
+	}
