@@ -57,11 +57,11 @@
 		case 'DELETE':
 			// Delete restaurant
 
-			if(!empty($_GET["deleteRestaurant"])){
+			if(!empty($_GET["restaurant_ID"])){
 				$restaurant_ID=intval($_GET["restaurant_ID"]);
 				delete_restaurant($restaurant_ID);
 			}
-			else if(!empty($_GET["deleteReview"])){
+			else if(!empty($_GET["review_ID"])){
 				$restaurant_ID=intval($_GET["review_ID"]);
 				delete_review($review_ID);
 			}
