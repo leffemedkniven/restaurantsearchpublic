@@ -25,7 +25,7 @@
 				$review_ID=intval($_GET["review_ID"]);
 				get_reviews($review_ID);
 			}
-			else if(!empty($_GET["review_ID"])){
+			else if(!empty($_GET["reviews"])){
 				get_reviews();
 			}
 
