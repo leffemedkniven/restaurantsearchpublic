@@ -34,12 +34,12 @@
 			break;
 		case 'PUT':
 			// Update restaurant
-			$restaurant_id=intval($_GET["restaurant_id"]);
+			$restaurant_id=intval($_GET["restaurant_ID"]);
 			update_restaurant($restaurant_id);
 			break;
 		case 'DELETE':
 			// Delete restaurant
-			$restaurant_id=intval($_GET["restaurant_id"]);
+			$restaurant_id=intval($_GET["restaurant_ID"]);
 			delete_restaurant($restaurant_id);
 			break;
 		default:
@@ -76,7 +76,6 @@
 		$description=$_POST['description'];
 		$location=$_POST['location'];
 
-		//if(isset($name, $picture, $description, $location)) {
 			$query=$connection->prepare('INSERT INTO restaurants(name, picture, description, location) VALUES (:name, :picture, :description, :location)');
 			$query->bindParam(':name',$name);
 			$query->bindParam(':picture',$picture);
@@ -85,26 +84,32 @@
 
     	if($query->execute())
     	{
-      	$response=array(
-        'status' => 1,
-        'status_message' =>'Restaurant added.'
-      	);
+      	$response=array('status' => 1, 'info' =>'Restaurant added.');
     	}
 			else
 	 		{
-		 		$response=array(
-			 'status' => 0,
-			 'status_message' =>'Addition failed, please try again.'
-		 		);
+		 		$response=array('status' => 0, 'info' =>'Addition failed, please try again.');
 	 		}
-		// }
-		// else
-		// {
-		//  		$response=array(
-		// 	 'status' => 0,
-		// 	 'status_message' =>'No Post vars set.'
-		//  		);
-	 // 		}
+
 	 	header('Content-Type: application/json');
 	 	echo json_encode($response);
+		}
+
+		function delete_restaurant($restaurant_ID)
+		{
+				$query=$connection->prepare('DELETE FROM restaurants WHERE restaurant_ID=:id"');
+				$query->bindParam(':id',$restaurant_ID);
+
+				if($query->execute())
+				{
+					$response=array('status' => 1, 'info' =>'Restaurant deleted.');
+				}
+				else
+				{
+					$response=array('status' => 0, 'info' =>'Deletion failed, please try again.');
+				}
+
+
+			header('Content-Type: application/json');
+			echo json_encode($response);
 		}
