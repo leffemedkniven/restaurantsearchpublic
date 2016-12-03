@@ -140,7 +140,7 @@
 		$review=$_POST['review'];
 		$rating=$_POST['rating'];
 
-		$query=$connection->prepare('INSERT INTO restaurants(name, picture, description, location) VALUES (:user_ID, :restaurant_ID, :review, :rating)');
+		$query=$connection->prepare('INSERT INTO reviews(user_ID, restaurant_ID, review, rating) VALUES (:user_ID, :restaurant_ID, :review, :rating)');
 		$query->bindParam(':user_ID',$user_ID);
 		$query->bindParam(':restaurant_ID',$restaurant_ID);
 		$query->bindParam(':review',$review);
