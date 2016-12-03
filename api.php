@@ -86,7 +86,7 @@
 		echo json_encode($response);
   }
 
-	function get_reviews($restaurant_ID=0)
+	function get_reviews($review_ID=0)
 	{
 		global $connection;
 		$query=$connection->prepare("SELECT * FROM reviews");
