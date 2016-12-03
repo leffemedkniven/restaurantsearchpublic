@@ -28,7 +28,13 @@
 			else if(!empty($_GET["reviews"])){
 				get_reviews();
 			}
-
+			else if(!empty($_GET["user_ID"])){
+			  $user_ID=intval($_GET["user_ID"]);
+			  get_users($user_ID);
+			}
+			else if(!empty($_GET["users"])){
+			  get_users();
+			}
 			else {
 				header("HTTP/1.0 405 Method Not Allowed");
 				break;
@@ -39,15 +45,16 @@
 			if(!empty($_GET["insertRestaurant"])){
 				insert_restaurant();
 			}
-			else if(!empty($_GET["insertReview"]))
+			else if(!empty($_GET["insertReview"])){
 				insert_review();
+			}
+			else if(!empty($_GET["insertUser"])){
+				insert_user();
+			}
 			else {
 				header("HTTP/1.0 405 Method Not Allowed");
 				break;
 			}
-			break;
-			//insert new review
-			//create_review();
 			break;
 		case 'PUT':
 			// Update restaurant
@@ -116,6 +123,27 @@
 		echo json_encode($response);
 	}
 
+	function get_users($restaurant_ID=0)
+	{
+	  global $connection;
+	  $query=$connection->prepare("SELECT * FROM users");
+
+	  if($user_ID != 0)
+	  {
+	    $query=$connection->prepare("SELECT * FROM users WHERE user_ID=:id");
+	    $query->bindParam(':id',$user_ID);
+	  }
+	  $response=array();
+	  $query->execute();
+	  while($row=$query->fetch(PDO::FETCH_ASSOC))
+	  {
+	    $response[]=$row;
+	  }
+
+	  header('Content-Type: application/json');
+	  echo json_encode($response);
+	}
+
 	function insert_restaurant()
 	{
 		global $connection;
@@ -164,6 +192,29 @@
 
 		header('Content-Type: application/json');
 		echo json_encode($response);
+	}
+
+	function insert_user()
+	{
+	  global $connection;
+	  $displayName=$_POST['displayName'];
+	  $profilepic=$_POST['profilepic'];
+
+
+	  $query=$connection->prepare('INSERT INTO users(displayName, profilepic) VALUES (:displayName, :profilepic)');
+	  $query->bindParam(':displayName',$displayName);
+	  $query->bindParam(':profilepic',$profilepic);
+
+
+	  if($query->execute()){
+	    $response=array('status' => 1, 'info' =>'user added.');
+	  }
+	  else{
+	    $response=array('status' => 0, 'info' =>'Addition failed, please try again.');
+	  }
+
+	  header('Content-Type: application/json');
+	  echo json_encode($response);
 	}
 
 	function delete_restaurant($restaurant_ID)
