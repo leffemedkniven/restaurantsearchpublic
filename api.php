@@ -97,7 +97,7 @@
 
 		function delete_restaurant($restaurant_ID)
 		{
-				$query=$connection->prepare('DELETE FROM restaurants WHERE restaurant_ID=:id"');
+				$query=$connection->prepare('DELETE FROM restaurants WHERE restaurant_ID=:id');
 				$query->bindParam(':id',$restaurant_ID);
 
 				if($query->execute())
