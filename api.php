@@ -19,21 +19,22 @@
 				$restaurant_ID=intval($_GET["restaurant_ID"]);
 				get_restaurants($restaurant_ID);
 			}
-			else if(!empty($_GET["user_ID"]))
+			else if(!empty($_GET["restaurants"]))
 			{
-				get_user();
+				get_restaurants();
 			}
 			else if(!empty($_GET["restaurants"]))
 			{
 				get_restaurants();
 			}
+			else {
+				header("HTTP/1.0 405 Method Not Allowed");
+				break;
+			}
 			break;
 		case 'POST':
 			// Insert restaurant
-			if(!empty($_GET["name"]))
-			{
 			insert_restaurant();
-			{
 			//insert new review
 			//create_review();
 			break;
