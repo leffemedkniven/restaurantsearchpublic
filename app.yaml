@@ -16,7 +16,7 @@ handlers:
 - url: /test
   script: test.php
 
-- url: /handle_upload
+- url: /direct/handle_upload
   script: handle_upload.php
 
 - url: /direct/.*
