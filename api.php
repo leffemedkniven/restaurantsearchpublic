@@ -1,4 +1,5 @@
 <?php
+	use google\appengine\api\cloud_storage\CloudStorageTools;
 
 	// Connect to database
 	$dsn = 'mysql:unix_socket=/cloudsql/whatsdown-d627f:us-central1:whatsdown;dbname=whatsdown';
@@ -299,4 +300,14 @@
 
 		header('Content-Type: application/json');
 		echo json_encode($response);
+	}
+
+	function upload_image()
+	{
+		$options = ['gs_bucket_name' => $default_bucket];
+		$upload_url = CloudStorageTools::createUploadUrl('/upload/handler', $options);
+
+		$default_bucket = CloudStorageTools::getDefaultGoogleStorageBucketName();
+		file_put_contents("gs://${default_bucket}/hello.txt", $newFileContent);
+
 	}

@@ -12,6 +12,15 @@ handlers:
 - url: /memes
   script: memes.php
 
+
+- url: /test
+  script: test.php
+
+- url: /handle_upload
+  script: handle_upload.php
+
+- url: /direct/.*
+  script: direct_upload.php
+
 - url: /.*
   script: index.php
-
