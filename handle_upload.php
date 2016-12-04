@@ -3,8 +3,7 @@
 use google\appengine\api\cloud_storage\CloudStorageTools;
 
 $bucket = CloudStorageTools::getDefaultGoogleStorageBucketName();
-$root_path = "gs://${bucket}";
-
+$root_path = 'gs://' . $bucket . '/' . $_SERVER["REQUEST_ID_HASH"] . '/';
 
 $public_urls = [];
 foreach($_FILES['userfile']['name'] as $idx => $name) {
