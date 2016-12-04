@@ -26,7 +26,9 @@ foreach($_FILES['userfile']['name'] as $idx => $name) {
     print_r($_FILES);
 
     print "</pre>";
-
+  }
+  echo "AIDS I MUNNEN\n";
+}
 ?>
 <html>
 <body>
