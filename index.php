@@ -20,7 +20,6 @@
 
     <!-- Custom styles for this template -->
     <link href="bootstrap-3.3.7/docs/examples/signin/signin.css" rel="stylesheet">
-    /bootstrap-3.3.7/docs/examples/signin
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -34,8 +33,8 @@
 </head>
 <body>
     <div class="container">
-      <!--
       <form class="form-signin">
+      <!--
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
@@ -46,10 +45,14 @@
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      </form>-->
-      <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
 
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        -->
+        <button class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></button>
+      </form>
+      <!--
+      <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
+      -->
     </div> <!-- /container -->
 
 
@@ -161,8 +164,8 @@
 </fb:login-button>
 -->
 
-<!--The button-->
-<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
+<!--The button
+<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>-->
 
 
 </body>
