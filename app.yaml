@@ -13,7 +13,7 @@ handlers:
   script: memes.php
 
 - url: /pages/.*
-  script: /pages/restaurants.php
+  script: pages/restaurants.php
 
 - url: (.+).php
   script: \1.php

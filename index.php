@@ -78,7 +78,7 @@
       testAPI();
       var accessToken = response.authResponse.accessToken;
       //window.location = "https://whatsdown-d627f.appspot.com/pages/";
-      self.redirect("/pages");
+      //self.redirect("https://whatsdown-d627f.appspot.com/pages/");
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
@@ -110,7 +110,7 @@
   });
 
   FB.Event.subscribe('auth.login', function () {
-  	window.location = "https://whatsdown-d627f.appspot.com/memes.php";
+  	window.location = "https://whatsdown-d627f.appspot.com/pages/";
   });
 
   // Now that we've initialized the JavaScript SDK, we call 
