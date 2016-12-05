@@ -54,12 +54,12 @@
 	<?php
 		$url = 'https://whatsdown-d627f.appspot.com/api/';
 		$ch = curl_init($url);
-		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET ");
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		$response_json = curl_exec($ch);
 		curl_close($ch);
 		$response=json_decode($response_json, true);
-		echo $response;
+		print_r(array_values($response));
 
 	?>
           <h4>Subheading</h4>
