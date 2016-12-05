@@ -81,7 +81,7 @@
 
 	<?php
 		echo "start";
-		$url = 'https://whatsdown-d627f.appspot.com/api/restaurants=1';
+		$url = 'https://whatsdown-d627f.appspot.com/api/restaurants';
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
