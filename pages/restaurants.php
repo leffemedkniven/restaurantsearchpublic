@@ -51,17 +51,6 @@
 
       <div class="row marketing">
         <div class="col-lg-6">
-	<?php
-		$url = 'https://whatsdown-d627f.appspot.com/api/';
-		$ch = curl_init($url);
-		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET ");
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		$response_json = curl_exec($ch);
-		curl_close($ch);
-		$response=json_decode($response_json, true);
-		print_r(array_values($response));
-
-	?>
           <h4>Subheading</h4>
           <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
 
@@ -90,7 +79,17 @@
 
     </div> <!-- /container -->
 
+	<?php
+		$url = 'https://whatsdown-d627f.appspot.com/api/restaurants';
+		$ch = curl_init($url);
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		$response_json = curl_exec($ch);
+		curl_close($ch);
+		$response=json_decode($response_json, true);
+		print_r(array_values($response));
 
+	?>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
