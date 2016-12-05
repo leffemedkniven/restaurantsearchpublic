@@ -18,6 +18,9 @@ handlers:
 - url: (.+).php
   script: \1.php
 
+- url: /static
+  static_dir: static
+
 - url: /direct/handle_upload
   script: handle_upload.php
 
