@@ -80,6 +80,7 @@
     </div> <!-- /container -->
 
 	<?php
+		echo "start";
 		$url = 'https://whatsdown-d627f.appspot.com/api/restaurants=1';
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
@@ -88,6 +89,7 @@
 		curl_close($ch);
 		$response=json_decode($response_json, true);
 		print_r(array_values($response));
+		echo "end";
 
 	?>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

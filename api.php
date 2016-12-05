@@ -13,7 +13,7 @@
 
 	switch($request_method)
 	{
-		case 'GET':
+		case 'GET':	
 			// Retrive restaurants
 			if(!empty($_GET["restaurant_ID"])){
 				$restaurant_ID=intval($_GET["restaurant_ID"]);
