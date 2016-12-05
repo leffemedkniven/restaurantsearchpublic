@@ -77,8 +77,8 @@
       // Logged into your app and Facebook.
       testAPI();
       var accessToken = response.authResponse.accessToken;
-      //window.location = "https://whatsdown-d627f.appspot.com/pages/";
-      self.redirect("https://whatsdown-d627f.appspot.com/pages/");
+      window.location = "https://whatsdown-d627f.appspot.com/pages/";
+      
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
