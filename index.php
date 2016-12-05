@@ -13,13 +13,13 @@
     <title>Signin Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="bootstrap-3.3.7/docs/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/bootstrap-3.3.7/docs/examples/signin/signin.css" rel="stylesheet">
+    <link href="bootstrap-3.3.7/docs/examples/signin/signin.css" rel="stylesheet">
     /bootstrap-3.3.7/docs/examples/signin
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
@@ -33,10 +33,8 @@
     <![endif]-->
 </head>
 <body>
-MEMES
-
     <div class="container">
-
+      <!--
       <form class="form-signin">
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
@@ -49,7 +47,8 @@ MEMES
           </label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      </form>
+      </form>-->
+      <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
 
     </div> <!-- /container -->
 
