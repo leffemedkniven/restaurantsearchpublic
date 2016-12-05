@@ -109,9 +109,9 @@
     version    : 'v2.8' // use graph api version 2.8
   });
 
-  FB.Event.subscribe('auth.login', function () {
-  	window.location = "https://whatsdown-d627f.appspot.com/pages/";
-  });
+  //FB.Event.subscribe('auth.login', function () {
+  //	window.location = "https://whatsdown-d627f.appspot.com/pages/";
+  //});
 
   // Now that we've initialized the JavaScript SDK, we call 
   // FB.getLoginStatus().  This function gets the state of the
