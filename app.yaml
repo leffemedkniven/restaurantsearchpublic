@@ -12,8 +12,8 @@ handlers:
 - url: /memes
   script: memes.php
 
-- url: /pages/index
-  script: index.php	
+- url: /pages/.*
+  script: index.php
 
 - url: /direct/handle_upload
   script: handle_upload.php
