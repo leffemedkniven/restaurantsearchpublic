@@ -81,7 +81,8 @@
 
 	<?php
 		echo "start";
-		$url = 'https://whatsdown-d627f.appspot.com/api/restaurants';
+		//$url = 'https://whatsdown-d627f.appspot.com/api/restaurants';
+		$url = 'maps.googleapis.com/maps/api/geocode/json?address=chicago&sensor=flase';
 		$ch = curl_init($url);
 		echo "1";
 		curl_setopt($ch, CURLOPT_HTTPGET, true);
