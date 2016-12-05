@@ -13,7 +13,10 @@ handlers:
   script: memes.php
 
 - url: /pages/.*
-  script: index.php
+  script: /pages/restaurants.php
+
+- url: (.+).php
+  script: \1.php
 
 - url: /direct/handle_upload
   script: handle_upload.php
