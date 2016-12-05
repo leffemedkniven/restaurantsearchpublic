@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>COWS</title>
+    <title>COWS</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +10,6 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Signin Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -34,8 +33,8 @@
 <body>
     <div class="container">
       <form class="form-signin">
-      <!--
         <h2 class="form-signin-heading">Please sign in</h2>
+        <!--
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
@@ -48,11 +47,10 @@
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         -->
-        <button class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></button>
-      </form>
-      <!--
+
       <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
-      -->
+      </form>
+
     </div> <!-- /container -->
 
 
@@ -79,7 +77,7 @@
       // Logged into your app and Facebook.
       testAPI();
       var accessToken = response.authResponse.accessToken;
-      //window.location = "https://whatsdown-d627f.appspot.com/memes.php";
+      window.location = "https://whatsdown-d627f.appspot.com/pages/";
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
