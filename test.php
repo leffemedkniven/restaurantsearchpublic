@@ -10,9 +10,9 @@ $connection = new PDO($dsn, $user, $password);
 
 $bucket = CloudStorageTools::getDefaultGoogleStorageBucketName();
 $root_path = 'gs://' . $bucket . '/' . $_SERVER["REQUEST_ID_HASH"] . '/';
-
+var_dump($_POST);
 $userfile=$_POST['userfile'];
-$filename=$_POST['name'];
+$fname=$_POST['name'];
 $type=$_POST['type'];
 
 $public_urls = [];
@@ -44,7 +44,7 @@ $public_urls = [];
       echo "Not a jpeg/png\n";
       $response=array('status' => 1, 'info' =>'Image not a jpg/png.');
   }
-
+    $response=array('status' => 1, 'info' =>'FOREACH ÄR SOFT');
    header('Content-Type: application/json');
    echo json_encode($response);
 
