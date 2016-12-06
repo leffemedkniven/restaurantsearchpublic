@@ -70,14 +70,13 @@
 	    	}
 	?>
 
-	
 		<script>
 		function myFunction(id) {
 			$_SESSION['rest_name'] = $row['name'];
 			$_SESSION['rest_desc'] = $row['description'];
 			$_SESSION['rest_loc'] = $row['location'];
 			$_SESSION['rest_pic'] = $row['picture'];
-			window.location = "https://whatsdown-d627f.appspot.com/pages/restaurant.php";
+			window.location = "https://whatsdown-d627f.appspot.com/restaurant/";
 		}
 		</script>
 

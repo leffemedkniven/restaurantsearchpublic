@@ -15,7 +15,10 @@ handlers:
 - url: /memes
   script: memes.php
 
-- url: /pages/.*
+- url: /browse/.*
+  script: pages/restaurants.php
+
+- url: /restaurant/.*
   script: pages/restaurants.php
 
 - url: /static
