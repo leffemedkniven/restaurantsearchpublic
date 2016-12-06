@@ -80,7 +80,7 @@
     </div> <!-- /container -->
 
 	<?php
-		$url = 'https://whatsdown-d627f.appspot.com/api/restaurants';
+		$url = 'https://whatsdown-d627f.appspot.com/api/restaurants?=1';
 		//$url = 'maps.googleapis.com/maps/api/geocode/json?address=chicago&sensor=flase';
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_HTTPGET, true);
@@ -100,6 +100,7 @@
 			echo("<p>".$row['picture']."</p>");
 			echo("</div>");
 	    	}
+		echo "End";
 
 	?>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
