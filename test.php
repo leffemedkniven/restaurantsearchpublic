@@ -7,15 +7,13 @@ $user = 'root';
 $password = 'd0bb3';
 
 $connection = new PDO($dsn, $user, $password);
-var_dump($_POST);
-$json_string = json_encode($_POST);
+
 $bucket = CloudStorageTools::getDefaultGoogleStorageBucketName();
 $root_path = 'gs://' . $bucket . '/' . $_SERVER["REQUEST_ID_HASH"] . '/';
 
-parse_str(file_get_contents("php://input"),$post_variables);
-$userfile=$_post_variables['userfile'];
-$name=$_post_variables['name'];
-$type=$_post_variables['type'];
+$userfile=$_POST[$_FILES['userfile']];
+$name=$_POST[$_FILES['name']];
+$type=$_POST[$FILES_['type']];
 
 $public_urls = [];
  foreach($_FILES[$userfile][$name] as $idx => $name) {
@@ -53,5 +51,4 @@ $public_urls = [];
 }
 $response2=array('status' => 1, 'info' =>'ALLT ÄR FEL.');
 header('Content-Type: application/json');
-
 echo json_encode($response2);
