@@ -1,11 +1,11 @@
 <?php
 
-// Connect to database
-// $dsn = 'mysql:unix_socket=/cloudsql/whatsdown-d627f:us-central1:whatsdown;dbname=whatsdown';
-// $user = 'root';
-// $password = 'd0bb3';
-//
-// $connection = new PDO($dsn, $user, $password);
+Connect to database
+$dsn = 'mysql:unix_socket=/cloudsql/whatsdown-d627f:us-central1:whatsdown;dbname=whatsdown';
+$user = 'root';
+$password = 'd0bb3';
+
+$connection = new PDO($dsn, $user, $password);
 //
 // $bucket = CloudStorageTools::getDefaultGoogleStorageBucketName();
 // $root_path = 'gs://' . $bucket . '/' . $_SERVER["REQUEST_ID_HASH"] . '/';
