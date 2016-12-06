@@ -7,7 +7,7 @@ $root_path = 'gs://' . $bucket . '/' . $_SERVER["REQUEST_ID_HASH"] . '/';
 
 $public_urls = [];
 foreach($_FILES['userfile']['name'] as $idx => $name) {
-  if ($_FILES['userfile']['type'][$idx] === 'image/jpeg') {
+  if$_FILES['userfile']['type'][$idx] === 'image/jpg') {
     $im = imagecreatefromjpeg($_FILES['userfile']['tmp_name'][$idx]);
     imagefilter($im, IMG_FILTER_GRAYSCALE);
     $grayscale = $root_path .  'gray/' . $name;
