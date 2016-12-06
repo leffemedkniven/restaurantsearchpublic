@@ -50,49 +50,30 @@
       </div>
 
       <div class="row marketing">
-        <div class="col-lg-6">
 	<?php
 		$url = 'https://whatsdown-d627f.appspot.com/api/?restaurants=1';
-		//$url = 'maps.googleapis.com/maps/api/geocode/json?address=chicago&sensor=flase';
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_HTTPGET, true);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		$response_json = curl_exec($ch);
 		curl_close($ch);
 		$response=json_decode($response_json, true);
+		
+		foreach($response as $row){
+			echo("<div class="col-lg-6">");
+			echo("<p>".$row['picture']."</p>");
+			echo("</div>");
+		}
 
 		foreach($response as $row){
+			echo("<div class="col-lg-6">");	
+			echo("<p>".$row['restaurant_ID']."</p>");		
 			echo("<h4>".$row['name']."</h4>");
 			echo("<p>".$row['description']."</p>");
 			echo("<p>".$row['location']."</p>");
-			echo("<p>".$row['restaurant_ID']."</p>");
-			echo("<p>".$row['picture']."</p>");
+			echo("</div>");
 	    	}
-		echo "End";
-
 	?>
-
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
-
-        <div class="col-lg-6">
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
-      </div>
 
       <footer class="footer">
         <p>&copy; 2016 Company, Inc.</p>
