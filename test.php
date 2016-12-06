@@ -22,11 +22,11 @@ foreach($_FILES[$userfile][$name] as $idx => $name) {
     echo '<pre>';
     if(move_uploaded_file($_FILES['userfile']['tmp_name'][$idx], $original)){
       echo "File is valid, and was successfully uploaded.\n";
-      $response=array('status' => 1, 'info' =>'Image uploaded.');
+    //  $response=array('status' => 1, 'info' =>'Image uploaded.');
     }
     else {
     echo "Possible file upload attack!\n";
-    $response=array('status' => 1, 'info' =>'Image not uploaded.');
+  //  $response=array('status' => 1, 'info' =>'Image not uploaded.');
     }
 
     echo 'Here is some more debugging info:';
@@ -37,7 +37,7 @@ foreach($_FILES[$userfile][$name] as $idx => $name) {
     echo "Not a jpeg/png\n";
   }
 
-  header('Content-Type: application/json');
-  echo json_encode($response);
+//  header('Content-Type: application/json');
+  //echo json_encode($response);
 
 }
