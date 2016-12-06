@@ -7,7 +7,7 @@ $root_path = 'gs://' . $bucket . '/' . $_SERVER["REQUEST_ID_HASH"] . '/';
 
 $public_urls = [];
 foreach($_FILES['userfile']['name'] as $idx => $name) {
-  if ($_FILES['userfile']['type'][$idx] === 'image/jpg') {
+  //if ($_FILES['userfile']['type'][$idx] === 'image/jpg') {
     $im = imagecreatefromjpeg($_FILES['userfile']['tmp_name'][$idx]);
     imagefilter($im, IMG_FILTER_GRAYSCALE);
     $grayscale = $root_path .  'gray/' . $name;
@@ -17,10 +17,10 @@ foreach($_FILES['userfile']['name'] as $idx => $name) {
     echo '<pre>';
     if(move_uploaded_file($_FILES['userfile']['tmp_name'][$idx], $original)){
       echo "File is valid, and was successfully uploaded.\n";
-    }
-    else {
-    echo "Possible file upload attack!\n";
-    }
+    // }
+    // else {
+    // echo "Possible file upload attack!\n";
+    // }
 
     echo 'Here is some more debugging info:';
     print_r($_FILES);
