@@ -2,7 +2,27 @@
 <html lang="en">
 
 <head>
+<?php 	session_start(); 
+	$rest_ID = $_GET['id'];
+	$url = 'https://whatsdown-d627f.appspot.com/api/?restaurant_ID='.$rest_ID; //detta är fucked?
+	$ch = curl_init($url);
+	curl_setopt($ch, CURLOPT_HTTPGET, true);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	$response_json = curl_exec($ch);
+	curl_close($ch);
+	$response=json_decode($response_json, true);
 
+	foreach($response as $row){
+		echo("<h4>".$row['name']."</h4>");
+		echo("<p>".$row['description']."</p>");
+		echo("<p>".$row['location']."</p>");
+		echo("<p>".$row['picture']."</p>");
+		$rest_name = $row['name'];
+		$rest_desc = $row['description'];
+		$rest_loc = $row['location'];
+	}
+
+?>	
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +30,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><?php echo $rest_name;?></title>
+    <title>Restaurant</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../static/onerestaurant/css/bootstrap.min.css" rel="stylesheet">
