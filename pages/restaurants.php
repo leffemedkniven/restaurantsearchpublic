@@ -65,6 +65,7 @@
 			echo("<p>".$row['description']."</p>");
 			echo("<p>".$row['location']."</p>");
 			echo("<p>".$row['picture']."</p>");
+			echo("<p><a class=\"btn btn-default\" href=\"https://whatsdown-d627f.appspot.com/pages/restaurant.php".$row['restaurant_ID']."\" role=\"button\">View details</a></p>");
 			echo("</div>");
 			$_SESSION['rest_name'] = $row['name'];
 			$_SESSION['rest_desc'] = $row['description'];
