@@ -57,6 +57,7 @@
 		$response_json = curl_exec($ch);
 		curl_close($ch);
 		$response=json_decode($response_json, true);
+		session_start();
 
 		foreach($response as $row){
 			echo("<div class=\"col-lg-6\">");			
