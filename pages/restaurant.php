@@ -3,7 +3,7 @@
 
 <head>
 <?php session_start(); 
-$rest_name = $_SESSION['rest_name'];
+$rest_name = $_GET['rest_name'];
 ?>	
 
     <meta charset="utf-8">

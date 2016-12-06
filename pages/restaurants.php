@@ -72,7 +72,7 @@
 
 		<script>
 		function myFunction(id) {
-			window.location = "https://whatsdown-d627f.appspot.com/restaurant/";
+			window.location = "https://whatsdown-d627f.appspot.com/restaurant/?rest_name=<?php echo $rest_name ?>";
 		}
 		</script>
 
