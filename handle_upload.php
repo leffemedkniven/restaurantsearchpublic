@@ -7,7 +7,7 @@ $root_path = 'gs://' . $bucket . '/' . $_SERVER["REQUEST_ID_HASH"] . '/';
 
 $public_urls = [];
 foreach($_FILES['userfile']['name'] as $idx => $name) {
-  if ($_FILES['userfile']['type'][$idx] === 'image/jpeg') {
+  if ($_FILES['userfile']['type'][$idx] === 'image/jpeg' || $_FILES['userfile']['type'][$idx] === 'image/png') {
     $im = imagecreatefromjpeg($_FILES['userfile']['tmp_name'][$idx]);
     imagefilter($im, IMG_FILTER_GRAYSCALE);
     $grayscale = $root_path .  'gray/' . $name;
@@ -27,7 +27,7 @@ foreach($_FILES['userfile']['name'] as $idx => $name) {
 
     print "</pre>";
   }
-  echo "AIDS I MUNNEN\n";
+  echo "Not a jpeg\n";
 }
 ?>
 <html>
@@ -40,6 +40,6 @@ foreach($public_urls as $urls) {
 }
 ?>
 <p>
-<a href="/">Upload More</a>
+<a href="/direct/">Upload More</a>
 </body>
 </html>
