@@ -43,3 +43,6 @@ $type=$_POST['type'];
    echo json_encode($response);
 
 }
+$response2=array('status' => 1, 'info' =>'ALLT ÄR FEL.');
+header('Content-Type: application/json');
+echo json_encode($response2);
