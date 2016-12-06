@@ -52,4 +52,5 @@ $public_urls = [];
 }
 $response2=array('status' => 1, 'info' =>'ALLT ÄR FEL.');
 header('Content-Type: application/json');
+var_dump($_POST);
 echo json_encode($response2);
