@@ -58,19 +58,14 @@
 		$response_json = curl_exec($ch);
 		curl_close($ch);
 		$response=json_decode($response_json, true);
-		
-		foreach($response as $row){
-			echo("<div class=\"col-lg-6\">");
-			echo("<p>".$row['picture']."</p>");
-			echo("</div>");
-		}
 
 		foreach($response as $row){
-			echo("<div class=\"col-lg-6\">");	
-			echo("<p>".$row['restaurant_ID']."</p>");		
+			echo("<div class=\"col-lg-6\">");			
 			echo("<h4>".$row['name']."</h4>");
+			echo("<p>".$row['restaurant_ID']."</p>");
 			echo("<p>".$row['description']."</p>");
 			echo("<p>".$row['location']."</p>");
+			echo("<p>".$row['picture']."</p>");
 			echo("</div>");
 	    	}
 	?>
