@@ -108,11 +108,11 @@
 	function get_reviews($restaurant_ID=0)
 	{
 		global $connection;
-		$query=$connection->prepare("SELECT * FROM reviews");
+		$query=$connection->prepare("SELECT review, rating FROM reviews");
 
 		if($review_ID != 0)
 		{
-			$query=$connection->prepare("SELECT * FROM reviews WHERE review_ID=:id");
+			$query=$connection->prepare("SELECT review, rating FROM reviews WHERE review_ID=:id");
 			$query->bindParam(':id',$review_ID);
 		}
 		$response=array();
@@ -129,11 +129,11 @@
 	function get_users($user_ID=0)
 	{
 	  global $connection;
-	  $query=$connection->prepare("SELECT * FROM users");
+	  $query=$connection->prepare("SELECT displayname FROM users");
 
 	  if($user_ID != 0)
 	  {
-	    $query=$connection->prepare("SELECT * FROM users WHERE user_ID=:id");
+	    $query=$connection->prepare("SELECT displayname FROM users WHERE user_ID=:id");
 	    $query->bindParam(':id',$user_ID);
 	  }
 	  $response=array();
