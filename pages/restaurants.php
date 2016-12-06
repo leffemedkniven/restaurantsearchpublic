@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Narrow Jumbotron Template for Bootstrap</title>
+    <title>Restaurants</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../static/bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -38,11 +38,10 @@
         <nav>
           <ul class="nav nav-pills pull-right">
             <li role="presentation" class="active"><a href="#">Home</a></li>
-            <li role="presentation"><a href="#">About</a></li>
-            <li role="presentation"><a href="#">Contact</a></li>
+      	<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
           </ul>
         </nav>
-        <h3 class="text-muted">Project name</h3>
+        <h3 class="text-muted">Restaurants</h3>
       </div>
 
       <div class="jumbotron">
@@ -62,7 +61,6 @@
 		foreach($response as $row){
 			echo("<div class=\"col-lg-6\">");			
 			echo("<h4>".$row['name']."</h4>");
-			echo("<p>".$row['restaurant_ID']."</p>");
 			echo("<p>".$row['description']."</p>");
 			echo("<p>".$row['location']."</p>");
 			echo("<p>".$row['picture']."</p>");
