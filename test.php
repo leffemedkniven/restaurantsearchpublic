@@ -7,13 +7,12 @@ $user = 'root';
 $password = 'd0bb3';
 
 $connection = new PDO($dsn, $user, $password);
-var_dump($_POST):
-echo json_encode($r_POST);
+
 $bucket = CloudStorageTools::getDefaultGoogleStorageBucketName();
 $root_path = 'gs://' . $bucket . '/' . $_SERVER["REQUEST_ID_HASH"] . '/';
 
 $userfile=$_POST['userfile'];
-$filename=$_POST['name'];
+$fname=$_POST['name'];
 $type=$_POST['type'];
 
 $public_urls = [];
