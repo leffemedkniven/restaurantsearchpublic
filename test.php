@@ -1,4 +1,5 @@
 <?php
+use google\appengine\api\cloud_storage\CloudStorageTools;
 
 //Connect to database
 $dsn = 'mysql:unix_socket=/cloudsql/whatsdown-d627f:us-central1:whatsdown;dbname=whatsdown';
