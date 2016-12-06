@@ -15,7 +15,7 @@ $userfile=$_POST['userfile'];
 $name=$_POST['name'];
 $type=$_POST['type'];
 
-
+$public_urls = [];
  foreach($_FILES[$userfile][$name] as $idx => $name) {
    if ($_FILES[$userfile][$type][$idx] === 'image/jpeg' || $_FILES[$userfile][$type][$idx] === 'image/png') {
   //
