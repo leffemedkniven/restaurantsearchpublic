@@ -304,10 +304,34 @@
 
 	function upload_image()
 	{
-		$options = ['gs_bucket_name' => $default_bucket];
-		$upload_url = CloudStorageTools::createUploadUrl('/upload/handler', $options);
+		$bucket = CloudStorageTools::getDefaultGoogleStorageBucketName();
+		$root_path = 'gs://' . $bucket . '/' . $_SERVER["REQUEST_ID_HASH"] . '/';
 
-		$default_bucket = CloudStorageTools::getDefaultGoogleStorageBucketName();
-		file_put_contents("gs://${default_bucket}/hello.txt", $newFileContent);
+		$userfile=$_POST['userfile'];
+		$name=$_POST['name'];
+		$type=$_POST['type'];
+
+		$public_urls = [];
+		foreach($_FILES[$userfile][$name] as $idx => $name) {
+		  if ($_FILES[$userfile][$type][$idx] === 'image/jpeg' || $_FILES[$userfile][$type][$idx] === 'image/png') {
+
+		    $original = $root_path . $name;
+		    echo '<pre>';
+		    if(move_uploaded_file($_FILES['userfile']['tmp_name'][$idx], $original)){
+		      echo "File is valid, and was successfully uploaded.\n";
+		    }
+		    else {
+		    echo "Possible file upload attack!\n";
+		    }
+
+		    echo 'Here is some more debugging info:';
+		    print_r($_FILES);
+
+		    print "</pre>";
+		  } else {
+		    echo "Not a jpeg/png\n";
+		  }
+
+		}
 
 	}

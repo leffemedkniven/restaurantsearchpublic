@@ -35,12 +35,12 @@ foreach($_FILES['userfile']['name'] as $idx => $name) {
 <html>
 <body>
 <?php
-foreach($public_urls as $urls) {
-  echo '<a href="' . $urls['original'] .'"><IMG src="' . $urls['original_thumb'] .'"></a> ';
-  echo '<a href="' . $urls['grayscale'] .'"><IMG src="' . $urls['grayscale_thumb'] .'"></a>';
-  echo '<p>';
-}
-?>
+// foreach($public_urls as $urls) {
+//   echo '<a href="' . $urls['original'] .'"><IMG src="' . $urls['original_thumb'] .'"></a> ';
+//   echo '<a href="' . $urls['grayscale'] .'"><IMG src="' . $urls['grayscale_thumb'] .'"></a>';
+//   echo '<p>';
+// }
+// ?>
 <p>
 <a href="/direct/">Upload More</a>
 </body>
