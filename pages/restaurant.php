@@ -3,7 +3,22 @@
 
 <head>
 <?php session_start(); 
-$rest_name = $_GET['rest_name'];
+	$rest_name = $_GET['rest_name'];
+	$url = 'https://whatsdown-d627f.appspot.com/api/?restaurants='.$rest_name.;
+	$ch = curl_init($url);
+	curl_setopt($ch, CURLOPT_HTTPGET, true);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	$response_json = curl_exec($ch);
+	curl_close($ch);
+	$response=json_decode($response_json, true);
+
+	foreach($response as $row){
+		echo("<h4>".$row['name']."</h4>");
+		echo("<p>".$row['description']."</p>");
+		echo("<p>".$row['location']."</p>");
+		echo("<p>".$row['picture']."</p>");
+	}
+
 ?>	
 
     <meta charset="utf-8">
