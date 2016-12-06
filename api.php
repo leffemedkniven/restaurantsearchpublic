@@ -13,7 +13,7 @@
 
 	switch($request_method)
 	{
-		case 'GET':	
+		case 'GET':
 			// Retrive restaurants
 			if(!empty($_GET["restaurant_ID"])){
 				$restaurant_ID=intval($_GET["restaurant_ID"]);
@@ -87,11 +87,11 @@
 	function get_restaurants($restaurant_ID=0)
 	{
 		global $connection;
-		$query=$connection->prepare("SELECT * FROM restaurants");
+		$query=$connection->prepare("SELECT name, picture, description, location FROM restaurants");
 
 		if($restaurant_ID != 0)
 		{
-			$query=$connection->prepare("SELECT * FROM restaurants WHERE restaurant_ID= :id");
+			$query=$connection->prepare("SELECT name, picture, description, location FROM restaurants WHERE restaurant_ID= :id");
 			$query->bindParam(':id',$restaurant_ID);
 		}
 		$response=array();
