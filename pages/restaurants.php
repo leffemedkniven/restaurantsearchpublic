@@ -68,16 +68,17 @@
         		echo("<p><a class=\"btn btn-default\" id=".$row[name]." onclick=\"myFunction(this.id)\" role=\"button\">View details </a></p>");
 			echo("</div>");
 	    	}
-		$_SESSION['rest_name'] = $row['name'];
-		$_SESSION['rest_desc'] = $row['description'];
-		$_SESSION['rest_loc'] = $row['location'];
-		$_SESSION['rest_pic'] = $row['picture'];
 	?>
 
 	
 		<script>
 		function myFunction(id) {
-		    alert(id);
+		    	alert(id);
+			$_SESSION['rest_name'] = $row['name'];
+			$_SESSION['rest_desc'] = $row['description'];
+			$_SESSION['rest_loc'] = $row['location'];
+			$_SESSION['rest_pic'] = $row['picture'];
+			window.location = "https://whatsdown-d627f.appspot.com/pages/restaurant.php";
 		}
 		</script>
 
