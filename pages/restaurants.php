@@ -60,7 +60,7 @@
 		$response=json_decode($response_json, true);
 
 		foreach($response as $row){
-			echo("<div class=\"col-lg-6\">");			
+			echo("<div class=\"col-lg-6\">");
 			echo("<h4>".$row['name']."</h4>");
 			echo("<p>".$row['description']."</p>");
 			echo("<p>".$row['location']."</p>");
