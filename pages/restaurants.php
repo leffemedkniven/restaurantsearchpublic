@@ -65,7 +65,7 @@
 			echo("<p>".$row['description']."</p>");
 			echo("<p>".$row['location']."</p>");
 			echo("<p>".$row['picture']."</p>");
-        		echo("<p><a class=\"btn btn-default\" id=\"more\" role=\"button\">View details </a></p>");
+        		echo("<p><a class=\"btn btn-default\" id=\"more\" onclick=\"myFunction()\" role=\"button\">View details </a></p>");
 			echo("</div>");
 	    	}
 		$_SESSION['rest_name'] = $row['name'];
