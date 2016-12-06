@@ -12,11 +12,9 @@
 	curl_close($ch);
 	$response=json_decode($response_json, true);
 
-	foreach($response as $row){
 		$rest_name = $row['name'];
 		$rest_desc = $row['description'];
 		$rest_loc = $row['location'];
-	}
 
 ?>	
 
