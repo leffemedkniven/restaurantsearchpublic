@@ -7,17 +7,32 @@ $password = 'd0bb3';
 
 $connection = new PDO($dsn, $user, $password);
 
-global $connection;
-$name="hej";
-$picture="nej";
-$description="okej";
-$location="tjej";
+$bucket = CloudStorageTools::getDefaultGoogleStorageBucketName();
+$root_path = 'gs://' . $bucket . '/' . $_SERVER["REQUEST_ID_HASH"] . '/';
 
+$userfile=$_POST['userfile'];
+$name=$_POST['name'];
+$type=$_POST['type'];
 
-  $query=$connection->prepare('INSERT INTO restaurants(name, picture, description, location) VALUES (':name', ':picture', ':description', ':location')');
-  $query->bindParam(':name',$name);
-  $query->bindParam(':picture',$picture);
-  $query->bindParam(':description',$description);
-  $query->bindParam(':location',$location);
+$public_urls = [];
+foreach($_FILES[$userfile][$name] as $idx => $name) {
+  if ($_FILES[$userfile][$type][$idx] === 'image/jpeg' || $_FILES[$userfile][$type][$idx] === 'image/png') {
 
-$query->execute();
+    $original = $root_path . $name;
+    echo '<pre>';
+    if(move_uploaded_file($_FILES['userfile']['tmp_name'][$idx], $original)){
+      echo "File is valid, and was successfully uploaded.\n";
+    }
+    else {
+    echo "Possible file upload attack!\n";
+    }
+
+    echo 'Here is some more debugging info:';
+    print_r($_FILES);
+
+    print "</pre>";
+  } else {
+    echo "Not a jpeg/png\n";
+  }
+
+}
