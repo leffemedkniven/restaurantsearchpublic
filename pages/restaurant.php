@@ -32,7 +32,7 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation" class="active"><a href="https://whatsdown-d627f.appspot.com/pages/">Back</a></li>
       	<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" 			data-auto-logout-link="true"></div>
           </ul>
         </nav>
@@ -50,8 +50,7 @@
                     <img class="img-responsive" src="http://placehold.it/800x300" alt="">
                     <div class="caption-full">
                         <h4 class="pull-right">$24.99</h4>
-                        <h4><a href="#">Product Name</a>
-                        </h4>
+                        <h4><?php echo $_SESSION['rest_name'];?></h4>
                         <p>See more snippets like these online store reviews at <a target="_blank" href="http://bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
                         <p>Want to make these reviews work? Check out
                             <strong><a href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this building a review system tutorial</a>
@@ -134,7 +133,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; My website 2016</p>
+                    <p>© 2016 Company, Inc.</p>
                 </div>
             </div>
         </footer>

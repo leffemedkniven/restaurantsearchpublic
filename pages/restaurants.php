@@ -65,6 +65,10 @@
 			echo("<p>".$row['location']."</p>");
 			echo("<p>".$row['picture']."</p>");
 			echo("</div>");
+			$_SESSION['rest_name'] = $row['name'];
+			$_SESSION['rest_desc'] = $row['description'];
+			$_SESSION['rest_loc'] = $row['location'];
+			$_SESSION['rest_pic'] = $row['picture'];
 	    	}
 	?>
 
