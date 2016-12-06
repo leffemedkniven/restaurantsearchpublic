@@ -65,7 +65,7 @@
 			echo("<p>".$row['description']."</p>");
 			echo("<p>".$row['location']."</p>");
 			echo("<p>".$row['picture']."</p>");
-        		echo("<p><a class=\"btn btn-default\" role=\"button\">View details </a></p>");
+        		echo("<p><a class=\"btn btn-default\" value=\".$row['name'].\" onclick=\"doFunction();\" role=\"button\">View details </a></p>");
 			echo("</div>");
 	    	}
 		$_SESSION['rest_name'] = $row['name'];
@@ -73,6 +73,11 @@
 		$_SESSION['rest_loc'] = $row['location'];
 		$_SESSION['rest_pic'] = $row['picture'];
 	?>
+	<script>
+		document.getElementById("Leffes Bodega").onclick = function () { 
+			alert('hello!'); 
+		};
+	</script>
 
       <footer class="footer">
         <p>&copy; 2016 Company, Inc.</p>
