@@ -16,7 +16,7 @@ $name=$_POST['name'];
 $type=$_POST['type'];
 
 
-// foreach($_FILES[$userfile][$name] as $idx => $name) {
+ foreach($_FILES[$userfile][$name] as $idx => $name) {
   // if ($_FILES[$userfile][$type][$idx] === 'image/jpeg' || $_FILES[$userfile][$type][$idx] === 'image/png') {
   //
   //   $original = $root_path . $name;
@@ -41,4 +41,4 @@ $type=$_POST['type'];
   // header('Content-Type: application/json');
   // echo json_encode($response);
 
-//}
+}
