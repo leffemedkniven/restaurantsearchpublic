@@ -17,7 +17,7 @@ $type=$_POST['type'];
 
 
  foreach($_FILES[$userfile][$name] as $idx => $name) {
-  // if ($_FILES[$userfile][$type][$idx] === 'image/jpeg' || $_FILES[$userfile][$type][$idx] === 'image/png') {
+   if ($_FILES[$userfile][$type][$idx] === 'image/jpeg' || $_FILES[$userfile][$type][$idx] === 'image/png') {
   //
   //   $original = $root_path . $name;
   //   echo '<pre>';
@@ -34,11 +34,12 @@ $type=$_POST['type'];
   //   print_r($_FILES);
   //
   //   print "</pre>";
-  // } else {
-  //   echo "Not a jpeg/png\n";
-  // }
+  } else {
+      echo "Not a jpeg/png\n";
+      $response=array('status' => 1, 'info' =>'Image not a jpg/png.');
+  }
 
-  // header('Content-Type: application/json');
-  // echo json_encode($response);
+   header('Content-Type: application/json');
+   echo json_encode($response);
 
 }
