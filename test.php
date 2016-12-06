@@ -10,7 +10,7 @@ $connection = new PDO($dsn, $user, $password);
 
 $bucket = CloudStorageTools::getDefaultGoogleStorageBucketName();
 $root_path = 'gs://' . $bucket . '/' . $_SERVER["REQUEST_ID_HASH"] . '/';
-
+var_dump($_POST);
 $userfile=$_POST['userfile'];
 $fname=$_POST['name'];
 $type=$_POST['type'];
