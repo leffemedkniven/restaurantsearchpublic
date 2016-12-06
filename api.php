@@ -90,7 +90,7 @@
 	function get_restaurants($restaurant_ID=0)
 	{
 		global $connection;
-		$query=$connection->prepare("SELECT name, picture, description, location FROM restaurants");
+		$query=$connection->prepare("SELECT restaurant_ID, name, picture, description, location FROM restaurants");
 
 		if($restaurant_ID != 0)
 		{

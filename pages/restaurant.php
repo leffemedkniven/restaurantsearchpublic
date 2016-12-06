@@ -3,8 +3,8 @@
 
 <head>
 <?php session_start(); 
-	$rest_name = $_GET['rest_name'];
-	$url = 'https://whatsdown-d627f.appspot.com/api/?restaurants='.$rest_name.;
+	$rest_ID = $_GET['id'];
+	$url = 'https://whatsdown-d627f.appspot.com/api/?restaurant_ID='.$rest_ID.;
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_HTTPGET, true);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
