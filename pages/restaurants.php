@@ -65,14 +65,21 @@
 			echo("<p>".$row['description']."</p>");
 			echo("<p>".$row['location']."</p>");
 			echo("<p>".$row['picture']."</p>");
-			echo("<p><a class=\"btn btn-default\" value=\".$row['restaurant_ID']."\" href=\"https://whatsdown-d627f.appspot.com/pages/restaurant.php".$row['restaurant_ID']."\" role=\"button\">View details</a></p>");
+        		echo("<p><a class=\"btn btn-default\" id=".$row[name]." onclick=\"myFunction(this.id)\" role=\"button\">View details </a></p>");
 			echo("</div>");
+	    	}
+	?>
+
+		<script>
+		function myFunction(id) {
 			$_SESSION['rest_name'] = $row['name'];
 			$_SESSION['rest_desc'] = $row['description'];
 			$_SESSION['rest_loc'] = $row['location'];
 			$_SESSION['rest_pic'] = $row['picture'];
-	    	}
-	?>
+			window.location = "https://whatsdown-d627f.appspot.com/restaurant/";
+		}
+		</script>
+
 
       <footer class="footer">
         <p>&copy; 2016 Company, Inc.</p>
