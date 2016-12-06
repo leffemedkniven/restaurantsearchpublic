@@ -13,7 +13,7 @@ foreach($_FILES['userfile']['name'] as $idx => $name) {
     // $grayscale = $root_path .  'gray/' . $name;
     // imagejpeg($im, $grayscale);
 
-    $original = $root_path . 'original/' . $name;
+    $original = $root_path . '/' . $name;
     echo '<pre>';
     if(move_uploaded_file($_FILES['userfile']['tmp_name'][$idx], $original)){
       echo "File is valid, and was successfully uploaded.\n";
@@ -27,9 +27,9 @@ foreach($_FILES['userfile']['name'] as $idx => $name) {
 
     print "</pre>";
   } else {
-    echo "Not a jpeg\n";
+    echo "Not a jpeg/png\n";
   }
-  
+
 }
 ?>
 <html>
