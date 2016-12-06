@@ -77,7 +77,7 @@
 	
 		<script>
 		function myFunction() {
-		    document.getElementById("more").style.color = "red";
+		    alert("hej");
 		}
 		</script>
 
