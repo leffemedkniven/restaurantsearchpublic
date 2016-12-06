@@ -80,20 +80,26 @@
     </div> <!-- /container -->
 
 	<?php
-		echo "start";
-		//$url = 'https://whatsdown-d627f.appspot.com/api/restaurants';
-		$url = 'maps.googleapis.com/maps/api/geocode/json?address=chicago&sensor=flase';
+		$url = 'https://whatsdown-d627f.appspot.com/api/restaurants';
+		//$url = 'maps.googleapis.com/maps/api/geocode/json?address=chicago&sensor=flase';
 		$ch = curl_init($url);
-		echo "1";
 		curl_setopt($ch, CURLOPT_HTTPGET, true);
-		echo "2";
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		echo "3";
 		$response_json = curl_exec($ch);
 		curl_close($ch);
 		$response=json_decode($response_json, true);
 		print_r(array_values($response));
-		echo "end";
+		
+
+		foreach($response as $row){
+			echo("<div class=\"col-md-4\">");
+			echo("<h2>".$row['name']."</h2>");
+			echo("<p>".$row['description']."</p>");
+			echo("<p>".$row['location']."</p>");
+			echo("<p>".$row['restaurant_ID']."</p>");
+			echo("<p>".$row['picture']."</p>");
+			echo("</div>");
+	    	}
 
 	?>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
