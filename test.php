@@ -44,7 +44,7 @@ $public_urls = [];
       echo "Not a jpeg/png\n";
       $response=array('status' => 1, 'info' =>'Image not a jpg/png.');
   }
-
+    $response=array('status' => 1, 'info' =>'FOREACH ÄR SOFT');
    header('Content-Type: application/json');
    echo json_encode($response);
 
