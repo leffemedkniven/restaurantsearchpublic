@@ -11,9 +11,9 @@ $connection = new PDO($dsn, $user, $password);
 $bucket = CloudStorageTools::getDefaultGoogleStorageBucketName();
 $root_path = 'gs://' . $bucket . '/' . $_SERVER["REQUEST_ID_HASH"] . '/';
 
-// $userfile=$_POST['userfile'];
-// $name=$_POST['name'];
-// $type=$_POST['type'];
+$userfile=$_POST['userfile'];
+$name=$_POST['name'];
+$type=$_POST['type'];
 
 
 // foreach($_FILES[$userfile][$name] as $idx => $name) {
