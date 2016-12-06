@@ -1,6 +1,6 @@
 <?php
 
-Connect to database
+//Connect to database
 $dsn = 'mysql:unix_socket=/cloudsql/whatsdown-d627f:us-central1:whatsdown;dbname=whatsdown';
 $user = 'root';
 $password = 'd0bb3';
