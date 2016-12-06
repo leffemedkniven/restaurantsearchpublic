@@ -8,10 +8,10 @@ $root_path = 'gs://' . $bucket . '/' . $_SERVER["REQUEST_ID_HASH"] . '/';
 $public_urls = [];
 foreach($_FILES['userfile']['name'] as $idx => $name) {
   if ($_FILES['userfile']['type'][$idx] === 'image/jpeg' || $_FILES['userfile']['type'][$idx] === 'image/png') {
-    $im = imagecreatefromjpeg($_FILES['userfile']['tmp_name'][$idx]);
-    imagefilter($im, IMG_FILTER_GRAYSCALE);
-    $grayscale = $root_path .  'gray/' . $name;
-    imagejpeg($im, $grayscale);
+    // $im = imagecreatefromjpeg($_FILES['userfile']['tmp_name'][$idx]);
+    // imagefilter($im, IMG_FILTER_GRAYSCALE);
+    // $grayscale = $root_path .  'gray/' . $name;
+    // imagejpeg($im, $grayscale);
 
     $original = $root_path . 'original/' . $name;
     echo '<pre>';
@@ -26,8 +26,10 @@ foreach($_FILES['userfile']['name'] as $idx => $name) {
     print_r($_FILES);
 
     print "</pre>";
+  } else {
+    echo "Not a jpeg\n";
   }
-  echo "Not a jpeg\n";
+  
 }
 ?>
 <html>
