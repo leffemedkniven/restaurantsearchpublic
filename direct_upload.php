@@ -15,7 +15,7 @@ if (strncmp("5.5", phpversion(), strlen("5.5")) != 0) {
 </html>
 
 <?php
-// if($_SERVER['REQUEST_METHOD'] === 'POST'){
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
 //
 // $tmpfile = $_FILES['image']['tmp_name'];
 // $filename = basename($_FILES['image']['name']);
@@ -32,5 +32,5 @@ if (strncmp("5.5", phpversion(), strlen("5.5")) != 0) {
 //   $response_json = curl_exec($ch);
 //   curl_close($ch);
 //   $response=json_decode($response_json, true);
-// }
+ }
 ?>
