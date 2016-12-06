@@ -6,9 +6,9 @@ $user = 'root';
 $password = 'd0bb3';
 
 $connection = new PDO($dsn, $user, $password);
-//
-// $bucket = CloudStorageTools::getDefaultGoogleStorageBucketName();
-// $root_path = 'gs://' . $bucket . '/' . $_SERVER["REQUEST_ID_HASH"] . '/';
+
+$bucket = CloudStorageTools::getDefaultGoogleStorageBucketName();
+$root_path = 'gs://' . $bucket . '/' . $_SERVER["REQUEST_ID_HASH"] . '/';
 
 // $userfile=$_POST['userfile'];
 // $name=$_POST['name'];
