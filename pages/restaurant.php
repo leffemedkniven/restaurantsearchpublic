@@ -13,10 +13,6 @@
 	$response=json_decode($response_json, true);
 
 	foreach($response as $row){
-		echo("<h4>".$row['name']."</h4>");
-		echo("<p>".$row['description']."</p>");
-		echo("<p>".$row['location']."</p>");
-		echo("<p>".$row['picture']."</p>");
 		$rest_name = $row['name'];
 		$rest_desc = $row['description'];
 		$rest_loc = $row['location'];
@@ -71,10 +67,10 @@
                     <img class="img-responsive" src="http://placehold.it/800x300" alt="">
                     <div class="caption-full">
                         <h4 class="pull-right">$24.99</h4>
-                        <h4><?php echo $rest_name; ?></h4>
-                        <p><?php echo $rest_desc; ?>
+                        <h4><?php echo $rest_name;?></h4>
+                        <p><?php echo $rest_desc;?>
 			</p>
-                        <p><?php echo $rest_loc; ?>
+                        <p><?php echo $rest_loc;?>
 			</p>
                     </div>
                     <div class="ratings">
