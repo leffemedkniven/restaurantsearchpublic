@@ -1,14 +1,14 @@
 <?php
 
 // Connect to database
-$dsn = 'mysql:unix_socket=/cloudsql/whatsdown-d627f:us-central1:whatsdown;dbname=whatsdown';
-$user = 'root';
-$password = 'd0bb3';
-
-$connection = new PDO($dsn, $user, $password);
-
-$bucket = CloudStorageTools::getDefaultGoogleStorageBucketName();
-$root_path = 'gs://' . $bucket . '/' . $_SERVER["REQUEST_ID_HASH"] . '/';
+// $dsn = 'mysql:unix_socket=/cloudsql/whatsdown-d627f:us-central1:whatsdown;dbname=whatsdown';
+// $user = 'root';
+// $password = 'd0bb3';
+//
+// $connection = new PDO($dsn, $user, $password);
+//
+// $bucket = CloudStorageTools::getDefaultGoogleStorageBucketName();
+// $root_path = 'gs://' . $bucket . '/' . $_SERVER["REQUEST_ID_HASH"] . '/';
 
 // $userfile=$_POST['userfile'];
 // $name=$_POST['name'];
@@ -37,7 +37,7 @@ $root_path = 'gs://' . $bucket . '/' . $_SERVER["REQUEST_ID_HASH"] . '/';
   //   echo "Not a jpeg/png\n";
   // }
 
-  header('Content-Type: application/json');
-  echo json_encode($response);
+  // header('Content-Type: application/json');
+  // echo json_encode($response);
 
 //}
