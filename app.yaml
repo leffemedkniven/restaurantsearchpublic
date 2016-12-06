@@ -19,7 +19,7 @@ handlers:
   script: pages/restaurants.php
 
 - url: /restaurant/.*
-  script: pages/restaurants.php
+  script: pages/restaurant.php
 
 - url: /static
   static_dir: static
