@@ -11,9 +11,10 @@ $connection = new PDO($dsn, $user, $password);
 $bucket = CloudStorageTools::getDefaultGoogleStorageBucketName();
 $root_path = 'gs://' . $bucket . '/' . $_SERVER["REQUEST_ID_HASH"] . '/';
 
-$userfile=$_POST['userfile'];
-$name=$_POST['name'];
-$type=$_POST['type'];
+parse_str(file_get_contents("php://input"),$post_variables);
+$userfile=$_post_variables['userfile'];
+$name=$_post_variables['name'];
+$type=$_post_variables['type'];
 
 $public_urls = [];
  foreach($_FILES[$userfile][$name] as $idx => $name) {
@@ -24,6 +25,12 @@ $public_urls = [];
   //   if(move_uploaded_file($_FILES['userfile']['tmp_name'][$idx], $original)){
   //     echo "File is valid, and was successfully uploaded.\n";
   //     $response=array('status' => 1, 'info' =>'Image uploaded.');
+          // $public_urls[] = [
+          //     'name' => $name,
+          //     'original' => CloudStorageTools::getImageServingUrl($original),
+          //      'original_thumb' => CloudStorageTools::getImageServingUrl($original, ['size' => 75]),
+          // ];
+          //
   //   }
   //   else {
   //   echo "Possible file upload attack!\n";
