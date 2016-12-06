@@ -52,6 +52,9 @@
 			else if(!empty($_GET["insertUser"])){
 				insert_user();
 			}
+			else if(!empty($_GET["uploadImage"])){
+				upload_image();
+			}
 			else {
 				header("HTTP/1.0 405 Method Not Allowed");
 				break;
