@@ -50,6 +50,7 @@
 
       <div class="row marketing">
 	<?php
+		session_start();
 		$url = 'https://whatsdown-d627f.appspot.com/api/?restaurants=1';
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_HTTPGET, true);
@@ -57,7 +58,6 @@
 		$response_json = curl_exec($ch);
 		curl_close($ch);
 		$response=json_decode($response_json, true);
-		session_start();
 
 		foreach($response as $row){
 			echo("<div class=\"col-lg-6\">");			

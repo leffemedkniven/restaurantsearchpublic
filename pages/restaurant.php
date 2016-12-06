@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Shop Item - Start Bootstrap Template</title>
+    <title><?php echo($_SESSION['rest_name']);?></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../static/onerestaurant/css/bootstrap.min.css" rel="stylesheet">
