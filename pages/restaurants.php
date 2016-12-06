@@ -50,6 +50,7 @@
 
       <div class="row marketing">
 	<?php
+		session_start();
 		$url = 'https://whatsdown-d627f.appspot.com/api/?restaurants=1';
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_HTTPGET, true);
@@ -57,7 +58,6 @@
 		$response_json = curl_exec($ch);
 		curl_close($ch);
 		$response=json_decode($response_json, true);
-		session_start();
 
 		foreach($response as $row){
 			echo("<div class=\"col-lg-6\">");			
@@ -65,6 +65,7 @@
 			echo("<p>".$row['description']."</p>");
 			echo("<p>".$row['location']."</p>");
 			echo("<p>".$row['picture']."</p>");
+			echo("<p><a class=\"btn btn-default\" href=\"https://whatsdown-d627f.appspot.com/pages/restaurant.php".$row['restaurant_ID']."\" role=\"button\">View details</a></p>");
 			echo("</div>");
 			$_SESSION['rest_name'] = $row['name'];
 			$_SESSION['rest_desc'] = $row['description'];

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<?php session_start(); ?>
+<?php session_start(); ?>	
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Shop Item - Start Bootstrap Template</title>
+    <title><?php echo($_SESSION['rest_name']);?></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../static/onerestaurant/css/bootstrap.min.css" rel="stylesheet">
@@ -51,7 +51,7 @@
                     <img class="img-responsive" src="http://placehold.it/800x300" alt="">
                     <div class="caption-full">
                         <h4 class="pull-right">$24.99</h4>
-                        <h4><?php echo $_SESSION['rest_name'];?></h4>
+                        <h4><?php echo($_SESSION['rest_name']);?></h4>
                         <p>See more snippets like these online store reviews at <a target="_blank" href="http://bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
                         <p>Want to make these reviews work? Check out
                             <strong><a href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this building a review system tutorial</a>
