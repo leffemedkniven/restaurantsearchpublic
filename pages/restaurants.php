@@ -73,7 +73,6 @@
 	
 		<script>
 		function myFunction(id) {
-		    	alert(id);
 			$_SESSION['rest_name'] = $row['name'];
 			$_SESSION['rest_desc'] = $row['description'];
 			$_SESSION['rest_loc'] = $row['location'];
