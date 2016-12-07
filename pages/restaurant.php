@@ -93,9 +93,10 @@
 		<script>
 			function reviewFunction() {
 				var rev = document.getElementById('message').value;
+				alert("Hej");
 				$.ajax({
 					type: 'POST',
-					url: 'review.php',
+					url: 'https://whatsdown-d627f.appspot.com/pages/review.php',
 					data: {'new_review': rev},
 				});
 			}
