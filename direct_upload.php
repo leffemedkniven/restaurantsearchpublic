@@ -42,7 +42,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
  $curl_handle = curl_init("https://whatsdown-d627f.appspot.com/api/?uploadImage=1");
  curl_setopt($curl_handle, CURLOPT_POST, 1);
  $args['file'] = new CurlFile($tmpfile, $filetype, $filename);
- // curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $args);
+ curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $args);
  // curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
  //
  // //execute the API Call
