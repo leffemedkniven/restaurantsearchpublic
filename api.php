@@ -310,6 +310,8 @@
 
 	function upload_image()
 	{
+		global $connection;
+
 		$bucket = CloudStorageTools::getDefaultGoogleStorageBucketName();
 		$root_path = 'gs://' . $bucket . '/' . $_SERVER["REQUEST_ID_HASH"] . '/';
 
@@ -336,7 +338,7 @@
 					foreach($public_urls as $urls) {
 	        $original=$urls['original'];
 					}
-					// 
+					//
 					// $query=$connection->prepare('UPDATE restaurants SET picture=:pic WHERE restaurant_ID=:id');
 					// $query->bindParam(':pic',$original);
 					// $query->bindParam(':id', $restaurant_ID)
