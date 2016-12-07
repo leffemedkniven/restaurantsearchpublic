@@ -58,13 +58,12 @@
 		$response_json = curl_exec($ch);
 		curl_close($ch);
 		$response=json_decode($response_json, true);
-
 		foreach($response as $row){
 			echo("<div class=\"col-lg-6\">");
 			echo("<h4>".$row['name']."</h4>");
 			echo("<p>".$row['description']."</p>");
 			echo("<p>".$row['location']."</p>");
-      echo("<p><img src=".$row['picture']."></p>");1
+			echo("<p>".$row['picture']."</p>");
         		echo("<p><a class=\"btn btn-default\" id=".$row[restaurant_ID]." onclick=\"myFunction(this.id)\" role=\"button\">View details </a></p>");
 			echo("</div>");
 	    	}
@@ -88,3 +87,9 @@
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
+
+    Contact GitHub API Training Shop Blog About 
+
+    © 2016 GitHub, Inc. Terms Privacy Security Status Help 
+
+
