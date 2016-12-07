@@ -97,7 +97,7 @@
 				$.ajax({
 				    url: 'https://whatsdown-d627f.appspot.com/pages/review.php',
 				    type: 'post',
-				    data: { "new_review": rev},
+				    data: { "rev": rev},
 				    success: function(response) { console.log(response); }
 				});
 							}

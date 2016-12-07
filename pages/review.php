@@ -1,6 +1,6 @@
 <?php
 
-$new_rev = $_GET['new_review'];
+$new_rev = $_GET['rev'];
 echo($new_rev);
 /*				
 	if(new_rev!=null) {
