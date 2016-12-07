@@ -10,7 +10,7 @@ if (strncmp("5.5", phpversion(), strlen("5.5")) != 0) {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <body>
-<form id="database" method="POST" enctype="multipart/form-data">
+<form id="data" method="POST" enctype="multipart/form-data">
   Send these files:<p/>
   <input name="file" type="file" /><p/>
   <input type="submit" value="Upload image" />
@@ -18,7 +18,7 @@ if (strncmp("5.5", phpversion(), strlen("5.5")) != 0) {
 </body>
 </html>
 <script>
-$("form#data").submit(function(e) {
+$("#data").submit(function(e) {
         var formData = new FormData($(this)[0]);
 
         $.ajax({
