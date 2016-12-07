@@ -159,6 +159,8 @@
 		$description=$_POST['description'];
 		$location=$_POST['location'];
 
+
+
 		$query=$connection->prepare('INSERT INTO restaurants(name, picture, description, location) VALUES (:name, :picture, :description, :location)');
 		$query->bindParam(':name',$name);
 		$query->bindParam(':picture',$picture);
@@ -313,6 +315,7 @@
 
 
 		$file=$_POST['file'];
+		$restaurant_ID=$_POST['restaurant_ID'];
 
 		$public_urls = [];
 		$name = $_FILES[$file]['name'];
@@ -335,8 +338,9 @@
 
 					}
 
-					$query=$connection->prepare('INSERT INTO restaurants(picture) VALUES :pic');
+					$query=$connection->prepare('UPDATE restaurants SET picture=:pic WHERE restaurant_ID=:id') ;
 					$query->bindParam(':pic',$original);
+					$query->bindParam(':id', $restaurant_ID)
 
 					if($query->execute()){
 						$response=array('status' => 1, 'info' =>'user added.');
