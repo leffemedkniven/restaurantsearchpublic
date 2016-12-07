@@ -159,6 +159,8 @@
 		$description=$_POST['description'];
 		$location=$_POST['location'];
 
+
+
 		$query=$connection->prepare('INSERT INTO restaurants(name, picture, description, location) VALUES (:name, :picture, :description, :location)');
 		$query->bindParam(':name',$name);
 		$query->bindParam(':picture',$picture);
@@ -308,11 +310,14 @@
 
 	function upload_image()
 	{
+		global $connection;
+
 		$bucket = CloudStorageTools::getDefaultGoogleStorageBucketName();
 		$root_path = 'gs://' . $bucket . '/' . $_SERVER["REQUEST_ID_HASH"] . '/';
 
 
 		$file=$_POST['file'];
+		$restaurant_ID=$_POST['restaurant_ID'];
 
 		$public_urls = [];
 		$name = $_FILES[$file]['name'];
@@ -332,18 +337,18 @@
 
 					foreach($public_urls as $urls) {
 	        $original=$urls['original'];
-
 					}
 
-					$query=$connection->prepare('INSERT INTO restaurants(picture) VALUES :pic');
+					$query=$connection->prepare('UPDATE restaurants SET picture=:pic WHERE restaurant_ID=:id');
 					$query->bindParam(':pic',$original);
+					$query->bindParam(':id', $restaurant_ID)
 
-					if($query->execute()){
-						$response=array('status' => 1, 'info' =>'user added.');
-					}
-					else{
-						$response=array('status' => 0, 'info' =>'Addition failed, please try again.');
-					}
+					// if($query->execute()){
+					// 	$response=array('status' => 1, 'info' =>'user added.');
+					// }
+					// else{
+					// 	$response=array('status' => 0, 'info' =>'Addition failed, please try again.');
+					// }
 
 				}
 				else {
