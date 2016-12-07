@@ -6,8 +6,8 @@ if (strncmp("5.5", phpversion(), strlen("5.5")) != 0) {
 ?>
 
 <html>
-<head>
-<script src="jquery-3.1.1.min.js"></script>
+<head
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </head>
 <body>
 <form id="database" method="POST" enctype="multipart/form-data">
