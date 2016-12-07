@@ -6,7 +6,7 @@ if (strncmp("5.5", phpversion(), strlen("5.5")) != 0) {
 ?>
 <html>
 <body>
-<form action="upload" method="POST" enctype="multipart/form-data">
+<form action="" method="POST" enctype="multipart/form-data">
   Send these files:<p/>
   <input name="userfile[]" type="file" multiple="multiple"/><p/>
   <input type="submit" value="Send files" />
@@ -43,12 +43,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
  $args['file'] = new CurlFile($tmpfile, $filetype, $filename);
  curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $args);
  curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
- //
- // //execute the API Call
- // $returned_data = curl_exec($curl_handle);
- // curl_close ($curl_handle);
- //
- // echo $returned_data;
+
+ //execute the API Call
+ $returned_data = curl_exec($curl_handle);
+ curl_close ($curl_handle);
+echo "dick";
+ echo $returned_data;
 }
 
 ?>
