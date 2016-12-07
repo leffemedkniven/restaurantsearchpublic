@@ -343,12 +343,12 @@
 					$query->bindParam(':pic',$original);
 					$query->bindParam(':id', $restaurant_ID)
 
-					if($query->execute()){
-						$response=array('status' => 1, 'info' =>'user added.');
-					}
-					else{
-						$response=array('status' => 0, 'info' =>'Addition failed, please try again.');
-					}
+					// if($query->execute()){
+					// 	$response=array('status' => 1, 'info' =>'user added.');
+					// }
+					// else{
+					// 	$response=array('status' => 0, 'info' =>'Addition failed, please try again.');
+					// }
 
 				}
 				else {
