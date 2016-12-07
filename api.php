@@ -308,8 +308,6 @@
 
 	function upload_image()
 	{
-
-
 		$bucket = CloudStorageTools::getDefaultGoogleStorageBucketName();
 		$root_path = 'gs://' . $bucket . '/' . $_SERVER["REQUEST_ID_HASH"] . '/';
 
@@ -318,11 +316,11 @@
 
 		$public_urls = [];
 		$name = $_FILES[$FileName]['name'];
-		if ($_FILES[$file]['type'] === 'image/jpeg' || $_FILES[$userfile][$type] === 'image/png') {
+		if ($_FILES[$file]['type'] === 'image/jpeg' || $_FILES[$file]['type'] === 'image/png') {
 
 		    $original = $root_path . $name;
 		    echo '<pre>';
-		    if(move_uploaded_file($_FILES['userfile']['tmp_name'][$idx], $original)){
+		    if(move_uploaded_file($_FILES['userfile']['tmp_name'], $original)){
 		      echo "File is valid, and was successfully uploaded.\n";
 					$response=array('status' => 1, 'info' =>'Image uploaded.');
 					$public_urls[] = [
@@ -330,20 +328,15 @@
 								'original' => CloudStorageTools::getImageServingUrl($original),
 								'original_thumb' => CloudStorageTools::getImageServingUrl($original, ['size' => 75]),
 								];
-
-
 		    }
 		    else {
 		    echo "Possible file upload attack!\n";
 		    }
 
-		    echo 'Here is some more debugging info:';
-		    print_r($_FILES);
-
-		    print "</pre>";
-		  } else {
+		} else {
 		    $response=array('status' => 0, 'info' =>'Not a jpeg/png.');
-		  }
+				print_r($_FILES);
+		}
 			header('Content-Type: application/json');
 			echo json_encode($response);
 	}
