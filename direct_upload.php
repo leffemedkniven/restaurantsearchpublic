@@ -20,7 +20,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 $tmpfile = $_FILES['image']['tmp_name'];
 $filename = basename($_FILES['image']['name']);
 $data = array(
-  'uploaded_file' => curl_file_create($tmpfile, $_FILES['image']['type'], $filename
+  //'uploaded_file' => curl_file_create($tmpfile, $_FILES['image']['type'], $filename
 );
 //
 //
