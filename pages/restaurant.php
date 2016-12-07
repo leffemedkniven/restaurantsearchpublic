@@ -86,9 +86,9 @@
                                         <div class="message-text">
                                             <textarea class="no-resize-bar form-control" id="message" rows="2" placeholder="Write a review"></textarea>
 				<form>
-				<input type="hidden" id="rest_ID" value="<?php echo htmlspecialchars($rest_ID); ?>" />
-				<input type="hidden" id="user_ID" value="<?php echo htmlspecialchars($user_ID); ?>" />
-                                </form>     </div>
+				<!--<input type="hidden" id="rest_ID" value="<?php echo $rest_ID; ?>" />
+				<input type="hidden" id="user_ID" value="<?php echo $user_ID; ?>" />
+                  -->              </form>     </div>
                                     </div>
                                 </div>
                     <div class="text-right">
@@ -98,9 +98,9 @@
 		<script>
 			function reviewFunction() {
 				var rev = document.getElementById('message').value;
-				var uID = document.getElementById('user_ID').value;
-				var rID = document.getElementById('rest_ID').value;
-				var rate = document.getElementById('rating').value;
+				//var uID = document.getElementById('user_ID').value;
+				//var rID = document.getElementById('rest_ID').value;
+				//var rate = document.getElementById('rating').value;
 				alert(rev);
 			//	$.ajax({
 			//url: 'https://whatsdown-d627f.appspot.com/api/?restaurantReviews=1',
