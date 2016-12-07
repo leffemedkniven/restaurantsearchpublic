@@ -115,7 +115,7 @@
 
 		if($review_ID != 0)
 		{
-			$query=$connection->prepare("SELECT * FROM reviews WHERE review_ID=:id");
+			$query=$connection->prepare("SELECT * FROM reviews WHERE restaurant_ID=:id");
 			$query->bindParam(':id',$review_ID);
 		}
 		$response=array();
