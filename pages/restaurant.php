@@ -66,7 +66,7 @@
             <div class="col-md-9">
 
                 <div class="thumbnail">
-                    <img class="img-responsive" src="<?php$rest_pic?>" alt="">
+                    <!--<img class="img-responsive" src="<?php$rest_pic?>" alt="">-->
                     <div class="caption-full">
                         <h4 class="pull-right"><?php echo $rest_loc;?></h4>
                         <h4><?php echo $rest_name;?></h4>
