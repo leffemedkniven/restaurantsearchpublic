@@ -102,7 +102,7 @@
 				);
 
 				
-				$url = 'https://whatsdown-d627f.appspot.com/api/insertReview';
+				$url = 'https://whatsdown-d627f.appspot.com/api/insertReview=1';
 				$ch = curl_init($url);
 				curl_setopt($ch, CURLOPT_HTTPPOST, true);
 				curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
