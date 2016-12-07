@@ -159,8 +159,6 @@
 		$description=$_POST['description'];
 		$location=$_POST['location'];
 
-
-
 		$query=$connection->prepare('INSERT INTO restaurants(name, picture, description, location) VALUES (:name, :picture, :description, :location)');
 		$query->bindParam(':name',$name);
 		$query->bindParam(':picture',$picture);
@@ -319,9 +317,9 @@
 		$file=$_POST['file'];
 		$restaurant_ID=$_POST['restaurant_ID'];
 
-		$public_urls = [];
-		$name = $_FILES[$file]['name'];
 
+		$name = $_FILES[$file]['name'];
+		$public_urls = [];
 		//foreach($_FILES[$file]['name'] as $idx => $name) {
 		if ($_FILES[$file]['type'] === 'image/jpeg' || $_FILES[$file]['type'] === 'image/png') {
 
