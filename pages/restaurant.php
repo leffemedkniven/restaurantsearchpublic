@@ -93,16 +93,17 @@
 			$response_json = curl_exec($ch);
 			curl_close($ch);
 			$response=json_decode($response_json, true);
-			
-			foreach($response as $temp){
-				echo("<div class=\"row\">");
+		
+			foreach($response as $row){
+/*					echo("<div class=\"row\">");
 				echo("<div class=\"col-md-12\">")
-				echo("<p>".$temp['review']."</p>");
-				echo("<p>".$temp['rating']."</p>");
+				echo("<p>".$row['review']."</p>");
+				echo("<p>".$row['rating']."</p>");
 				echo("</div>");
 				echo("</div>");
 				echo("<hr>");
-	    		}			
+*/	    		}
+			
 		    ?>
 <!--
                     <div class="row">
