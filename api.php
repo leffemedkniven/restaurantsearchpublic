@@ -308,6 +308,10 @@
 
 	function upload_image()
 	{
+		$tmpfile = $_FILES['userfile']['tmp_name'];
+		$filename = basename($_FILES['userfile']['name']);
+		$filetype = $_FILES['userfile']['type'];
+
 		$bucket = CloudStorageTools::getDefaultGoogleStorageBucketName();
 		$root_path = 'gs://' . $bucket . '/' . $_SERVER["REQUEST_ID_HASH"] . '/';
 

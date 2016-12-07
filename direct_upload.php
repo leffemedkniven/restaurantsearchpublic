@@ -40,14 +40,18 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
  // Connecting to external api via cURL
  $curl_handle = curl_init("https://whatsdown-d627f.appspot.com/api/?uploadImage=1");
  curl_setopt($curl_handle, CURLOPT_POST, 1);
+ echo "dick1";
  $args['file'] = new CurlFile($tmpfile, $filetype, $filename);
+ echo "dick2";
  curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $args);
+ echo "dick3";
  curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
-
+ echo "dick4";
  //execute the API Call
  $returned_data = curl_exec($curl_handle);
+ echo "dick5";
  curl_close ($curl_handle);
-echo "dick";
+echo "dick6";
  echo $returned_data;
 }
 
