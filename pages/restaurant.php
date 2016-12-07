@@ -92,7 +92,8 @@
 		
 		<script>
 			function reviewFunction() {
-				alert("hej");
+				var rev = document.getElementById('message').value;
+				alert(rev);
 			}
 		</script>
 
