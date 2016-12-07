@@ -24,11 +24,12 @@ handlers:
 - url: /static
   static_dir: static
 
+- url: /direct/.*
+  script: direct_upload.php
+  
 - url: /direct/handle_upload
   script: handle_upload.php
 
-- url: /direct/.*
-  script: direct_upload.php
 
 - url: /.*
   script: index.php
