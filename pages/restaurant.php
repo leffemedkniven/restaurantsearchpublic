@@ -85,8 +85,8 @@
                                     <div class="send-message">
                                         <div class="message-text">
                                             <textarea class="no-resize-bar form-control" id="message" rows="2" placeholder="Write a review"></textarea>
-				<input type="hidden" id="rest_ID" value=<?php echo $rest_ID ?> />
-				<input type="hidden" id="user_ID" value=<?php echo $user_ID ?> />
+				<!--<input type="hidden" id="rest_ID" value=<?php echo $rest_ID ?> />
+				<input type="hidden" id="user_ID" value=<?php echo $user_ID ?> />-->
                                         </div>
                                     </div>
                                 </div>
