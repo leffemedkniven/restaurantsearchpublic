@@ -79,9 +79,13 @@
                 </div>
 
                 <div class="well">
-			<form>
-			    <textarea name='comment' id='comment'></textarea>
-			</form> 
+			       <div class="row send-wrap">
+                                    <div class="send-message">
+                                        <div class="message-text">
+                                            <textarea class="no-resize-bar form-control" id="message" rows="2" placeholder="Write a message..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
                     <div class="text-right">
                         <a class="btn btn-success">Leave a Review</a>
                     </div>
