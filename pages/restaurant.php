@@ -82,13 +82,19 @@
 			       <div class="row send-wrap">
                                     <div class="send-message">
                                         <div class="message-text">
-                                            <textarea class="no-resize-bar form-control" id="message" rows="2" placeholder="Write a message..."></textarea>
+                                            <textarea class="no-resize-bar form-control" id="message" rows="2" placeholder="Write a review"></textarea>
                                         </div>
                                     </div>
                                 </div>
                     <div class="text-right">
-                        <a class="btn btn-success">Leave a Review</a>
+                        <a class="btn btn-success onclick="reviewFunction()">Leave a Review</a>
                     </div>
+		
+		<script>
+			function reviewFunction() {
+				alert("hej");
+			}
+		</script>
 
                     <hr>
 
