@@ -4,10 +4,11 @@ if (strncmp("5.5", phpversion(), strlen("5.5")) != 0) {
   die("Direct uploads require the PHP 5.5 runtime. Your runtime: " . phpversion());
 }
 ?>
+
+<html>
 <head>
 <script src="jquery-3.1.1.min.js"></script>
 </head>
-<html>
 <body>
 <form id="database" method="POST" enctype="multipart/form-data">
   Send these files:<p/>
