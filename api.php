@@ -316,6 +316,8 @@
 
 		$public_urls = [];
 		$name = $_FILES[$file]['name'];
+
+		//foreach($_FILES[$file]['name'] as $idx => $name) {
 		if ($_FILES[$file]['type'] === 'image/jpeg' || $_FILES[$file]['type'] === 'image/png') {
 
 		    $original = $root_path . $name;
@@ -326,10 +328,25 @@
 					$public_urls[] = [
 								'name' => $name,
 								'original' => CloudStorageTools::getImageServingUrl($original),
-								'original_thumb' => CloudStorageTools::getImageServingUrl($original, ['size' => 75]),
 								];
-		    }
-		    else {
+
+					foreach($public_urls as $urls) {
+	        $original=$urls['original'];
+
+					}
+
+					$query=$connection->prepare('INSERT INTO restaurants(picture) VALUES :pic');
+					$query->bindParam(':pic',$original);
+
+					if($query->execute()){
+						$response=array('status' => 1, 'info' =>'user added.');
+					}
+					else{
+						$response=array('status' => 0, 'info' =>'Addition failed, please try again.');
+					}
+
+				}
+				else {
 		    echo "Possible file upload attack!\n";
 		    }
 
