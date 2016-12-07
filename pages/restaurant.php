@@ -17,6 +17,7 @@
 		$rest_desc = $row['description'];
 		$rest_loc = $row['location'];
 		$rest_pic = $row['picture'];
+		echo("<p><img src=".$row['picture']."></p>");
 	}
 
 ?>
@@ -65,7 +66,7 @@
             <div class="col-md-9">
 
                 <div class="thumbnail">
-                    <img class="img-responsive" src=".<?php $rest_pic ?>.">
+                    <img class="img-responsive" src=.<?php $rest_pic ?>.>
                     <div class="caption-full">
                         <h4 class="pull-right"><?php echo $rest_loc;?></h4>
                         <h4><?php echo $rest_name;?></h4>
