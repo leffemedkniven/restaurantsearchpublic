@@ -93,6 +93,7 @@
 		<script>
 			function reviewFunction() {
 				var rev = document.getElementById('message').value;
+				alert(rev==null);
 				if(rev!=null) {
 				$data=array(
 					'user_ID' => 1,
@@ -100,7 +101,6 @@
 					'review' => rev,
 					'rating' => 4
 				);
-
 				
 				$url = 'https://whatsdown-d627f.appspot.com/api/?insertReview=1';
 				$ch = curl_init($url);
