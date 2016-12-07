@@ -94,7 +94,15 @@
 			curl_close($ch);
 			$response=json_decode($response_json, true);
 			
-
+			foreach($response as $row){
+				echo("<div class=\"row\">");
+				echo("<div class=\"col-md-12\">")
+				echo("<h4>".$row['review']."</h4>");
+				echo("<p>".$row['rating']."</p>");
+				echo("</div>");
+				echo("</div>");
+				echo("<hr>");
+	    		}
 			
 		    ?>
 <!--
