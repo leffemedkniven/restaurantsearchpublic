@@ -87,7 +87,7 @@
                                     </div>
                                 </div>
                     <div class="text-right">
-                        <a class="btn btn-success onclick="reviewFunction()">Leave a Review</a>
+                        <a class="btn btn-default" role="button" onclick="reviewFunction()">Leave a Review</a>
                     </div>
 		
 		<script>
