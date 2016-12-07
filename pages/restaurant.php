@@ -4,7 +4,7 @@
 <head>
 <?php 	session_start(); 
 	$rest_ID = $_GET['id'];
-	$url = 'https://whatsdown-d627f.appspot.com/api/?restaurant_ID='.$rest_ID; //detta är fucked?
+	$url = 'https://whatsdown-d627f.appspot.com/api/?restaurant_ID='.$rest_ID;
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_HTTPGET, true);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -66,12 +66,9 @@
                 <div class="thumbnail">
                     <img class="img-responsive" src="http://placehold.it/800x300" alt="">
                     <div class="caption-full">
-                        <h4 class="pull-right">$24.99</h4>
+                        <h4 class="pull-right"><?php echo $rest_loc;?></h4>
                         <h4><?php echo $rest_name;?></h4>
-                        <p><?php echo $rest_desc;?>
-			</p>
-                        <p><?php echo $rest_loc;?>
-			</p>
+                        <p><?php echo $rest_desc;?> </p>
                     </div>
                     <div class="ratings">
                         <p class="pull-right">n reviews</p>
@@ -82,6 +79,12 @@
                 </div>
 
                 <div class="well">
+			<form action="action_page.php">
+			  	First name:<br>
+			 	 <input type="text" name="firstname" value="Mickey"><br>
+			 	 <input type="submit" value="Submit">
+			  <input type="reset">
+			</form> 
 
                     <div class="text-right">
                         <a class="btn btn-success">Leave a Review</a>
@@ -89,6 +92,27 @@
 
                     <hr>
 
+		    <?php
+			$url = 'https://whatsdown-d627f.appspot.com/api/?restaurantsReviews='.$rest_ID;
+			$ch = curl_init($url);
+			curl_setopt($ch, CURLOPT_HTTPGET, true);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			$response_json = curl_exec($ch);
+			curl_close($ch);
+			$response=json_decode($response_json, true);
+			
+			foreach($response as $row){
+				echo("<div class=\"row\">");
+				echo("<div class=\"col-md-12\">")
+				echo("<h4>".$row['review']."</h4>");
+				echo("<p>".$row['rating']."</p>");
+				echo("</div>");
+				echo("</div>");
+				echo("<hr>");
+	    		}
+			
+		    ?>
+<!--
                     <div class="row">
                         <div class="col-md-12">
                             <span class="glyphicon glyphicon-star"></span>
@@ -131,7 +155,7 @@
                             <p>I've seen some better than this, but not at this price. I definitely recommend this item.</p>
                         </div>
                     </div>
-
+-->
                 </div>
 
             </div>
