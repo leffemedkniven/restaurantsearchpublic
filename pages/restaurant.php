@@ -86,14 +86,15 @@
                     <hr>
 
 		    <?php
-			echo $rest_ID;
 			$url = 'https://whatsdown-d627f.appspot.com/api/?restaurantReviews='.$rest_ID;
 			$ch = curl_init($url);
+			echo "hej";
 			curl_setopt($ch, CURLOPT_HTTPGET, true);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			$response_json = curl_exec($ch);
 			curl_close($ch);
 			$response=json_decode($response_json, true);
+			echo "kek";
 /*			
 			foreach($response as $row){
 				echo("<div class=\"row\">");
