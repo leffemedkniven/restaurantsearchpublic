@@ -85,8 +85,8 @@
                                     <div class="send-message">
                                         <div class="message-text">
                                             <textarea class="no-resize-bar form-control" id="message" rows="2" placeholder="Write a review"></textarea>
-				<!--<input type="hidden" id="rest_ID" value=<?php echo $rest_ID ?> />
-				<input type="hidden" id="user_ID" value=<?php echo $user_ID ?> />-->
+				<input type="hidden" id="rest_ID" value=<?php echo $rest_ID ?> />
+				<input type="hidden" id="user_ID" value=<?php echo $user_ID ?> />
                                         </div>
                                     </div>
                                 </div>
@@ -97,16 +97,16 @@
 		<script>
 			function reviewFunction() {
 				var rev = document.getElementById('message').value;
-			//	var uID = document.getElementById('user_ID').value;
-			//	var rID = document.getElementById('rest_ID').value;
-			//	var rate = document.getElementById('rating').value;
+				var uID = document.getElementById('user_ID').value;
+				var rID = document.getElementById('rest_ID').value;
+				var rate = document.getElementById('rating').value;
 				
-			//	$.ajax({
-			//url: 'https://whatsdown-d627f.appspot.com/api/?restaurantReviews=1',
-			//	    type: 'post',
-			//data: {"user_ID": uID, "restaurant_ID": rID, "rating": rate, "review": rev},
-			//	    success: function(response) { console.log(response); }
-			//	});
+				$.ajax({
+			url: 'https://whatsdown-d627f.appspot.com/api/?restaurantReviews=1',
+				    type: 'post',
+			data: {"user_ID": uID, "restaurant_ID": rID, "rating": rate, "review": rev},
+				    success: function(response) { console.log(response); }
+				});
 			}
 		</script>
 
