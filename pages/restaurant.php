@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<?php 	session_start(); 
+<?php 	session_start();
 	$rest_ID = $_GET['id'];
 	$url = 'https://whatsdown-d627f.appspot.com/api/?restaurant_ID='.$rest_ID;
 	$ch = curl_init($url);
@@ -16,9 +16,10 @@
 		$rest_name = $row['name'];
 		$rest_desc = $row['description'];
 		$rest_loc = $row['location'];
+		$rest_pic = $row['picture'];
 	}
 
-?>	
+?>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -59,12 +60,12 @@
     <!-- Page Content -->
     <div class="container">
 
-        <div class="row">	
+        <div class="row">
 
             <div class="col-md-9">
 
                 <div class="thumbnail">
-                    <img class="img-responsive" src="http://placehold.it/800x300" alt="">
+                    <img class="img-responsive" src=".<?php $rest_pic ?>.">
                     <div class="caption-full">
                         <h4 class="pull-right"><?php echo $rest_loc;?></h4>
                         <h4><?php echo $rest_name;?></h4>
@@ -89,7 +90,7 @@
                     <div class="text-right">
                         <a class="btn btn-default" role="button" onclick="reviewFunction()">Leave a Review</a>
                     </div>
-		
+
 		<script>
 			function reviewFunction() {
 				var rev = document.getElementById('message').value;
@@ -112,7 +113,7 @@
 			$response_json = curl_exec($ch);
 			curl_close($ch);
 			$response=json_decode($response_json, true);
-		
+
 			foreach($response as $row){
 				echo("<div class=\"row\">");
 				echo("<div class=\"col-md-12\">");
@@ -122,7 +123,7 @@
 				echo("</div>");
 				echo("<hr>");
 	    		}
-			
+
 		    ?>
 <!--
                     <div class="row">
@@ -172,4 +173,3 @@
     <script src="js/bootstrap.min.js"></script>
 
 </body>
-
