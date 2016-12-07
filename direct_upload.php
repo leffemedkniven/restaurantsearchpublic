@@ -17,10 +17,10 @@ if (strncmp("5.5", phpversion(), strlen("5.5")) != 0) {
 <?php
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
-$tmpfile = $_FILES['image']['tmp_name'];
-$filename = basename($_FILES['image']['name']);
-$data = array(
-  //'uploaded_file' => curl_file_create($tmpfile, $_FILES['image']['type'], $filename
+// $tmpfile = $_FILES['userfile']['tmp_name'];
+// $filename = basename($_FILES['userfile']['name']);
+// $data = array(
+  //'uploaded_file' => curl_file_create($tmpfile, $_FILES['userfile']['type'], $filename
 );
 //
 //
@@ -33,4 +33,22 @@ $data = array(
 //   curl_close($ch);
 //   $response=json_decode($response_json, true);
  }
+
+ $tmpfile = $_FILES['userfile']['tmp_name'];
+ $filename = basename($_FILES['userfile']['name']);
+ $filetype = $_FILES['userfile']['type'];
+
+ // Connecting to external api via cURL
+ $curl_handle = curl_init("https://whatsdown-d627f.appspot.com/api/?uploadImage=1");
+ curl_setopt($curl_handle, CURLOPT_POST, 1);
+ $args['file'] = new CurlFile($tmpfile, $filetype, $filename);
+ curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $args);
+ curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
+
+ //execute the API Call
+ $returned_data = curl_exec($curl_handle);
+ curl_close ($curl_handle);
+
+ echo $returned_data;
+
 ?>
