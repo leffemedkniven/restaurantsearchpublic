@@ -64,7 +64,6 @@
 			echo("<h4>".$row['name']."</h4>");
 			echo("<p>".$row['description']."</p>");
 			echo("<p>".$row['location']."</p>");
-			echo("<p>".$row['picture']."</p>");
       echo("<p><img src=".$row['picture']."></p>");
         		echo("<p><a class=\"btn btn-default\" id=".$row[name]." onclick=\"myFunction(this.id)\" role=\"button\">View details </a></p>");
 			echo("</div>");
