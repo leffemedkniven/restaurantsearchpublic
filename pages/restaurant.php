@@ -84,6 +84,8 @@
                                     <div class="send-message">
                                         <div class="message-text">
                                             <textarea class="no-resize-bar form-control" id="message" rows="2" placeholder="Write a review"></textarea>
+				<input type="hidden" id="rest_ID" value=<?php echo $rest_ID ?> />
+				<input type="hidden" id="user_ID" value=<?php echo $user_ID ?> />
                                         </div>
                                     </div>
                                 </div>
@@ -94,10 +96,11 @@
 		<script>
 			function reviewFunction() {
 				var rev = document.getElementById('message').value;
+				
 				$.ajax({
-				    url: 'https://whatsdown-d627f.appspot.com/pages/review.php',
+				    url: 'https://whatsdown-d627f.appspot.com/api/?',
 				    type: 'post',
-				    data: { "rev": rev},
+				    data: { "": rev},
 				    success: function(response) { console.log(response); }
 				});
 							}

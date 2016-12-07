@@ -64,7 +64,7 @@
 			echo("<h4>".$row['name']."</h4>");
 			echo("<p>".$row['description']."</p>");
 			echo("<p>".$row['location']."</p>");
-      echo("<p><img src=".$row['picture']."></p>");
+      echo("<p><img src=".$row['picture']."></p>");1
         		echo("<p><a class=\"btn btn-default\" id=".$row[restaurant_ID]." onclick=\"myFunction(this.id)\" role=\"button\">View details </a></p>");
 			echo("</div>");
 	    	}
@@ -72,7 +72,7 @@
 
 		<script>
 		function myFunction(id) {
-			window.location = "https://whatsdown-d627f.appspot.com/restaurant/"+id;
+			window.location = "https://whatsdown-d627f.appspot.com/restaurant/?id="+id;
 		}
 		</script>
 
