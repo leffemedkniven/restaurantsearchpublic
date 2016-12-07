@@ -95,14 +95,14 @@
 			$response=json_decode($response_json, true);
 		
 			foreach($response as $row){
-/*					echo("<div class=\"row\">");
-				echo("<div class=\"col-md-12\">")
+				echo("<div class=\"row\">");
+/*				echo("<div class=\"col-md-12\">")
 				echo("<p>".$row['review']."</p>");
 				echo("<p>".$row['rating']."</p>");
 				echo("</div>");
-				echo("</div>");
+*/				echo("</div>");
 				echo("<hr>");
-*/	    		}
+	    		}
 			
 		    ?>
 <!--
