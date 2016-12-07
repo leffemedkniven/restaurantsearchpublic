@@ -23,7 +23,7 @@
 				get_restaurants();
 			}
 			//RestaurantRevies takes the value of the restaurant_ID
-			else if(!empty($_GET["restaurantsReviews"])){
+			else if(!empty($_GET["restaurantReviews"])){
 				$restaurantReviews=intval($_GET["restaurantReviews"]);
 				get_reviews($restaurantReviews);
 			}
