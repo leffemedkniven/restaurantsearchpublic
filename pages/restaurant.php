@@ -79,6 +79,9 @@
                 </div>
 
                 <div class="well">
+			<form>
+			  <input type="text" id="newReview" value="Write review"><br>
+			</form> 
                     <div class="text-right">
                         <a class="btn btn-success">Leave a Review</a>
                     </div>
@@ -97,8 +100,8 @@
 			foreach($response as $row){
 				echo("<div class=\"row\">");
 				echo("<div class=\"col-md-12\">");
-				echo("<p>".$row['review']."</p>");
 				echo("<p>".$row['rating']."</p>");
+				echo("<p>".$row['review']."</p>");
 				echo("</div>");
 				echo("</div>");
 				echo("<hr>");
@@ -120,34 +123,6 @@
                     </div>
 
                     <hr>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            Anonymous
-                            <span class="pull-right">12 days ago</span>
-                            <p>I've alredy ordered another one!</p>
-                        </div>
-                    </div>
-
-                    <hr>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            Anonymous
-                            <span class="pull-right">15 days ago</span>
-                            <p>I've seen some better than this, but not at this price. I definitely recommend this item.</p>
-                        </div>
-                    </div>
 -->
                 </div>
 
