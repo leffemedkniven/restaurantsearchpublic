@@ -308,8 +308,6 @@
 
 	function upload_image()
 	{
-
-
 		$bucket = CloudStorageTools::getDefaultGoogleStorageBucketName();
 		$root_path = 'gs://' . $bucket . '/' . $_SERVER["REQUEST_ID_HASH"] . '/';
 
@@ -337,12 +335,9 @@
 		    echo "Possible file upload attack!\n";
 		    }
 
-		    echo 'Here is some more debugging info:';
-		    print_r($_FILES);
-
-		    print "</pre>";
 		  } else {
 		    $response=array('status' => 0, 'info' =>'Not a jpeg/png.');
+				print_r($_FILES);
 		  }
 			header('Content-Type: application/json');
 			echo json_encode($response);
