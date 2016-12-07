@@ -80,7 +80,7 @@
 
                 <div class="well">
 			<form>
-			  <input type="text" id="newReview" value="Write review"><br>
+			    <textarea name='comment' id='comment'></textarea>
 			</form> 
                     <div class="text-right">
                         <a class="btn btn-success">Leave a Review</a>
