@@ -6,7 +6,7 @@ if (strncmp("5.5", phpversion(), strlen("5.5")) != 0) {
 ?>
 <html>
 <body>
-<form action="upload" method="POST" enctype="multipart/form-data">
+<form action="" method="POST" enctype="multipart/form-data">
   Send these files:<p/>
   <input name="userfile[]" type="file" multiple="multiple"/><p/>
   <input type="submit" value="Send files" />
