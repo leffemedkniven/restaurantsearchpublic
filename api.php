@@ -315,12 +315,12 @@
 		$file=$_POST['file'];
 
 		$public_urls = [];
-		$name = $_FILES[$FileName]['name'];
+		$name = $_FILES[$file]['name'];
 		if ($_FILES[$file]['type'] === 'image/jpeg' || $_FILES[$file]['type'] === 'image/png') {
 
 		    $original = $root_path . $name;
 		    echo '<pre>';
-		    if(move_uploaded_file($_FILES['userfile']['tmp_name'], $original)){
+		    if(move_uploaded_file($_FILES[$file]['tmp_name'], $original)){
 		      echo "File is valid, and was successfully uploaded.\n";
 					$response=array('status' => 1, 'info' =>'Image uploaded.');
 					$public_urls[] = [
