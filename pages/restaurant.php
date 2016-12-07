@@ -79,13 +79,6 @@
                 </div>
 
                 <div class="well">
-			<form action="action_page.php">
-			  	First name:<br>
-			 	 <input type="text" name="firstname" value="Mickey"><br>
-			 	 <input type="submit" value="Submit">
-			  <input type="reset">
-			</form> 
-
                     <div class="text-right">
                         <a class="btn btn-success">Leave a Review</a>
                     </div>
@@ -93,7 +86,7 @@
                     <hr>
 
 		    <?php
-			$url = 'https://whatsdown-d627f.appspot.com/api/?restaurantsReviews='.$rest_ID;
+			$url = 'https://whatsdown-d627f.appspot.com/api/?restaurantReviews='.$rest_ID;
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_HTTPGET, true);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
