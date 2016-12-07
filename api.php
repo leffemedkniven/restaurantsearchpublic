@@ -22,9 +22,10 @@
 			else if(!empty($_GET["restaurants"])){
 				get_restaurants();
 			}
-			else if(!empty($_GET["review_ID"])){
-				$review_ID=intval($_GET["review_ID"]);
-				get_reviews($review_ID);
+			//RestaurantRevies takes the value of the restaurant_ID
+			else if(!empty($_GET["restaurantsReviews"])){
+				$restaurantReviews=intval($_GET["restaurantReviews"]);
+				get_reviews($restaurantReviews);
 			}
 			else if(!empty($_GET["reviews"])){
 				get_reviews();
@@ -108,15 +109,15 @@
 		echo json_encode($response);
   }
 
-	function get_reviews($restaurant_ID=0)
+	function get_reviews($restaurantReviews=0)
 	{
 		global $connection;
 		$query=$connection->prepare("SELECT * FROM reviews");
 
-		if($review_ID != 0)
+		if($restaurantReviews != 0)
 		{
 			$query=$connection->prepare("SELECT * FROM reviews WHERE restaurant_ID=:id");
-			$query->bindParam(':id',$review_ID);
+			$query->bindParam(':id',$restaurantReviews);
 		}
 		$response=array();
 		$query->execute();

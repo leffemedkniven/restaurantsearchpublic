@@ -18,7 +18,7 @@ if (strncmp("5.5", phpversion(), strlen("5.5")) != 0) {
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 $tmpfile = $_FILES['image']['tmp_name'];
-// $filename = basename($_FILES['image']['name']);
+$filename = basename($_FILES['image']['name']);
 // $data = array(
 //   'uploaded_file' => curl_file_create($tmpfile, $_FILES['image']['type'], $filename
 // );
