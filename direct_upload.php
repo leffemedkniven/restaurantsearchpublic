@@ -21,7 +21,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 // $filename = basename($_FILES['userfile']['name']);
 // $data = array(
   //'uploaded_file' => curl_file_create($tmpfile, $_FILES['userfile']['type'], $filename
-);
+//);
 //
 //
 //   $url = 'https://whatsdown-d627f.appspot.com/api/?uploadImage=1';
@@ -32,7 +32,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 //   $response_json = curl_exec($ch);
 //   curl_close($ch);
 //   $response=json_decode($response_json, true);
- }
 
  $tmpfile = $_FILES['userfile']['tmp_name'];
  $filename = basename($_FILES['userfile']['name']);
@@ -50,5 +49,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
  // curl_close ($curl_handle);
  //
  // echo $returned_data;
+}
 
 ?>
