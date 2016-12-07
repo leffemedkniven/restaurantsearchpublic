@@ -43,12 +43,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
  $args['file'] = new CurlFile($tmpfile, $filetype, $filename);
  curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $args);
  curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
- //
- // //execute the API Call
- // $returned_data = curl_exec($curl_handle);
- // curl_close ($curl_handle);
- //
- // echo $returned_data;
+ 
+ //execute the API Call
+ $returned_data = curl_exec($curl_handle);
+ curl_close ($curl_handle);
+
+ echo $returned_data;
 }
 
 ?>
