@@ -10,7 +10,7 @@ echo "Test";
 echo($user_ID);
 echo($restaurant_ID);
 echo($review);
-echo($rating);
+echo($rate);
 
 /*
 	$data=array(
