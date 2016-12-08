@@ -1,12 +1,6 @@
-<?php
-// Direct uploads requires PHP 5.5 on App Engine.
-if (strncmp("5.5", phpversion(), strlen("5.5")) != 0) {
-  die("Direct uploads require the PHP 5.5 runtime. Your runtime: " . phpversion());
-}
-?>
 
 <html>
-<head
+<head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <body>
