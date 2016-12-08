@@ -52,7 +52,7 @@
 		<div class="form-group">
 		  <label class="col-md-4 control-label" for="textinput">Name</label>  
 		  <div class="col-md-4">
-		  <input id="textinput" name="textinput" placeholder="placeholder" class="form-control input-md" type="text">
+		  <input id="textinput" name="textinput" placeholder="Name" class="form-control input-md" type="text">
 		  </div>
 		</div>
 
@@ -60,7 +60,7 @@
 		<div class="form-group">
 		  <label class="col-md-4 control-label" for="textinput">Location</label>  
 		  <div class="col-md-4">
-		  <input id="textinput" name="textinput" placeholder="placeholder" class="form-control input-md" type="text"> 
+		  <input id="textinput" name="textinput" placeholder="Location" class="form-control input-md" type="text"> 
 		  </div>
 		</div>
 
@@ -68,47 +68,12 @@
 		<div class="form-group">
 		  <label class="col-md-4 control-label" for="textarea">Description</label>
 		  <div class="col-md-4">                     
-		    <textarea class="form-control" id="textarea" name="textarea">default text</textarea>
+		    <textarea class="form-control" id="textarea" name="textarea"></textarea>
 		  </div>
 		</div>
 
 		</fieldset>
 		</form>
-
-
-<form class="form-horizontal">
-		<fieldset>
-
-		<!-- Form Name -->
-		<legend>Delete user</legend>
-
-		<!-- Text input-->
-		<div class="form-group">
-		  <label class="col-md-4 control-label" for="textinput">Name</label>  
-		  <div class="col-md-4">
-		  <input id="textinput" name="textinput" placeholder="placeholder" class="form-control input-md" type="text">
-		  </div>
-		</div>
-
-		<!-- Text input-->
-		<div class="form-group">
-		  <label class="col-md-4 control-label" for="textinput">Location</label>  
-		  <div class="col-md-4">
-		  <input id="textinput" name="textinput" placeholder="placeholder" class="form-control input-md" type="text"> 
-		  </div>
-		</div>
-
-		<!-- Textarea -->
-		<div class="form-group">
-		  <label class="col-md-4 control-label" for="textarea">Description</label>
-		  <div class="col-md-4">                     
-		    <textarea class="form-control" id="textarea" name="textarea">default text</textarea>
-		  </div>
-		</div>
-
-		</fieldset>
-		</form>
-
     
       <footer class="footer">
         <p>&copy; 2016 Company, Inc.</p>
