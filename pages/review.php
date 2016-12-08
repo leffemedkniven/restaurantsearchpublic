@@ -10,8 +10,8 @@ $rate=$_POST['rate'];
 		'review' => $review,
 		'rating' => $rate,
 	);
-	echo($data);
-/*				
+print_r($data);
+				
 	$url = 'https://whatsdown-d627f.appspot.com/api/?insertReview=1';
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_HTTPPOST, true);
@@ -20,7 +20,8 @@ $rate=$_POST['rate'];
 	$response_json = curl_exec($ch);
 	curl_close($ch);
 	$response=json_decode($response_json, true);	
-*/
-header('Location: https://whatsdown-d627f.appspot.com/restaurant/?id='.$restaurant_ID.);
-die();
+	print_r($response);
+
+//header('Location: https://whatsdown-d627f.appspot.com/restaurant/?id='.$restaurant_ID.);
+//die();
 ?>
