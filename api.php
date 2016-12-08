@@ -197,7 +197,7 @@
 
 	  }
 		else{
-			$response=array('status' => $_POST, 'info' =>'Addition failed, please try again.');
+			$response=array('status' => 0, 'info' =>'Addition failed, please try again.');
 		}
 
 		header('Content-Type: application/json');
