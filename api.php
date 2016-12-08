@@ -194,11 +194,12 @@
 
 	  if($query->execute()){
 	    $response=array('status' => 1, 'info' =>'Review added.');
-			print_r($_POST);
+
 	  }
 		else{
 			$response=array('status' => 0, 'info' =>'Addition failed, please try again.');
 		}
+		print_r($_POST);
 
 		header('Content-Type: application/json');
 		echo json_encode($response);
@@ -361,6 +362,6 @@
 		    $response=array('status' => 0, 'info' =>'Not a jpeg/png.');
 				print_r($_FILES);
 		}
-			header('Content-Type: application/json');
-			echo json_encode($response);
+			// header('Content-Type: application/json');
+			// echo json_encode($response);
 	}
