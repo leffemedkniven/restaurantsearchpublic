@@ -78,11 +78,15 @@
                         <p><?php echo $rest_desc;?> </p>
                     </div>
                     <div class="imageupload">
+                      <center>
                       <form id="data" method="POST" enctype="multipart/form-data">
                         Send this dig bick:<p/>
                         <input name="file" type="file" /><p/>
+                        <input type="hidden" name="restaurant_ID" id="restaurant_ID" value="<?php echo $rest_ID; ?>" />
                         <input type="submit" value="Upload image" />
+
                       </form>
+                      </center>
                     </div>
                 </div>
 
@@ -154,11 +158,12 @@
     <script src="js/bootstrap.min.js"></script>
 
     <script>
+    var rest_ID='<?php echo $rest_ID; ?>';
     $("#data").submit(function(e) {
             var formData = new FormData($(this)[0]);
 
             $.ajax({
-                url: "https://whatsdown-d627f.appspot.com/api/?uploadImage=15",
+                url: "https://whatsdown-d627f.appspot.com/api/?uploadImage="+rest_ID,
                 type: "POST",
                 data: formData,
                 async: false,
