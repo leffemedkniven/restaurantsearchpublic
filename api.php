@@ -321,10 +321,9 @@
 		if ($_FILES['file']['type'] === 'image/jpeg' || $_FILES['file']['type'] === 'image/png') {
 
 		    $original = $root_path . $name;
-		    echo '<pre>';
 		    if(move_uploaded_file($_FILES['file']['tmp_name'], $original)){
-		      echo "File is valid, and was successfully uploaded.\n";
-					$response=array('status' => 1, 'info' =>'Image uploaded.');
+		      //echo "File is valid, and was successfully uploaded.\n";
+					//$response=array('status' => 1, 'info' =>'Image uploaded.');
 					$public_urls[] = [
 								'name' => $name,
 								'original' => CloudStorageTools::getImageServingUrl($original),
@@ -338,12 +337,10 @@
 					$query->bindParam(':pic',$original);
 					$query->bindParam(':id', $restaurant_ID);
 
-					if($query->execute()){
-						$response=array('info' =>'Picture added.');
-					}
-					else{
+					if(!$query->execute()){
 						$response=array('info' =>'Addition failed, please try again.');
 					}
+
 
 				}
 				else {
