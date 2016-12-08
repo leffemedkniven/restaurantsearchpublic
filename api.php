@@ -171,7 +171,7 @@
     	$response=array('status' => 1, 'info' =>'Restaurant added.');
     }
 		else{
-			$response=array('status' => 0, 'info' =>'Addition failed, please try again.');
+			$response=array('status' => $_POST, 'info' =>'Addition failed, please try again.');
 		}
 
 	 	header('Content-Type: application/json');
