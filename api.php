@@ -339,6 +339,8 @@
 
 					if(!$query->execute()){
 						$response=array('info' =>'Addition failed, please try again.');
+						header('Content-Type: application/json');
+						echo json_encode($response);
 					}
 
 
@@ -349,7 +351,8 @@
 
 		} else {
 		    $response=array('info' =>'Not a jpeg/png.');
+				header('Content-Type: application/json');
+				echo json_encode($response);
 		}
-			header('Content-Type: application/json');
-			echo json_encode($response);
+
 	}
