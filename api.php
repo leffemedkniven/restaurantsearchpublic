@@ -316,12 +316,8 @@
 		$bucket = CloudStorageTools::getDefaultGoogleStorageBucketName();
 		$root_path = 'gs://' . $bucket . '/' . $_SERVER["REQUEST_ID_HASH"] . '/';
 
-
-		//$file=$_POST['file'];
-		print_r($restaurant_ID);
 		$name = $_FILES['file']['name'];
 		$public_urls = [];
-		//foreach($_FILES[$file]['name'] as $idx => $name) {
 		if ($_FILES['file']['type'] === 'image/jpeg' || $_FILES['file']['type'] === 'image/png') {
 
 		    $original = $root_path . $name;
@@ -344,9 +340,6 @@
 
 					if($query->execute()){
 						$response=array('info' =>'Picture added.');
-						print_r($_FILES);
-						print_r($_POST);
-						//print_r($file);
 					}
 					else{
 						$response=array('info' =>'Addition failed, please try again.');
@@ -358,8 +351,7 @@
 		    }
 
 		} else {
-		    $response=array('status' => 0, 'info' =>'Not a jpeg/png.');
-				print_r($_FILES);
+		    $response=array('info' =>'Not a jpeg/png.');
 		}
 			header('Content-Type: application/json');
 			echo json_encode($response);
