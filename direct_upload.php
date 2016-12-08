@@ -16,7 +16,7 @@ $("#data").submit(function(e) {
         var formData = new FormData($(this)[0]);
 
         $.ajax({
-            url: "https://whatsdown-d627f.appspot.com/api/?uploadImage=4",
+            url: "https://whatsdown-d627f.appspot.com/api/?uploadImage=15",
             type: "POST",
             data: formData,
             async: false,
