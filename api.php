@@ -322,7 +322,7 @@
 
 		    $original = $root_path . $name;
 		    if(move_uploaded_file($_FILES['file']['tmp_name'], $original)){
-		      //echo "File is valid, and was successfully uploaded.\n";
+		      echo "File is valid, and was successfully uploaded.\n";
 					//$response=array('status' => 1, 'info' =>'Image uploaded.');
 					$public_urls[] = [
 								'name' => $name,
@@ -339,8 +339,6 @@
 
 					if(!$query->execute()){
 						$response=array('info' =>'Addition failed, please try again.');
-						header('Content-Type: application/json');
-						echo json_encode($response);
 					}
 
 
@@ -351,8 +349,8 @@
 
 		} else {
 		    $response=array('info' =>'Not a jpeg/png.');
-				header('Content-Type: application/json');
-				echo json_encode($response);
 		}
-
+			header('Content-Type: application/json');
+			echo json_encode($response);
+			header("Location: https://whatsdown-d627f.appspot.com/restaurant/?id=".$restaurant_ID);
 	}
