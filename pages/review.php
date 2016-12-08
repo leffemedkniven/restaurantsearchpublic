@@ -23,7 +23,7 @@ $rate=$_POST['rate'];
 
   //   if ($response['status']==1){
   header('Location: https://whatsdown-d627f.appspot.com/restaurant/?id='.$restaurant_ID.);
-  //     exit;
+       exit;
   //    } else {
 	//  echo "Something went wrong";
   //  }
