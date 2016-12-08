@@ -42,7 +42,7 @@
         <h3 class="text-muted">Restaurants</h3>
       </div>
 
-		<form class="form-horizontal">
+		<form class="form-horizontal" action="/pages/addRestaurant.php" method="post" id="addRestform">
 		<fieldset>
 
 		<!-- Form Name -->
@@ -52,7 +52,7 @@
 		<div class="form-group">
 		  <label class="col-md-4 control-label" for="textinput">Name</label>  
 		  <div class="col-md-4">
-		  <input id="textinput" name="textinput" placeholder="Name" class="form-control input-md" type="text">
+		  <input id="textinput" name="rest_name" placeholder="Name" class="form-control input-md" type="text">
 		  </div>
 		</div>
 
@@ -60,7 +60,7 @@
 		<div class="form-group">
 		  <label class="col-md-4 control-label" for="textinput">Location</label>  
 		  <div class="col-md-4">
-		  <input id="textinput" name="textinput" placeholder="Location" class="form-control input-md" type="text"> 
+		  <input id="textinput" name="rest_loc" placeholder="Location" class="form-control input-md" type="text"> 
 		  </div>
 		</div>
 
@@ -68,7 +68,7 @@
 		<div class="form-group">
 		  <label class="col-md-4 control-label" for="textarea">Description</label>
 		  <div class="col-md-4">                     
-		    <textarea class="form-control" id="textarea" name="textarea"></textarea>
+		    <textarea class="form-control" id="textarea" name="rest_desc"></textarea>
 		  </div>
 		</div>
 
