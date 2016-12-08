@@ -21,11 +21,11 @@ $rate=$_POST['rate'];
 	$response=json_decode($response_json, true);
   var_dump($response);
 
-    if ($response['status']==1){
-         header('Location: https://whatsdown-d627f.appspot.com/restaurant/?id='.$restaurant_ID.);
-      exit;
-     } else {
-	 echo "Something went wrong";
-    }
+  //   if ($response['status']==1){
+  //        header('Location: https://whatsdown-d627f.appspot.com/restaurant/?id='.$restaurant_ID.);
+  //     exit;
+  //    } else {
+	//  echo "Something went wrong";
+  //  }
 
 ?>
