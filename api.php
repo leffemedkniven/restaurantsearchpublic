@@ -322,8 +322,7 @@
 
 		    $original = $root_path . $name;
 		    if(move_uploaded_file($_FILES['file']['tmp_name'], $original)){
-		      echo "File is valid, and was successfully uploaded.\n";
-					//$response=array('status' => 1, 'info' =>'Image uploaded.');
+					$response=array('info' =>'Image uploaded.');
 					$public_urls[] = [
 								'name' => $name,
 								'original' => CloudStorageTools::getImageServingUrl($original),
@@ -344,7 +343,7 @@
 
 				}
 				else {
-		    echo "Possible file upload attack!\n";
+		    $response=array('info' =>'Something went wrong, please try again.');
 		    }
 
 		} else {

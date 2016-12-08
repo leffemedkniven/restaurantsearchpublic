@@ -169,6 +169,7 @@
                 async: false,
                 success: function (data) {
                     alert(data)
+                    window.location = "https://whatsdown-d627f.appspot.com/restaurant/?id="+id;
                 },
                 cache: false,
                 contentType: false,
