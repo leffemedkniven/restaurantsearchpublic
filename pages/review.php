@@ -1,18 +1,9 @@
 <?php
-
-
 $user_ID=$_POST['user_ID'];
 $restaurant_ID=$_POST['restaurant_ID'];
 $review=$_POST['review'];
 $rate=$_POST['rate'];
 
-echo "Test";
-echo($user_ID);
-echo($restaurant_ID);
-echo($review);
-echo($rate);
-
-/*
 	$data=array(
 		'user_ID' => $user_ID,
 		'restaurant_ID' => $rest_ID,
@@ -28,5 +19,7 @@ echo($rate);
 	$response_json = curl_exec($ch);
 	curl_close($ch);
 	$response=json_decode($response_json, true);	
-*/
+
+header('Location: https://whatsdown-d627f.appspot.com/restaurant/?id='.$restaurant_ID.);
+die();
 ?>
