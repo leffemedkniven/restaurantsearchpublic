@@ -19,7 +19,7 @@ $rate=$_POST['rate'];
 	$response_json = curl_exec($ch);
 	curl_close($ch);
 	$response=json_decode($response_json, true);
-
+  var_dump($response);
 
 
 	// echo "slut";
