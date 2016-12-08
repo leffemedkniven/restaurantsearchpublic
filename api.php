@@ -338,7 +338,7 @@
 					$query->bindParam(':id', $restaurant_ID);
 
 					if($query->execute()){
-						$response=array('info' =>'Picture added.');
+						//$response=array('info' =>'Picture added.');
 					}
 					else{
 						$response=array('info' =>'Addition failed, please try again.');
