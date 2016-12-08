@@ -103,25 +103,26 @@
 
 		<script>
 			function reviewFunction() {
-				var rev = document.getElementById('message').value;
-				var uID = document.getElementById('user_ID').value;
-				var rID = document.getElementById('rest_ID').value;
+				var review = document.getElementById('message').value;
+				var user_ID = document.getElementById('user_ID').value;
+				var restaurant_ID = document.getElementById('rest_ID').value;
 
 				var rates = document.getElementsByName('rate');
-				var rate;
+				var rating;
 				
 				for(var i = 0; i < rates.length; i++){
 				    if(rates[i].checked){
-					rate = rates[i].value;
+					rating = rates[i].value;
 				    }
 				}
 			
-			$.ajax({
+			/*$.ajax({
 			url: 'https://whatsdown-d627f.appspot.com/api/?insertReview=1',
-			type: 'post',
-			data: {"user_ID": uID, "restaurant_ID": rID, "rating": rate, "review": rev},
-			success: function(response) { console.log(response); }
-			});
+			type: 'POST',
+			data: {user_ID : user_ID, restaurant_ID : restaurant_ID, rating : rating, review : review},
+			success: function() { alert("OK");}
+			*/});
+			$.post("https://whatsdown-d627f.appspot.com/api/?insertReview=1", {user_ID : user_ID, restaurant_ID : restaurant_ID, rating : rating, review : review}, function(){alert("OK")});
 				location.reload(); 
 			}
 		</script>
