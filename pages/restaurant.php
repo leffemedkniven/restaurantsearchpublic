@@ -3,6 +3,7 @@
 
 <head>
 <?php 	session_start();
+	$user_ID = 1;
 	$rest_ID = $_GET['id'];
 	$url = 'https://whatsdown-d627f.appspot.com/api/?restaurant_ID='.$rest_ID;
 	$ch = curl_init($url);
@@ -98,10 +99,10 @@
 		<script>
 			function reviewFunction() {
 				var rev = document.getElementById('message').value;
-				//var uID = document.getElementById('user_ID').value;
+				var uID = document.getElementById('user_ID').value;
 				//var rID = document.getElementById('rest_ID').value;
 				//var rate = document.getElementById('rating').value;
-				alert(rev);
+				alert(uID);
 			//	$.ajax({
 			//url: 'https://whatsdown-d627f.appspot.com/api/?restaurantReviews=1',
 			//	    type: 'post',
