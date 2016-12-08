@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Restaurants</title>
+    <title>Restaurantsearch</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../static/bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -133,7 +133,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>© 2016 Company, Inc.</p>
+                    <p>© 2016 Restaurantsearch</p>
                 </div>
             </div>
         </footer>
