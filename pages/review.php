@@ -1,9 +1,11 @@
 <?php
 
-$user_ID=$_POST['user_ID'];
-$restaurant_ID=$_POST['restaurant_ID'];
-$review=$_POST['review'];
-$rating=$_POST['rating'];
+
+
+$user_ID=$_GET['user_ID'];
+$restaurant_ID=$_GET['restaurant_ID'];
+$review=$_GET['review'];
+$rating=$_GET['rating'];
 
 	$data=array(
 		'user_ID' => $user_ID,
@@ -20,4 +22,5 @@ $rating=$_POST['rating'];
 	$response_json = curl_exec($ch);
 	curl_close($ch);
 	$response=json_decode($response_json, true);
+	
 ?>
