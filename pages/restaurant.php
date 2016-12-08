@@ -87,11 +87,11 @@
                                         <div class="message-text">
                                             <textarea class="no-resize-bar form-control" id="message" rows="2" placeholder="Write a review"></textarea>
 				<form>
-			<input type="radio" name="rate" id="rating" value="1" checked="checked"> 1
-  			<input type="radio" name="rate" id="rating" value="2"> 2
-  			<input type="radio" name="rate" id="rating" value="3"> 3
-			<input type="radio" name="rate" id="rating" value="4"> 4
-			<input type="radio" name="rate" id="rating" value="5"> 5
+			<input type="radio" name="rate" id="r1" value="1" checked> 1
+  			<input type="radio" name="rate" id="r2" value="2"> 2
+  			<input type="radio" name="rate" id="r3" value="3"> 3
+			<input type="radio" name="rate" id="r4" value="4"> 4
+			<input type="radio" name="rate" id="r5" value="5"> 5
 			<input type="hidden" id="rest_ID" value="<?php echo $rest_ID; ?>" />
 			<input type="hidden" id="user_ID" value="<?php echo $user_ID; ?>" />
                                 </form>     </div>
@@ -107,8 +107,9 @@
 				var uID = document.getElementById('user_ID').value;
 				var rID = document.getElementById('rest_ID').value;
 
-				var rates = document.getElementsById('rating');
+				var rates = document.getElementsByName('rate');
 				var rate;
+				
 				for(var i = 0; i < rates.length; i++){
 				    if(rates[i].checked){
 					rate = rates[i].value;
