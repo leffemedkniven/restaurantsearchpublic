@@ -13,9 +13,11 @@ for(var i = 0; i < rates.length; i++){
 }
 
 echo $user_ID;
+echo $restaurant_ID;
 echo $review;
 echo $rating;
 
+/*
 	$data=array(
 		'user_ID' => $user_ID,
 		'restaurant_ID' => $rest_ID,
@@ -31,4 +33,5 @@ echo $rating;
 	$response_json = curl_exec($ch);
 	curl_close($ch);
 	$response=json_decode($response_json, true);	
+*/
 ?>

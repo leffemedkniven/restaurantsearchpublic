@@ -86,7 +86,7 @@
                                     <div class="send-message">
                                         <div class="message-text">
                                             
-				<form action="review.php" method="post" id="reviewform">
+				<form action="'https://whatsdown-d627f.appspot.com/pages/review.php" method="post" id="reviewform">
 				<input type="radio" name="rate" id="r1" value="1" checked> 1
   				<input type="radio" name="rate" id="r2" value="2"> 2
   				<input type="radio" name="rate" id="r3" value="3"> 3
