@@ -128,17 +128,12 @@
 
                 </div>
 
-            </div>
+           
 
 
 
         <hr>
-
-
-    </div>
-    <!-- /.container -->
-
-        <!-- Footer -->
+       <!-- Footer -->
         <footer>
             <div class="row">
                 <div class="col-lg-12">
@@ -146,6 +141,12 @@
                 </div>
             </div>
         </footer>
+
+ </div>
+    </div>
+    <!-- /.container -->
+
+ 
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
