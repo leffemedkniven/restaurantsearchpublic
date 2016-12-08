@@ -22,7 +22,7 @@ $rate=$_POST['rate'];
   var_dump($response);
 
   //   if ($response['status']==1){
-  //        header('Location: https://whatsdown-d627f.appspot.com/restaurant/?id='.$restaurant_ID.);
+  header('Location: https://whatsdown-d627f.appspot.com/restaurant/?id='.$restaurant_ID.);
   //     exit;
   //    } else {
 	//  echo "Something went wrong";
