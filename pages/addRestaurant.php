@@ -18,7 +18,7 @@ $description=$_POST['rest_desc'];
 	$response_json = curl_exec($ch);
 	curl_close($ch);
 	$response=json_decode($response_json, true);
-  var_dump($response)
+  var_dump($response);
 	//header("Location: https://whatsdown-d627f.appspot.com/pages/admin.php");
 	die();
 
