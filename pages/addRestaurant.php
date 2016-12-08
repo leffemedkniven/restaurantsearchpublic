@@ -21,6 +21,6 @@ $description=$_POST['rest_desc'];
 	var_dump($response);
 
 	header('Location: https://whatsdown-d627f.appspot.com/pages/admin.php);
-	exit;
+	//exit;
 
 ?>
