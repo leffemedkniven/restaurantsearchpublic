@@ -322,7 +322,8 @@
 
 		    $original = $root_path . $name;
 		    if(move_uploaded_file($_FILES['file']['tmp_name'], $original)){
-					$response=array('info' =>'Image uploaded.');
+		      echo "File is valid, and was successfully uploaded.\n";
+					$response=array('status' => 1, 'info' =>'Image uploaded.');
 					$public_urls[] = [
 								'name' => $name,
 								'original' => CloudStorageTools::getImageServingUrl($original),
@@ -336,14 +337,16 @@
 					$query->bindParam(':pic',$original);
 					$query->bindParam(':id', $restaurant_ID);
 
-					if(!$query->execute()){
+					if($query->execute()){
+						$response=array('info' =>'Picture added.');
+					}
+					else{
 						$response=array('info' =>'Addition failed, please try again.');
 					}
 
-
 				}
 				else {
-		    $response=array('info' =>'Something went wrong, please try again.');
+		    echo "Possible file upload attack!\n";
 		    }
 
 		} else {
@@ -351,5 +354,4 @@
 		}
 			header('Content-Type: application/json');
 			echo json_encode($response);
-			header("Location: https://whatsdown-d627f.appspot.com/restaurant/?id=".$restaurant_ID);
 	}

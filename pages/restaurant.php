@@ -168,7 +168,7 @@
                 data: formData,
                 async: false,
                 success: function (data) {
-                    //alert(data)
+                    alert(data)
                     window.location = "https://whatsdown-d627f.appspot.com/restaurant/?id="+rest_ID;
                 },
                 cache: false,
