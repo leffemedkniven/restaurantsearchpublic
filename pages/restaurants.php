@@ -41,7 +41,7 @@
       	<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
           </ul>
         </nav>
-        <h3 class="text-muted">Restaurants</h3>
+        <h3 class="text-muted">Restaurantsearch</h3>
       </div>
 
       <div class="jumbotron">
