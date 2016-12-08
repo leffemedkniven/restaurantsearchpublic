@@ -116,7 +116,7 @@
 				    }
 				}
 			
-			//$.post("/api/?insertReview=1", {user_ID : user_ID, restaurant_ID : restaurant_ID, rating : rating, review : review});
+			$.post("/api/?insertReview=1", {user_ID : user_ID, restaurant_ID : restaurant_ID, rating : rating, review : review});
 	
 				alert("slut");
 			}
