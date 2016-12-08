@@ -1,6 +1,6 @@
 <?php
 $name=$_POST['rest_name'];
-$location=$_POST['rest_loc'];
+$ocation=$_POST['rest_loc'];
 $description=$_POST['rest_desc'];
 
 
@@ -21,6 +21,6 @@ $description=$_POST['rest_desc'];
 	var_dump($response);
 
 	header('Location: https://whatsdown-d627f.appspot.com/pages/admin.php);
-	//exit;
+	die();
 
 ?>
