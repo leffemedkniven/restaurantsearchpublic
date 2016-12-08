@@ -6,12 +6,7 @@ $restaurant_ID=$_POST['restaurant_ID'];
 $review=$_POST['review'];
 $rate=$_POST['rating'];
 
-for(var i = 0; i < rates.length; i++){
-	if(rates[i].checked){	
-		rating = rates[i].value;
-	}
-}
-
+echo "Test";
 echo $user_ID;
 echo $restaurant_ID;
 echo $review;
