@@ -316,9 +316,9 @@
 		$root_path = 'gs://' . $bucket . '/' . $_SERVER["REQUEST_ID_HASH"] . '/';
 
 
-		//$file=$_POST['file'];
-
-		$name = $_FILES['file']['name'];
+		$file=$_POST['file'];
+		print_r($file);
+		$name = $_FILES[$file]['name'];
 		$public_urls = [];
 		//foreach($_FILES[$file]['name'] as $idx => $name) {
 		if ($_FILES[$file]['type'] === 'image/jpeg' || $_FILES[$file]['type'] === 'image/png') {
