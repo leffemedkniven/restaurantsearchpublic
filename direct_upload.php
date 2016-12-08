@@ -5,7 +5,7 @@
 </head>
 <body>
 <form id="data" method="POST" enctype="multipart/form-data">
-  Send these dicks:<p/>
+  Send this dig bick:<p/>
   <input name="file" type="file" /><p/>
   <input type="submit" value="Upload image" />
 </form>
@@ -16,7 +16,7 @@ $("#data").submit(function(e) {
         var formData = new FormData($(this)[0]);
 
         $.ajax({
-            url: "https://whatsdown-d627f.appspot.com/api/?uploadImage=1",
+            url: "https://whatsdown-d627f.appspot.com/api/?uploadImage=2",
             type: "POST",
             data: formData,
             async: false,
