@@ -194,6 +194,7 @@
 
 	  if($query->execute()){
 	    $response=array('status' => 1, 'info' =>'Review added.');
+			print_r($_POST);
 	  }
 		else{
 			$response=array('status' => 0, 'info' =>'Addition failed, please try again.');
@@ -344,6 +345,7 @@
 					if($query->execute()){
 						$response=array('info' =>'Picture added.');
 						print_r($_FILES);
+						print_r($_POST);
 						//print_r($file);
 					}
 					else{
