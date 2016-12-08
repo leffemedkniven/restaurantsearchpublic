@@ -1,20 +1,20 @@
 <?php
-$restaurant_ID=$_POST['restaurant_ID'];
+$name=$_POST['rest_name'];
 $location=$_POST['rest_loc'];
 $description=$_POST['rest_desc'];
 
-echo $restaurant_ID;
+echo $name;
 echo $location;
 echo $description;
 
 
 	$data=array(
-		'restaurant_ID' => $restaurant_ID,
+		'name' => $name,
 		'description' => $description,
 		'location' => $location,
 	);
 /*
-	$url = 'https://whatsdown-d627f.appspot.com/api/?insertReview=1';
+	$url = 'https://whatsdown-d627f.appspot.com/api/?insertRestaurant=1';
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_POST, true);
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
@@ -25,7 +25,7 @@ echo $description;
   var_dump($response);
 
     if ($response['status']==1){
-         header('Location: https://whatsdown-d627f.appspot.com/restaurant/?id='.$restaurant_ID.);
+         header('Location: https://whatsdown-d627f.appspot.com/pages/admin.php);
       exit;
      } else {
 	 echo "Something went wrong";
