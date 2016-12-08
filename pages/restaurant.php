@@ -86,43 +86,19 @@
                                     <div class="send-message">
                                         <div class="message-text">
                                             
-				<form>
-			<input type="radio" name="rate" id="r1" value="1" checked> 1
-  			<input type="radio" name="rate" id="r2" value="2"> 2
-  			<input type="radio" name="rate" id="r3" value="3"> 3
-			<input type="radio" name="rate" id="r4" value="4"> 4
-			<input type="radio" name="rate" id="r5" value="5"> 5
-			<input type="hidden" id="rest_ID" value="<?php echo $rest_ID; ?>" />
-			<input type="hidden" id="user_ID" value="<?php echo $user_ID; ?>" />
-			<textarea class="no-resize-bar form-control" id="message" rows="2" placeholder="Write a review"></textarea>
+				<form action="review.php" method="post" id="reviewform">
+				<input type="radio" name="rate" id="r1" value="1" checked> 1
+  				<input type="radio" name="rate" id="r2" value="2"> 2
+  				<input type="radio" name="rate" id="r3" value="3"> 3
+				<input type="radio" name="rate" id="r4" value="4"> 4
+				<input type="radio" name="rate" id="r5" value="5"> 5
+				<input type="hidden" id="rest_ID" value="<?php echo $rest_ID; ?>" />
+				<input type="hidden" id="user_ID" value="<?php echo $user_ID; ?>" />
+				<textarea class="no-resize-bar form-control" id="message" rows="2" placeholder="Write a review"></textarea>
+			<input type=submit value="submit">
                                 </form>     </div>
                                     </div>
                                 </div>
-                    <div class="text-right">
-                        <a class="btn btn-default" role="button" onclick="reviewFunction()">Leave a Review</a>
-                    </div>
-
-		<script>
-			function reviewFunction() {
-				var review = document.getElementById('message').value;
-				var user_ID = document.getElementById('user_ID').value;
-				var restaurant_ID = document.getElementById('rest_ID').value;
-
-				var rates = document.getElementsByName('rate');
-				var rating;
-				
-				for(var i = 0; i < rates.length; i++){
-				    if(rates[i].checked){
-					rating = rates[i].value;
-				    }
-				}
-				window.location = "https://whatsdown-d627f.appspot.com/restaurant/?user_ID="+userID+"+s;
-			//$.post("/api/?insertReview=1", {user_ID : user_ID, restaurant_ID : restaurant_ID, rating : rating, review : review});
-	
-				alert("slut");
-			}
-		</script>
-
                     <hr>
 
 		    <?php

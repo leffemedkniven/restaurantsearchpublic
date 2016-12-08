@@ -1,11 +1,20 @@
 <?php
 
 
+$user_ID=$_POST['user_ID'];
+$restaurant_ID=$_POST['restaurant_ID'];
+$review=$_POST['review'];
+$rate=$_POST['rating'];
 
-$user_ID=$_GET['user_ID'];
-$restaurant_ID=$_GET['restaurant_ID'];
-$review=$_GET['review'];
-$rating=$_GET['rating'];
+for(var i = 0; i < rates.length; i++){
+	if(rates[i].checked){	
+		rating = rates[i].value;
+	}
+}
+
+echo $user_ID;
+echo $review;
+echo $rating;
 
 	$data=array(
 		'user_ID' => $user_ID,
@@ -21,6 +30,5 @@ $rating=$_GET['rating'];
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	$response_json = curl_exec($ch);
 	curl_close($ch);
-	$response=json_decode($response_json, true);
-	
+	$response=json_decode($response_json, true);	
 ?>
