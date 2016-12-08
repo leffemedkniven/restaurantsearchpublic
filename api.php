@@ -54,7 +54,9 @@
 				insert_user();
 			}
 			else if(!empty($_GET["uploadImage"])){
-				upload_image();
+				$restaurant_ID=intval($_GET["uploadImage"]);
+
+				upload_image($restaurant_ID);
 			}
 			else {
 				header("HTTP/1.0 405 Method Not Allowed");
@@ -306,7 +308,7 @@
 		echo json_encode($response);
 	}
 
-	function upload_image()
+	function upload_image($restaurant_ID)
 	{
 		global $connection;
 
@@ -315,8 +317,6 @@
 
 
 		$file=$_POST['file'];
-		$restaurant_ID=$_POST['restaurant_ID'];
-
 
 		$name = $_FILES[$file]['name'];
 		$public_urls = [];
@@ -342,10 +342,11 @@
 					$query->bindParam(':id', $restaurant_ID);
 
 					if($query->execute()){
-						$response=array('status' => 1, 'info' =>'user added.');
+						$response=array('info' =>'Picture added.');
+						print_r($_FILES);
 					}
 					else{
-						$response=array('status' => 0, 'info' =>'Addition failed, please try again.');
+						$response=array('info' =>'Addition failed, please try again.');
 					}
 
 				}
