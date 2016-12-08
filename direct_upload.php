@@ -20,9 +20,9 @@ $("#data").submit(function(e) {
             type: "POST",
             data: formData,
             async: false,
-            // success: function (data) {
-            //     alert(data)
-            // },
+            success: function (data) {
+                alert(data)
+            },
             cache: false,
             contentType: false,
             processData: false
