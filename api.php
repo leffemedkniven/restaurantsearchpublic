@@ -194,10 +194,12 @@
 
 	  if($query->execute()){
 	    $response=array('status' => 1, 'info' =>'Review added.');
+
 	  }
 		else{
 			$response=array('status' => 0, 'info' =>'Addition failed, please try again.');
 		}
+		print_r($_POST);
 
 		header('Content-Type: application/json');
 		echo json_encode($response);
@@ -317,7 +319,7 @@
 
 
 		//$file=$_POST['file'];
-		$restaurant_ID
+		print_r($restaurant_ID);
 		$name = $_FILES['file']['name'];
 		$public_urls = [];
 		//foreach($_FILES[$file]['name'] as $idx => $name) {
@@ -344,6 +346,7 @@
 					if($query->execute()){
 						$response=array('info' =>'Picture added.');
 						print_r($_FILES);
+						print_r($_POST);
 						//print_r($file);
 					}
 					else{
