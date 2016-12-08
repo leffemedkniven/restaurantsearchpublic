@@ -92,9 +92,9 @@
   				<input type="radio" name="rate" id="r3" value="3"> 3
 				<input type="radio" name="rate" id="r4" value="4"> 4
 				<input type="radio" name="rate" id="r5" value="5"> 5
-				<input type="hidden" id="rest_ID" value="<?php echo $rest_ID; ?>" />
-				<input type="hidden" id="user_ID" value="<?php echo $user_ID; ?>" />
-				<textarea class="no-resize-bar form-control" id="message" rows="2" placeholder="Write a review"></textarea>
+				<input type="hidden" name="restaurant_ID" id="restarant_ID" value="<?php echo $rest_ID; ?>" />
+				<input type="hidden" name="user_ID" id="user_ID" value="<?php echo $user_ID; ?>" />
+				<textarea class="no-resize-bar form-control" name="review" id="review" rows="2" placeholder="Write a review"></textarea>
 			<input type=submit value="submit">
                                 </form>     </div>
                                     </div>
