@@ -70,8 +70,6 @@
 
         <div class="row">
 
-            <div class="col-md-9">
-
                 <div class="thumbnail">
                     <img class="img-responsive" src="http://placehold.it/800x300" alt="">
                     <div class="caption-full">
@@ -132,10 +130,13 @@
 
             </div>
 
-        </div>
 
 
         <hr>
+
+
+    </div>
+    <!-- /.container -->
 
         <!-- Footer -->
         <footer>
@@ -145,9 +146,6 @@
                 </div>
             </div>
         </footer>
-
-    </div>
-    <!-- /.container -->
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
