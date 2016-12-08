@@ -115,14 +115,14 @@
 					rate = rates[i].value;
 				    }
 				}
-				alert(rate);
-			//	$.ajax({
-			//url: 'https://whatsdown-d627f.appspot.com/api/?restaurantReviews=1',
-			//	    type: 'post',
-			//data: {"user_ID": uID, "restaurant_ID": rID, "rating": rate, "review": rev},
-			//	    success: function(response) { console.log(response); }
-			//	});
-			//	location.reload(); 
+			
+				$.ajax({
+			url: 'https://whatsdown-d627f.appspot.com/api/?restaurantReviews=1',
+				    type: 'post',
+			data: {"user_ID": uID, "restaurant_ID": rID, "rating": rate, "review": rev},
+				    success: function(response) { console.log(response); }
+				});
+				location.reload(); 
 			}
 		</script>
 
