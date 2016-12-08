@@ -71,6 +71,7 @@
 		    <textarea class="form-control" id="textarea" name="rest_desc"></textarea>
 		  </div>
 		</div>
+		<input type=submit value="submit">
 
 		</fieldset>
 		</form>
