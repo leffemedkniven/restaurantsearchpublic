@@ -317,7 +317,7 @@
 
 
 		$file=$_POST['file'];
-		print_r($file);
+
 		$name = $_FILES[$file]['name'];
 		$public_urls = [];
 		//foreach($_FILES[$file]['name'] as $idx => $name) {
@@ -344,6 +344,7 @@
 					if($query->execute()){
 						$response=array('info' =>'Picture added.');
 						print_r($_FILES);
+						print_r($file);
 					}
 					else{
 						$response=array('info' =>'Addition failed, please try again.');
