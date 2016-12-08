@@ -20,6 +20,6 @@ $rate=$_POST['rate'];
 	curl_close($ch);
 	$response=json_decode($response_json, true);	
 
-header('Location: https://whatsdown-d627f.appspot.com/restaurant/?id='.$restaurant_ID.);
-die();
+//header('Location: https://whatsdown-d627f.appspot.com/restaurant/?id='.$restaurant_ID.);
+//die();
 ?>
