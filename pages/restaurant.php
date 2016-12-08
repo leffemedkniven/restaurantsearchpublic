@@ -63,7 +63,7 @@
 		$rest_name = $row['name'];
 		$rest_desc = $row['description'];
 		$rest_loc = $row['location'];
-		//$rest_pic = $row['picture'];
+		$rest_pic = $row['picture'];
 
 	}
 ?>
@@ -71,7 +71,7 @@
         <div class="row">
 
                 <div class="thumbnail">
-                    <img class="img-responsive" src="http://placehold.it/800x300" alt="">
+                    <img class="img-responsive" src="<?php echo $rest_pic ?>" alt="">
                     <div class="caption-full">
                         <h4 class="pull-right"><?php echo $rest_loc;?></h4>
                         <h4><?php echo $rest_name;?></h4>
@@ -80,7 +80,7 @@
                     <div class="imageupload">
                       <center>
                       <form id="data" method="POST" enctype="multipart/form-data">
-                        Send this dig bick:<p/>
+                        Upload image:<p/>
                         <input name="file" type="file" /><p/>
                         <input type="hidden" name="restaurant_ID" id="restaurant_ID" value="<?php echo $rest_ID; ?>" />
                         <input type="submit" value="Upload image" />
