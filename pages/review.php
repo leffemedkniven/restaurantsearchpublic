@@ -10,7 +10,7 @@ $rate=$_POST['rate'];
 		'review' => $review,
 		'rating' => $rate,
 	);
-				
+
 	$url = 'https://whatsdown-d627f.appspot.com/api/?insertReview=1';
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_HTTPPOST, true);
