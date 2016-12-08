@@ -3,6 +3,7 @@
 
 <head>
   <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -76,11 +77,12 @@
                         <h4><?php echo $rest_name;?></h4>
                         <p><?php echo $rest_desc;?> </p>
                     </div>
-                    <div class="ratings">
-                        <p class="pull-right">n reviews</p>
-                        <p>
-                            Rating
-                        </p>
+                    <div class="imageupload">
+                      <form id="data" method="POST" enctype="multipart/form-data">
+                        Send this dig bick:<p/>
+                        <input name="file" type="file" /><p/>
+                        <input type="submit" value="Upload image" />
+                      </form>
                     </div>
                 </div>
 
@@ -150,5 +152,27 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+
+    <script>
+    $("#data").submit(function(e) {
+            var formData = new FormData($(this)[0]);
+
+            $.ajax({
+                url: "https://whatsdown-d627f.appspot.com/api/?uploadImage=15",
+                type: "POST",
+                data: formData,
+                async: false,
+                success: function (data) {
+                    alert(data)
+                },
+                cache: false,
+                contentType: false,
+                processData: false
+            });
+
+            e.preventDefault();
+        })
+    </script>
+
 
 </body>
