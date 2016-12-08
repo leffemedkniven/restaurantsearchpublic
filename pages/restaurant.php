@@ -87,7 +87,7 @@
                                         <div class="message-text">
                                             <textarea class="no-resize-bar form-control" id="message" rows="2" placeholder="Write a review"></textarea>
 				<form>
-				<input type="radio" id="rating" value="1"> 1
+				<input type="radio" id="rating" value="1" checked="checked"> 1
   				<input type="radio" id="rating" value="2"> 2
   				<input type="radio" id="rating" value="3"> 3
 				<input type="radio" id="rating" value="4"> 4
@@ -106,7 +106,14 @@
 				var rev = document.getElementById('message').value;
 				var uID = document.getElementById('user_ID').value;
 				var rID = document.getElementById('rest_ID').value;
-				var rate = document.getElementById('rating').value;
+
+				var rates = document.getElementsById('rating');
+				var rate;
+				for(var i = 0; i < rates.length; i++){
+				    if(rates[i].checked){
+					rate = rates[i].value;
+				    }
+				}
 				alert(rate);
 			//	$.ajax({
 			//url: 'https://whatsdown-d627f.appspot.com/api/?restaurantReviews=1',
@@ -114,6 +121,7 @@
 			//data: {"user_ID": uID, "restaurant_ID": rID, "rating": rate, "review": rev},
 			//	    success: function(response) { console.log(response); }
 			//	});
+			//	location.reload(); 
 			}
 		</script>
 
