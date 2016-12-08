@@ -1,14 +1,15 @@
 <?php
 
-$new_rev = $_GET['rev'];
-echo($new_rev);
-/*				
-	if(new_rev!=null) {
+$user_ID=$_POST['user_ID'];
+$restaurant_ID=$_POST['restaurant_ID'];
+$review=$_POST['review'];
+$rating=$_POST['rating'];
+
 	$data=array(
-		'user_ID' => 1,
+		'user_ID' => $user_ID,
 		'restaurant_ID' => $rest_ID,
-		'review' => rev,
-		'rating' => 4
+		'review' => $review,
+		'rating' => $rating
 	);
 				
 	$url = 'https://whatsdown-d627f.appspot.com/api/?insertReview=1';
@@ -19,5 +20,4 @@ echo($new_rev);
 	$response_json = curl_exec($ch);
 	curl_close($ch);
 	$response=json_decode($response_json, true);
-*/
 ?>

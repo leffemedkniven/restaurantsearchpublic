@@ -122,7 +122,7 @@
 			data: {user_ID : user_ID, restaurant_ID : restaurant_ID, rating : rating, review : review},
 			success: function() { alert("OK");}
 			*/});
-			$.post("https://whatsdown-d627f.appspot.com/api/?insertReview=1", {user_ID : user_ID, restaurant_ID : restaurant_ID, rating : rating, review : review}, function(){alert("OK")});
+			$.post("https://whatsdown-d627f.appspot.com/pages/review.php", {user_ID : user_ID, restaurant_ID : restaurant_ID, rating : rating, review : review}, function(){alert("OK")});
 				location.reload(); 
 			}
 		</script>
