@@ -157,13 +157,13 @@
 	{
 		global $connection;
 		$name=$_POST['name'];
-		$picture=$_POST['picture'];
+		//$picture=$_POST['picture'];
 		$description=$_POST['description'];
 		$location=$_POST['location'];
 
-		$query=$connection->prepare('INSERT INTO restaurants(name, picture, description, location) VALUES (:name, :picture, :description, :location)');
+		$query=$connection->prepare('INSERT INTO restaurants(name, description, location) VALUES (:name, :description, :location)');
 		$query->bindParam(':name',$name);
-		$query->bindParam(':picture',$picture);
+		//$query->bindParam(':picture',$picture);
 		$query->bindParam(':description',$description);
 		$query->bindParam(':location',$location);
 
