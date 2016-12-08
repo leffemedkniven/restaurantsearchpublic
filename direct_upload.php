@@ -4,55 +4,36 @@ if (strncmp("5.5", phpversion(), strlen("5.5")) != 0) {
   die("Direct uploads require the PHP 5.5 runtime. Your runtime: " . phpversion());
 }
 ?>
+
 <html>
+<head
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
 <body>
-<form action="" method="POST" enctype="multipart/form-data">
+<form id="data" method="POST" enctype="multipart/form-data">
   Send these files:<p/>
-  <input name="userfile[]" type="file" multiple="multiple"/><p/>
-  <input type="submit" value="Send files" />
+  <input name="file" type="file" /><p/>
+  <input type="submit" value="Upload image" />
 </form>
 </body>
 </html>
+<script>
+$("#data").submit(function(e) {
+        var formData = new FormData($(this)[0]);
 
-<?php
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        $.ajax({
+            url: "https://whatsdown-d627f.appspot.com/api/?uploadImage=1",
+            type: "POST",
+            data: formData,
+            async: false,
+            success: function (data) {
+                alert(data)
+            },
+            cache: false,
+            contentType: false,
+            processData: false
+        });
 
-// $tmpfile = $_FILES['userfile']['tmp_name'];
-// $filename = basename($_FILES['userfile']['name']);
-// $data = array(
-  //'uploaded_file' => curl_file_create($tmpfile, $_FILES['userfile']['type'], $filename
-//);
-//
-//
-//   $url = 'https://whatsdown-d627f.appspot.com/api/?uploadImage=1';
-//   $ch = curl_init($url);
-//   curl_setopt($ch, CURLOPT_POST, true);
-//   curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-//   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-//   $response_json = curl_exec($ch);
-//   curl_close($ch);
-//   $response=json_decode($response_json, true);
-
- $tmpfile = $_FILES['userfile']['tmp_name'];
- $filename = basename($_FILES['userfile']['name']);
- $filetype = $_FILES['userfile']['type'];
-
- // Connecting to external api via cURL
- $curl_handle = curl_init("https://whatsdown-d627f.appspot.com/api/?uploadImage=1");
- curl_setopt($curl_handle, CURLOPT_POST, 1);
- echo "dick1";
- $args['file'] = new CurlFile($tmpfile, $filetype, $filename);
- echo "dick2";
- curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $args);
- echo "dick3";
- curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
- echo "dick4";
- //execute the API Call
- $returned_data = curl_exec($curl_handle);
- echo "dick5";
- curl_close ($curl_handle);
-echo "dick6";
- echo $returned_data;
-}
-
-?>
+        e.preventDefault();
+    })
+</script>
