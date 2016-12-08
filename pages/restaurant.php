@@ -58,10 +58,6 @@
         </nav>
      </div>
 
-
-    <!-- Page Content -->
-    <div class="container">
-
         <div class="row">
 
             <div class="col-md-9">
@@ -121,32 +117,13 @@
 	    		}
 
 		    ?>
-<!--
-                    <div class="row">
-                        <div class="col-md-12">
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            Anonymous
-                            <span class="pull-right">10 days ago</span>
-                            <p>This product was great in terms of quality. I would definitely buy another!</p>
-                        </div>
-                    </div>
 
-                    <hr>
--->
                 </div>
 
             </div>
 
         </div>
 
-    </div>
-    <!-- /.container -->
-
-    <div class="container">
 
         <hr>
 
