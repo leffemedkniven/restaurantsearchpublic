@@ -317,7 +317,7 @@
 
 
 		//$file=$_POST['file'];
-
+		print_r($restaurant_ID);
 		$name = $_FILES['file']['name'];
 		$public_urls = [];
 		//foreach($_FILES[$file]['name'] as $idx => $name) {
