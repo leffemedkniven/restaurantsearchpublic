@@ -78,7 +78,7 @@
       // Logged into your app and Facebook.
       testAPI();
 	FB.api('/me', function(response) {
-		var temp = [response.name, response.id];
+		var name = JSON.stringify(response.name);
 		$.ajax({
 		  type: "POST",
 		  url: 'https://whatsdown-d627f.appspot.com/login.php',
@@ -88,12 +88,12 @@
         alert(" Can't do because: " + error);
       },
 		  success: function(data,status){
-                	alert("Data" + data[0] +"status"+status);
+                	alert("Data" + data +"status"+status);
 		              }
 
 	  });
   });
-	//window.location = "https://whatsdown-d627f.appspot.com/login.php";
+	window.location = "https://whatsdown-d627f.appspot.com/login.php";
 
 
 
