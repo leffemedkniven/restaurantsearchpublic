@@ -79,9 +79,11 @@
 	FB.api('/me', function(response) {
 	      var uName = response.name;
 	      var uID = response.id;	
+		$.post("/login.php", {name: uName, id:uID});
+		window.location = "https://whatsdown-d627f.appspot.com/login.php";
 	    });
-	$.post("/pages/restaurants.php", {name: uName, id:uID});
-      	window.location = "https://whatsdown-d627f.appspot.com/browse/";
+	
+      	
       
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
