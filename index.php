@@ -65,7 +65,6 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <script>
-  var resp;
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
@@ -74,15 +73,23 @@
     // app know the current login status of the person.
     // Full docs on the response object can be found in the documentation
     // for FB.getLoginStatus().
+    var data;
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       testAPI();
 	FB.api('/me', function(response) {
-	      resp = response;
+	      data = response.name;
 		
 	    });
-	$.post("https://whatsdown-d627f.appspot.com/login.php", {resp: resp});
-	window.location = "https://whatsdown-d627f.appspot.com/login.php";
+	alert(response.name);
+	$.ajax({
+	  type: "POST",
+	  url: login.php,
+	  data: data,
+	  success: success
+	});
+
+	window.location = "https://whatsdown-d627f.appspot.com/login.php;
 	
       	
       
