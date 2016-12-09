@@ -354,6 +354,6 @@
 			echo "Not a jpeg/png.\n";
 		  //$response=array('info' =>'Not a jpeg/png.');
 		}
-			header('Content-Type: application/json');
-			echo json_encode($response);
+			//header('Content-Type: application/json');
+			//echo json_encode($response);
 	}
