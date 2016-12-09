@@ -73,22 +73,18 @@
     // app know the current login status of the person.
     // Full docs on the response object can be found in the documentation
     // for FB.getLoginStatus().
-    var data;
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       testAPI();
 	FB.api('/me', function(response) {
-	      data = response.name;
+		$.ajax({
+		  type: "POST",
+		  url: login.php,
+		  data: response.name,
+		  success: success
+		});
 		
 	    });
-	alert(response.name);
-	$.ajax({
-	  type: "POST",
-	  url: login.php,
-	  data: data,
-	  success: success
-	});
-
 	window.location = "https://whatsdown-d627f.appspot.com/login.php";
 	
       	
