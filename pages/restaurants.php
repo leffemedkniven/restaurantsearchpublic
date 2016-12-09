@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <?php
 include('login.php'); // Includes Login Script
-if($_SESSION['user_id']==null){
-	echo "memes";
+if(empty($_SESSION['user_id'])){
+	echo "I WANNA FKN DIE";
 }
 ?>
 <html lang="en">
