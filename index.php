@@ -77,7 +77,7 @@
       // Logged into your app and Facebook.
       testAPI();
 	FB.api('/me', function(response) {
-	      $.post("/browse/", {name: response.name, id:response.id});
+	      $.post("/pages/restaurants.php", {name: response.name, id:response.id});
 	    });
 	
       window.location = "https://whatsdown-d627f.appspot.com/browse/";
