@@ -3,6 +3,7 @@
 
 <head>
   <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +12,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Restaurants</title>
+    <title>Restaurantsearch</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../static/bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -46,6 +47,7 @@
       	<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" 			data-auto-logout-link="true"></div>
           </ul>
         </nav>
+        <h3 class="text-muted">Restaurantsearch</h3>
      </div>
 <?php 	session_start();
 	$user_ID = 1;
@@ -61,7 +63,7 @@
 		$rest_name = $row['name'];
 		$rest_desc = $row['description'];
 		$rest_loc = $row['location'];
-		//$rest_pic = $row['picture'];
+		$rest_pic = $row['picture'];
 
 	}
 ?>
@@ -69,17 +71,22 @@
         <div class="row">
 
                 <div class="thumbnail">
-                    <img class="img-responsive" src="http://placehold.it/800x300" alt="">
+                    <img class="img-responsive" src="<?php echo $rest_pic ?>" alt="">
                     <div class="caption-full">
                         <h4 class="pull-right"><?php echo $rest_loc;?></h4>
                         <h4><?php echo $rest_name;?></h4>
                         <p><?php echo $rest_desc;?> </p>
                     </div>
-                    <div class="ratings">
-                        <p class="pull-right">n reviews</p>
-                        <p>
-                            Rating
-                        </p>
+                    <div class="imageupload">
+                      <center>
+                      <form id="data" method="POST" enctype="multipart/form-data">
+                        Upload image:<p/>
+                        <input name="file" type="file" /><p/>
+                        <input type="hidden" name="restaurant_ID" id="restaurant_ID" value="<?php echo $rest_ID; ?>" />
+                        <input type="submit" value="Upload image" />
+
+                      </form>
+                      </center>
                     </div>
                 </div>
 
@@ -133,7 +140,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>© 2016 Company, Inc.</p>
+                    <p>© 2016 Restaurantsearch</p>
                 </div>
             </div>
         </footer>
@@ -149,5 +156,29 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+
+    <script>
+    var rest_ID='<?php echo $rest_ID; ?>';
+    $("#data").submit(function(e) {
+            var formData = new FormData($(this)[0]);
+
+            $.ajax({
+                url: "https://whatsdown-d627f.appspot.com/api/?uploadImage="+rest_ID,
+                type: "POST",
+                data: formData,
+                async: false,
+                success: function (data) {
+                    alert(data)
+                    window.location = "https://whatsdown-d627f.appspot.com/restaurant/?id="+rest_ID;
+                },
+                cache: false,
+                contentType: false,
+                processData: false
+            });
+
+            e.preventDefault();
+        })
+    </script>
+
 
 </body>

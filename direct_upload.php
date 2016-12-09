@@ -5,7 +5,7 @@
 </head>
 <body>
 <form id="data" method="POST" enctype="multipart/form-data">
-  Send this dig bick:<p/>
+  Upload image:<p/>
   <input name="file" type="file" /><p/>
   <input type="submit" value="Upload image" />
 </form>

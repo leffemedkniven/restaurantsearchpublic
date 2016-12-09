@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Restaurants</title>
+    <title>Restaurantsearch</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../static/bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -41,7 +41,7 @@
       	<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
           </ul>
         </nav>
-        <h3 class="text-muted">Restaurants</h3>
+        <h3 class="text-muted">Restaurantsearch</h3>
       </div>
 
       <div class="jumbotron">
@@ -77,7 +77,7 @@
 
 
       <footer class="footer">
-        <p>&copy; 2016 Company, Inc.</p>
+        <p>&copy; 2016 Restaurantsearch</p>
       </footer>
    </div>
     </div> <!-- /container -->

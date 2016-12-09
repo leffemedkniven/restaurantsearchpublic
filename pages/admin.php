@@ -39,7 +39,7 @@
       	<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
           </ul>
         </nav>
-        <h3 class="text-muted">Restaurants</h3>
+        <h3 class="text-muted">Restaurantsearch</h3>
       </div>
 
 		<form class="form-horizontal" action="/pages/addRestaurant.php" method="post" id="addRestform">
@@ -50,7 +50,7 @@
 
 		<!-- Text input-->
 		<div class="form-group">
-		  <label class="col-md-4 control-label" for="textinput">Name</label>  
+		  <label class="col-md-4 control-label" for="textinput">Name</label>
 		  <div class="col-md-4">
 		  <input id="textinput" name="rest_name" placeholder="Name" class="form-control input-md" type="text">
 		  </div>
@@ -58,16 +58,16 @@
 
 		<!-- Text input-->
 		<div class="form-group">
-		  <label class="col-md-4 control-label" for="textinput">Location</label>  
+		  <label class="col-md-4 control-label" for="textinput">Location</label>
 		  <div class="col-md-4">
-		  <input id="textinput" name="rest_loc" placeholder="Location" class="form-control input-md" type="text"> 
+		  <input id="textinput" name="rest_loc" placeholder="Location" class="form-control input-md" type="text">
 		  </div>
 		</div>
 
 		<!-- Textarea -->
 		<div class="form-group">
 		  <label class="col-md-4 control-label" for="textarea">Description</label>
-		  <div class="col-md-4">                     
+		  <div class="col-md-4">
 		    <textarea class="form-control" id="textarea" name="rest_desc"></textarea>
 		  </div>
 		</div>
@@ -75,9 +75,9 @@
 
 		</fieldset>
 		</form>
-    
+
       <footer class="footer">
-        <p>&copy; 2016 Company, Inc.</p>
+        <p>&copy; 2016 Restaurantsearch</p>
       </footer>
 </div> <!-- /container -->
 
