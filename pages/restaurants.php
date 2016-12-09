@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 include('login.php'); // Includes Login Script
-if(empty($_SESSION['user_id'])){
+if($_SESSION['user_id']===""){
 	echo "I WANNA FKN DIE";
 }
 ?>
