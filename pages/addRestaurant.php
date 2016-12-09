@@ -1,6 +1,6 @@
 <?php
 $name=$_POST['rest_name'];
-$ocation=$_POST['rest_loc'];
+$location=$_POST['rest_loc'];
 $description=$_POST['rest_desc'];
 
 
