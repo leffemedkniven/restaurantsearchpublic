@@ -51,6 +51,9 @@
       <div class="row marketing">
 	<?php
 		session_start();
+		echo $_POST['name'];
+		echo $_POST['id'];
+
 		$url = 'https://whatsdown-d627f.appspot.com/api/?restaurants=1';
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_HTTPGET, true);
