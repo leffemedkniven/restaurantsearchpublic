@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 include('login.php'); // Includes Login Script
+echo $_SESSION['user_id'];
 
 if(!isset($_SESSION['user_id'])){
 echo "Logged in as a mofo";
