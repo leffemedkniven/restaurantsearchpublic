@@ -2,7 +2,7 @@
 <?php
 include('login.php'); // Includes Login Script
 
-if(!isset($_SESSION['login_user'])){
+if(!isset($_SESSION['user_id'])){
 header("location: memes.php");
 }
 ?>
