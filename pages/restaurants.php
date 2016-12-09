@@ -55,6 +55,8 @@
 		session_start();
 		$user_name = $_POST['name'];
 		$user_id = $_POST['id'];
+		echo $user_name;
+		echo $user_id;
 
 		$url = 'https://whatsdown-d627f.appspot.com/api/?restaurants=1';
 		$ch = curl_init($url);
