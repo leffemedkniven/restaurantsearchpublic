@@ -189,7 +189,7 @@
 
 
 		$parts = explode('/',$visitdate);
-		$vdate = $parts[0] . '-' . $parts[2] . '-' . $parts[1];
+		$vdate = $parts[2] . '-' . $parts[0] . '-' . $parts[1];
 
 		$query=$connection->prepare('INSERT INTO reviews(user_ID, restaurant_ID, review, rating, visitdate) VALUES (:user_ID, :restaurant_ID, :review, :rating, :vdate)');
 		$query->bindParam(':user_ID',$user_ID);
@@ -203,7 +203,7 @@
 
 	  }
 		else{
-			$response=array('status' => 0, 'info' =>'Addition failed, please try again.', 'vdate' => $vdate );
+			$response=array('status' => 0, 'info' =>'Addition failed, please try again.', 'vdate' => $vdate, 'visitdate' => $visitdate );
 		}
 
 		header('Content-Type: application/json');
