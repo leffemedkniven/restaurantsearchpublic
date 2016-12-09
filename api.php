@@ -322,7 +322,7 @@
 
 		    $original = $root_path . $name;
 		    if(move_uploaded_file($_FILES['file']['tmp_name'], $original)){
-		      echo "File is valid, and was successfully uploaded.\n";
+		      //echo "File is valid, and was successfully uploaded.\n";
 					$response=array('status' => 1, 'info' =>'Image uploaded.');
 					$public_urls[] = [
 								'name' => $name,
@@ -347,6 +347,7 @@
 				}
 				else {
 		    echo "Possible file upload attack!\n";
+				$response=array('info' =>'Not a jpeg/png.');
 		    }
 
 		} else {
