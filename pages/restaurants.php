@@ -55,8 +55,6 @@
 		session_start();
 		$user_name = $_POST['name'];
 		$user_id = $_POST['id'];
-		echo $user_name;
-		echo $user_id;
 
 		$url = 'https://whatsdown-d627f.appspot.com/api/?restaurants=1';
 		$ch = curl_init($url);
@@ -71,6 +69,8 @@
 			echo("<p>".$row['description']."</p>");
 			echo("<p>".$row['location']."</p>");
         		echo("<p><a class=\"btn btn-default\" id=".$row[restaurant_ID]." onclick=\"myFunction(this.id)\" role=\"button\">View details </a></p>");
+			echo $user_name;
+			echo $user_id;
 			echo("</div>");
 	    	}
 	?>
