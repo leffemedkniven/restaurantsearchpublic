@@ -203,7 +203,7 @@
 
 	  }
 		else{
-			$response=array('status' => 0, 'info' =>'Addition failed, please try again.');
+			$response=array('status' => 0, 'info' =>'Addition failed, please try again.', 'vdate' => $vdate );
 		}
 
 		header('Content-Type: application/json');
