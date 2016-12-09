@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 include('login.php'); // Includes Login Script
-if(!isset($_SESSION['user_id'])){
+if($_SESSION['user_id']==null){
 	echo "memes";
 }
 ?>
