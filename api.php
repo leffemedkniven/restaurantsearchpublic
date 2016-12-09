@@ -322,7 +322,7 @@
 
 		    $original = $root_path . $name;
 		    if(move_uploaded_file($_FILES['file']['tmp_name'], $original)){
-		      //echo "File is valid, and was successfully uploaded.\n";
+		      echo "File is valid, and was successfully uploaded.\n";
 					$response=array('status' => 1, 'info' =>'Image uploaded.');
 					$public_urls[] = [
 								'name' => $name,
@@ -338,7 +338,7 @@
 					$query->bindParam(':id', $restaurant_ID);
 
 					if($query->execute()){
-						//$response=array('info' =>'Picture added.');
+						$response=array('info' =>'Picture added.');
 					}
 					else{
 						$response=array('info' =>'Addition failed, please try again.');
