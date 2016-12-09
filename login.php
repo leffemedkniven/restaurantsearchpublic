@@ -1,6 +1,6 @@
 <?php
-$x = json_decode($_POST["name"]);
-$y = json_decode($_POST["id"]);
+$x = json_decode($_POST["data"]);
+$y = json_decode($_POST["data"]);
 
 echo $x;
 echo ":Tjena:";
