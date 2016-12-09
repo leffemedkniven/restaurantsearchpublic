@@ -185,12 +185,14 @@
 		$restaurant_ID=$_POST['restaurant_ID'];
 		$review=$_POST['review'];
 		$rating=$_POST['rating'];
+		$visitdate=$_POST['visitdate'];
 
-		$query=$connection->prepare('INSERT INTO reviews(user_ID, restaurant_ID, review, rating) VALUES (:user_ID, :restaurant_ID, :review, :rating)');
+		$query=$connection->prepare('INSERT INTO reviews(user_ID, restaurant_ID, review, rating, visitdate) VALUES (:user_ID, :restaurant_ID, :review, :rating, :visitdate)');
 		$query->bindParam(':user_ID',$user_ID);
 		$query->bindParam(':restaurant_ID',$restaurant_ID);
 		$query->bindParam(':review',$review);
 		$query->bindParam(':rating',$rating);
+		$query->bindParam(':visitdate',$visitdate);
 
 	  if($query->execute()){
 	    $response=array('status' => 1, 'info' =>'Review added.');

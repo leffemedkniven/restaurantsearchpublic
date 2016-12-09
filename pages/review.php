@@ -3,12 +3,14 @@ $user_ID=$_POST['user_ID'];
 $restaurant_ID=$_POST['restaurant_ID'];
 $review=$_POST['review'];
 $rate=$_POST['rate'];
+$date=$_POST['date'];
 
 	$data=array(
 		'user_ID' => $user_ID,
 		'restaurant_ID' => $restaurant_ID,
 		'review' => $review,
 		'rating' => $rate,
+		'visitdate' => $visitdate,
 	);
 
 	$url = 'https://whatsdown-d627f.appspot.com/api/?insertReview=1';
