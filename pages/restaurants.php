@@ -2,7 +2,7 @@
 <?php
 include('login.php'); // Includes Login Script
 if(!isset($_SESSION['user_id'])){
-	header('Location: https://whatsdown-d627f.appspot.com/');
+	echo "memes";
 }
 ?>
 <html lang="en">
