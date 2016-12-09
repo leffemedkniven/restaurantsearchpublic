@@ -1,9 +1,16 @@
 <?php
-$x = json_decode($_POST['name']);
-$y = json_decode($_POST['id']);
+session_start();
 
-echo $x;
+$user_name = json_decode($_POST['name']);
+$user_id = json_decode($_POST['id']);
+
+
+$_SESSION['user_id'] = '1';
+$_SESSION['user_name'] = 'Jokke';
+
+
+echo $user_name;
 echo ":Tjena:";
-echo $y;
+echo $user_id;
 
 ?>

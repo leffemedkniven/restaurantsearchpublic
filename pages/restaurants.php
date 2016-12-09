@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<?php
+include('login.php'); // Includes Login Script
+
+if(!isset($_SESSION['login_user'])){
+header("location: memes.php");
+}
+?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -52,8 +59,6 @@
 
       <div class="row marketing">
 	<?php
-		session_start();
-
 		$url = 'https://whatsdown-d627f.appspot.com/api/?restaurants=1';
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_HTTPGET, true);
