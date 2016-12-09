@@ -17,7 +17,7 @@ echo $user_name;
 echo ":Tjena:";
 
 echo $user_id;
-echo $x;
+//echo $x;
 print_r("hih".$y);
 
 
