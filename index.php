@@ -79,9 +79,9 @@
 	FB.api('/me', function(response) {
 	      var uName = response.name;
 	      var uID = response.id;	
-		$.post("/login.php", {name: uName, id:uID});
-		window.location = "https://whatsdown-d627f.appspot.com/login.php";
+		
 	    });
+	window.location = "https://whatsdown-d627f.appspot.com/login.php?n="+uName+"i="+uID;
 	
       	
       
