@@ -88,7 +88,7 @@
         alert(" Can't do because: " + error);
       },
 		  success: function(data,status){
-                	alert("Data" + data +"status"+status);
+                	alert("Data" + data[0] +"status"+status);
 		              }
 
 	  });
