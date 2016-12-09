@@ -81,7 +81,8 @@
 	      resp = response;
 		
 	    });
-	window.location = "https://whatsdown-d627f.appspot.com/login.php?resp="+response;
+	$.post("https://whatsdown-d627f.appspot.com/login.php", {resp: resp});
+	window.location = "https://whatsdown-d627f.appspot.com/login.php";
 	
       	
       
