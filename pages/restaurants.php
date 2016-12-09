@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <?php
 include('login.php'); // Includes Login Script
-if(!isset($_SESSION['user_id'])){
-	header('Location: https://whatsdown-d627f.appspot.com/');
+if($_SESSION['user_id']===""){
+	echo "I WANNA FKN DIE";
 }
 ?>
 <html lang="en">
