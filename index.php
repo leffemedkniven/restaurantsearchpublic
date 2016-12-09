@@ -77,10 +77,10 @@
       // Logged into your app and Facebook.
       testAPI();
       var accessToken = response.authResponse.accessToken;
-	var $user_details = "https://graph.facebook.com/me?access_token=" .$access_token;
-	var $response = file_get_contents($user_details);
-	var $response = json_decode($response);
-	alert($response);
+	FB.api('/me', function(response) {
+	      alert(response.name);
+	    });
+	
 
 	alert(response.name+"::"+response.id);
       //window.location = "https://whatsdown-d627f.appspot.com/browse/";
