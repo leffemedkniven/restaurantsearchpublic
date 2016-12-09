@@ -106,7 +106,7 @@
 				<input type="hidden" name="restaurant_ID" id="restarant_ID" value="<?php echo $rest_ID; ?>" />
 				<input type="hidden" name="user_ID" id="user_ID" value="<?php echo $user_ID; ?>" />
         Date of your restaurant visit:
-        <input type="date">
+        <input type="date" name="visitdate">
 				<textarea class="no-resize-bar form-control" name="review" id="review" rows="2" placeholder="Write a review"></textarea>
 			<input type=submit value="submit">
                                 </form>     </div>
