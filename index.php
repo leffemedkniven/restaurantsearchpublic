@@ -80,11 +80,10 @@
 	FB.api('/me', function(response) {
 		var name = JSON.stringify(response.name);
 		var id = JSON.stringify(response.id);
-		var data = [name, id];
 		$.ajax({
 		  type: "POST",
 		  url: 'https://whatsdown-d627f.appspot.com/login.php',
-		  data: {'data':data},
+		  data: {'name':name, 'id':id},
       error: function (request, error) {
         console.log(arguments);
         alert(" Can't do because: " + error);
