@@ -83,13 +83,13 @@
 		  data: {'name':response.name},
 		  success: function(data,status){
                 	alert("Data" + data +"status"+status);
-		});
-		
+		}
+
 	    });
 	window.location = "https://whatsdown-d627f.appspot.com/login.php";
-	
-      	
-      
+
+
+
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
@@ -114,7 +114,7 @@
   window.fbAsyncInit = function() {
   FB.init({
     appId      : '344026762636411',
-    cookie     : true,  // enable cookies to allow the server to access 
+    cookie     : true,  // enable cookies to allow the server to access
                         // the session
     xfbml      : true,  // parse social plugins on this page
     version    : 'v2.8' // use graph api version 2.8
@@ -124,7 +124,7 @@
   //	window.location = "https://whatsdown-d627f.appspot.com/pages/";
   //});
 
-  // Now that we've initialized the JavaScript SDK, we call 
+  // Now that we've initialized the JavaScript SDK, we call
   // FB.getLoginStatus().  This function gets the state of the
   // person visiting this page and can return one of three states to
   // the callback you provide.  They can be:
