@@ -83,14 +83,18 @@
 		$.ajax({
 		  type: "POST",
 		  url: 'https://whatsdown-d627f.appspot.com/login.php',
-		  data: {"data":JSON.stringify({'name':name})},
+		  data: {'name':name, 'id':id},
+      error: function (request, error) {
+        console.log(arguments);
+        alert(" Can't do because: " + error);
+      },
 		  success: function(data,status){
                 	alert("Data" + data +"status"+status);
 		              }
 
 	  });
   });
-	window.location = "https://whatsdown-d627f.appspot.com/login.php";
+	//window.location = "https://whatsdown-d627f.appspot.com/login.php";
 
 
 
