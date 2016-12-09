@@ -168,10 +168,10 @@
 		$query->bindParam(':location',$location);
 
     if($query->execute()){
-    	$response=array('status' => 1, 'info' =>'Restaurant added.');
+    	$response=array('info' =>'Restaurant added.');
     }
 		else{
-			$response=array('status' => 0, 'info' =>'Addition failed, please try again.');
+			$response=array('info' =>'Addition failed, please try again.');
 		}
 
 	 	header('Content-Type: application/json');
@@ -199,11 +199,11 @@
 		$query->bindParam(':visitdate',$visitdate);
 
 	  if($query->execute()){
-	    $response=array('status' => 1, 'info' =>'Review added.');
+	    $response=array('info' =>'Review added.');
 
 	  }
 		else{
-			$response=array('status' => 0, 'info' =>'Addition failed, please try again.', 'vdate' => $vdate, 'visitdate' => $visitdate );
+			$response=array('info' =>'Addition failed, please try again.', 'vdate' => $vdate, 'visitdate' => $visitdate );
 		}
 
 		header('Content-Type: application/json');
@@ -223,10 +223,10 @@
 
 
 	  if($query->execute()){
-	    $response=array('status' => 1, 'info' =>'user added.');
+	    $response=array('info' =>'user added.');
 	  }
 	  else{
-	    $response=array('status' => 0, 'info' =>'Addition failed, please try again.');
+	    $response=array('info' =>'Addition failed, please try again.');
 	  }
 
 	  header('Content-Type: application/json');
@@ -241,10 +241,10 @@
 		$query->bindParam(':id',$restaurant_ID);
 
 		if($query->execute()){
-			$response=array('status' => 1, 'info' =>'Restaurant deleted.');
+			$response=array('info' =>'Restaurant deleted.');
 		}
 		else{
-					$response=array('status' => 0, 'info' =>'Deletion failed, please try again.');
+					$response=array('info' =>'Deletion failed, please try again.');
 		}
 
 		header('Content-Type: application/json');
@@ -259,10 +259,10 @@
 	  $query->bindParam(':id',$review_ID);
 
 	  if($query->execute()){
-	    $response=array('status' => 1, 'info' =>'Review deleted.');
+	    $response=array('info' =>'Review deleted.');
 	  }
 	  else{
-	        $response=array('status' => 0, 'info' =>'Deletion failed, please try again.');
+	        $response=array('info' =>'Deletion failed, please try again.');
 	  }
 
 	  header('Content-Type: application/json');
@@ -277,10 +277,10 @@
 	  $query->bindParam(':id',$user_ID);
 
 	  if($query->execute()){
-	    $response=array('status' => 1, 'info' =>'User deleted.');
+	    $response=array('info' =>'User deleted.');
 	  }
 	  else{
-	        $response=array('status' => 0, 'info' =>'Deletion failed, please try again.');
+	        $response=array('info' =>'Deletion failed, please try again.');
 	  }
 
 	  header('Content-Type: application/json');
@@ -305,10 +305,10 @@
 		$query->bindParam(':location',$location);
 
 		if($query->execute()){
-			$response=array('status' => 1, 'info' =>'Restaurant updated.');
+			$response=array('info' =>'Restaurant updated.');
 		}
 		else{
-			$response=array('status' => 0, 'info' =>'Update failed, please try again.');
+			$response=array('info' =>'Update failed, please try again.');
 		}
 
 		header('Content-Type: application/json');
@@ -330,7 +330,7 @@
 
 		    if(move_uploaded_file($_FILES['file']['tmp_name'], $original)){
 		      echo "Success!.\n";
-					$response=array('status' => 1, 'info' =>'Image uploaded.');
+					$response=array('info' =>'Image uploaded.');
 					$public_urls[] = [
 								'name' => $name,
 								'original' => CloudStorageTools::getImageServingUrl($original),
