@@ -81,7 +81,7 @@
 	      data = response.name;
 		
 	    });
-	alert(response.name);
+	alert(data);
 	$.ajax({
 	  type: "POST",
 	  url: login.php,
