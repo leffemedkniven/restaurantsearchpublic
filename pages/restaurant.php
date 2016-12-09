@@ -127,6 +127,7 @@
 				echo("<div class=\"col-md-12\">");
 				echo("<p>".$row['rating']."</p>");
 				echo("<p>".$row['review']."</p>");
+        echo("<p>".$row['visitdate']."</p>");
 				echo("</div>");
 				echo("</div>");
 				echo("<hr>");

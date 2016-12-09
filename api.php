@@ -187,12 +187,16 @@
 		$rating=$_POST['rating'];
 		$visitdate=$_POST['visitdate'];
 
-		$query=$connection->prepare('INSERT INTO reviews(user_ID, restaurant_ID, review, rating, visitdate) VALUES (:user_ID, :restaurant_ID, :review, :rating, :visitdate)');
+
+		$parts = explode('/',$visitdate);
+		$vdate = $parts[2] . '-' . $parts[1] . '-' . $parts[0];
+
+		$query=$connection->prepare('INSERT INTO reviews(user_ID, restaurant_ID, review, rating, visitdate) VALUES (:user_ID, :restaurant_ID, :review, :rating, :vdate)');
 		$query->bindParam(':user_ID',$user_ID);
 		$query->bindParam(':restaurant_ID',$restaurant_ID);
 		$query->bindParam(':review',$review);
 		$query->bindParam(':rating',$rating);
-		$query->bindParam(':visitdate',$visitdate);
+		$query->bindParam(':vdate',$vdate);
 
 	  if($query->execute()){
 	    $response=array('status' => 1, 'info' =>'Review added.');
