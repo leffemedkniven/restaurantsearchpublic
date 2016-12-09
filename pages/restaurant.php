@@ -23,8 +23,6 @@
     <!-- Custom styles for this template -->
     <link href="../static/bootstrap-3.3.7/docs/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="../static/onerestaurant/css/shop-item.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
