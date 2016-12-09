@@ -84,10 +84,6 @@
 		  type: "POST",
 		  url: 'https://whatsdown-d627f.appspot.com/login.php',
 		  data: {"data":JSON.stringify({'name':name})},
-      error: function (request, error) {
-        console.log(arguments);
-        alert(" Can't do because: " + error);
-      },
 		  success: function(data,status){
                 	alert("Data" + data +"status"+status);
 		              }
