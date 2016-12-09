@@ -77,7 +77,7 @@
       // Logged into your app and Facebook.
       testAPI();
       var accessToken = response.authResponse.accessToken;
-	alert(accessToken.name);
+	alert(response.name+"::"+response.id);
       //window.location = "https://whatsdown-d627f.appspot.com/browse/";
       
     } else if (response.status === 'not_authorized') {
