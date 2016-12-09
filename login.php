@@ -1,4 +1,8 @@
 <?php
+$x = json_decode($_POST['name']);
+echo $x;
+
+
 $user_name = $_POST['name'];
 $user_id = $_POST['id'];
 echo $user_name;
