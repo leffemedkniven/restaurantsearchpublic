@@ -84,7 +84,7 @@
 		$.ajax({
 		  type: "POST",
 		  url: 'https://whatsdown-d627f.appspot.com/login.php',
-		  data: {'name':respone.name, 'id':response.id},
+		  data: {'name':response.name, 'id':response.id},
       error: function (request, error) {
         console.log(arguments);
         alert(" Can't do because: " + error);
