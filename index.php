@@ -79,9 +79,10 @@
 	FB.api('/me', function(response) {
 		$.ajax({
 		  type: "POST",
-		  url: login.php,
-		  data: response.name,
-		  success: success
+		  url: 'https://whatsdown-d627f.appspot.com/login.php',
+		  data: {'name':response.name},
+		  success: function(data,status){
+                	alert("Data" + data +"status"+status);
 		});
 		
 	    });
