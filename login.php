@@ -4,6 +4,7 @@ $y = json_decode($_POST['id']);
 
 echo $x;
 echo ":Tjena:";
-echo $y;
+print_r($y);
+
 
 ?>

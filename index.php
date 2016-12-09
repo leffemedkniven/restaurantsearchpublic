@@ -94,7 +94,7 @@
 
 	  });
   });
-	//window.location = "https://whatsdown-d627f.appspot.com/login.php";
+	window.location = "https://whatsdown-d627f.appspot.com/login.php";
 
 
 
