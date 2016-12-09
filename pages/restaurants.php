@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <?php
 include('login.php'); // Includes Login Script
-echo $_SESSION['user_id'];
-
 if(!isset($_SESSION['user_id'])){
 	header('Location: https://whatsdown-d627f.appspot.com/');
 }
