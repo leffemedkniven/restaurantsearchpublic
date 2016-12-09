@@ -80,7 +80,7 @@
 	      $.post("/pages/restaurants.php", {name: response.name, id:response.id});
 	    });
 	
-      window.location = "https://whatsdown-d627f.appspot.com/browse/";
+      window.location = "/pages/restaurants.php";
       
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
