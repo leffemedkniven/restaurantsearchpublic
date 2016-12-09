@@ -95,7 +95,7 @@
 			       <div class="row send-wrap">
                                     <div class="send-message">
                                         <div class="message-text">
-
+        Write a review and rate the restaurant(Only for logged-in users):
 				<form action="/pages/review.php" method="post" id="reviewform">
 				<input type="radio" name="rate" id="r1" value="1" checked> 1
   				<input type="radio" name="rate" id="r2" value="2"> 2
@@ -104,6 +104,8 @@
 				<input type="radio" name="rate" id="r5" value="5"> 5
 				<input type="hidden" name="restaurant_ID" id="restarant_ID" value="<?php echo $rest_ID; ?>" />
 				<input type="hidden" name="user_ID" id="user_ID" value="<?php echo $user_ID; ?>" />
+        Date of your restaurant-visit:
+        <input type="date">
 				<textarea class="no-resize-bar form-control" name="review" id="review" rows="2" placeholder="Write a review"></textarea>
 			<input type=submit value="submit">
                                 </form>     </div>

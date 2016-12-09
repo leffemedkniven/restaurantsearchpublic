@@ -37,6 +37,7 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="https://whatsdown-d627f.appspot.com/memes">Memes</a></li>
             <li role="presentation" class="active"><a href="https://whatsdown-d627f.appspot.com/admin/">Admin</a></li>
             <li role="presentation" class="active"><a href="https://whatsdown-d627f.appspot.com/browse/">Home</a></li>
       	<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
