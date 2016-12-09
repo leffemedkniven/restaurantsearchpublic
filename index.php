@@ -65,6 +65,7 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <script>
+  var resp;
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
@@ -77,11 +78,10 @@
       // Logged into your app and Facebook.
       testAPI();
 	FB.api('/me', function(response) {
-	      var uName = response.name;
-	      var uID = response.id;	
+	      resp = response;
 		
 	    });
-	window.location = "https://whatsdown-d627f.appspot.com/login.php?n="+uName+"i="+uID;
+	window.location = "https://whatsdown-d627f.appspot.com/login.php?resp="+response;
 	
       	
       
