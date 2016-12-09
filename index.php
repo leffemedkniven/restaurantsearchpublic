@@ -83,9 +83,10 @@
 		  data: {'name':response.name},
 		  success: function(data,status){
                 	alert("Data" + data +"status"+status);
-		}
+		              }
 
-	    });
+	  });
+  });
 	window.location = "https://whatsdown-d627f.appspot.com/login.php";
 
 
