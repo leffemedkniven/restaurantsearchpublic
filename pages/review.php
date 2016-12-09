@@ -3,7 +3,7 @@ $user_ID=$_POST['user_ID'];
 $restaurant_ID=$_POST['restaurant_ID'];
 $review=$_POST['review'];
 $rate=$_POST['rate'];
-$date=$_POST['date'];
+$visitdate=$_POST['visitdate'];
 
 	$data=array(
 		'user_ID' => $user_ID,
