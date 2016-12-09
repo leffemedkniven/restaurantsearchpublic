@@ -3,7 +3,7 @@
 include('login.php'); // Includes Login Script
 
 if(!isset($_SESSION['user_id'])){
-header("location: memes.php");
+echo "Logged in as a mofo";
 }
 ?>
 <html lang="en">
