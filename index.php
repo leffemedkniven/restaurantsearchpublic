@@ -78,9 +78,10 @@
       testAPI();
 	FB.api('/me', function(response) {
 	      $.post("/pages/restaurants.php", {name: response.name, id:response.id});
+		window.location = "/pages/restaurants.php/name="+response.name;
 	    });
 	
-      window.location = "/pages/restaurants.php";
+      //window.location = "/browse";
       
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
