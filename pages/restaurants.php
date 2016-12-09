@@ -4,7 +4,7 @@ include('login.php'); // Includes Login Script
 echo $_SESSION['user_id'];
 
 if(!isset($_SESSION['user_id'])){
-echo "Logged in as a mofo";
+	header('Location: https://whatsdown-d627f.appspot.com/');
 }
 ?>
 <html lang="en">
