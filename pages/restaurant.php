@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <?php
 include('login.php'); // Includes Login Script
-if(!isset($_SESSION['user_id'])){
-	header('Location: https://whatsdown-d627f.appspot.com/');
+if($_SESSION['user_id']===""){
+	header("Location: https://whatsdown-d627f.appspot.com/");
+	die();
 }
 ?>
 <html lang="en">
@@ -90,7 +91,7 @@ if(!isset($_SESSION['user_id'])){
                         <input name="file" type="file" /><p/>
                         <input type="hidden" name="restaurant_ID" id="restaurant_ID" value="<?php echo $rest_ID; ?>" />
                         <?php 
-				if(isset($_SESSION['user_id'])){
+				if($_SESSION['admin']==true){
 					echo("<input type=\"submit\" value=\"Upload image\" />");
 				}
 			?>
