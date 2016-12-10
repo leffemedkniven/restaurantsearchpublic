@@ -87,7 +87,7 @@
 		  data: {'name':response.name, 'id':response.id},
       error: function (request, error) {
         console.log(arguments);
-        alert(" Can't do because: " + error);
+        alert(" Can't do because: " + XMLHttpRequest, errorThrown);
       },
 		  success: function(data,status){
                 	alert("Data" + data +"status"+status);
@@ -166,8 +166,8 @@
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
+      // document.getElementById('status').innerHTML =
+      //   'Thanks for logging in, ' + response.name + '!';
     });
   }
 </script>

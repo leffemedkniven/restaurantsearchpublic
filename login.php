@@ -2,7 +2,7 @@
 
 session_start();
 
-//$x = json_decode($_POST['name']);
+$x = json_decode($_POST['name']);
 $y = json_decode($_POST["data"]);
 
 $user_name = json_decode($_POST['name']);
