@@ -87,11 +87,12 @@ if($_SESSION['user_id']===""){
                     <div class="imageupload">
                       <center>
                       <form id="data" method="POST" enctype="multipart/form-data">
-                        Upload image:<p/>
-                        <input name="file" type="file" /><p/>
+                        
                         <input type="hidden" name="restaurant_ID" id="restaurant_ID" value="<?php echo $rest_ID; ?>" />
                         <?php 
 				if($_SESSION['admin']==true){
+					echo("Upload image:<p/>");
+                       			echo("<input name=\"file\" type=\"file\" /><p/>");
 					echo("<input type=\"submit\" value=\"Upload image\" />");
 				}
 			?>
@@ -99,30 +100,31 @@ if($_SESSION['user_id']===""){
                       </center>
                     </div>
                 </div>
-
-                <div class="well">
-			       <div class="row send-wrap">
-                                    <div class="send-message">
+	<?php
+               			echo("<div class=\"well\">");
+			       echo("<div class=\"row send-wrap\">");
+                                    echo("<div class=\"send-message\">");
                                         <div class="message-text">
-        Write a review and rate the restaurant(Only for logged-in users): </br>
-				<form action="/pages/review.php" method="post" id="reviewform">
-        Rating:
-				<input type="radio" name="rate" id="r1" value="1" checked> 1
-  				<input type="radio" name="rate" id="r2" value="2"> 2
-  				<input type="radio" name="rate" id="r3" value="3"> 3
-				<input type="radio" name="rate" id="r4" value="4"> 4
-				<input type="radio" name="rate" id="r5" value="5"> 5
-				<input type="hidden" name="restaurant_ID" id="restarant_ID" value="<?php echo $rest_ID; ?>" />
-				<input type="hidden" name="user_ID" id="user_ID" value="<?php echo $user_ID; ?>" />
-        Date of your restaurant visit:
-        <input type="date" name="visitdate">
-				<textarea class="no-resize-bar form-control" name="review" id="review" rows="2" placeholder="Write a review"></textarea>
-			<input type=submit value="submit">
-                                </form>     </div>
-                                    </div>
-                                </div>
-                    <hr>
-
+        echo("Write a review and rate the restaurant(Only for logged-in users): </br>");
+				echo("<form action=\"/pages/review.php\" method=\"post\" id=\"reviewform\">");
+        echo("Rating:");
+			echo("<input type=\"radio\" name=\"rate\" id=\"r1\" value=\"1\" checked> 1");
+			echo("<input type=\"radio\" name=\"rate\" id=\"r2\" value=\"2\" checked> 2");
+			echo("<input type=\"radio\" name=\"rate\" id=\"r3\" value=\"3\" checked> 3");
+			echo("<input type=\"radio\" name=\"rate\" id=\"r4\" value=\"4\" checked> 4");
+			echo("<input type=\"radio\" name=\"rate\" id=\"r5\" value=\"5\" checked> 5");
+			echo("<input type=\"hidden\" name=\"restaurant_ID\" id=\"restarant_ID\" value=\"$rest_ID\" />");
+			echo("<input type=\"hidden\" name=\"user_ID\" id=\"user_ID\" value=\"$user_ID\" />");
+        echo("Date of your restaurant visit:");
+        echo("<input type=\"date\" name=\"visitdate\">");
+	echo("<textarea class=\"no-resize-bar form-control\" name=\"review\" id=\"review\" rows=\"2\" placeholder=\"Write a review\"></textarea>");
+			echo("<input type=submit value=\"submit\">");
+                                echo("</form>");     
+					echo("</div>");
+                                    echo("</div>");
+                                echo("</div>");
+                    echo("<hr>");
+	?>
 		    <?php
 			$url = 'https://whatsdown-d627f.appspot.com/api/?restaurantReviews='.$rest_ID;
 			$ch = curl_init($url);
