@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<?php
+include('login.php'); // Includes Login Script
+if($_SESSION['admin'] != true){
+	header("Location: https://whatsdown-d627f.appspot.com/");
+	die();
+}
+?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
