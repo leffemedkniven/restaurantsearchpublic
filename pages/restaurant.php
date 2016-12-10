@@ -100,31 +100,35 @@ if($_SESSION['user_id']===""){
                       </center>
                     </div>
                 </div>
-	<?php
-               			echo("<div class=\"well\">");
-			       echo("<div class=\"row send-wrap\">");
-                                    echo("<div class=\"send-message\">");
+	
+               		<div class="well">
+			       <div class="row send-wrap">
+                                    <div class="send-message">
                                         <div class="message-text">
-        echo("Write a review and rate the restaurant(Only for logged-in users): </br>");
-				echo("<form action=\"/pages/review.php\" method=\"post\" id=\"reviewform\">");
+        Write a review and rate the restaurant(Only for logged-in users): </br>
+				<form action="/pages/review.php" method="post" id="reviewform">
+<?php
         echo("Rating:");
 			echo("<input type=\"radio\" name=\"rate\" id=\"r1\" value=\"1\" checked> 1");
 			echo("<input type=\"radio\" name=\"rate\" id=\"r2\" value=\"2\" checked> 2");
 			echo("<input type=\"radio\" name=\"rate\" id=\"r3\" value=\"3\" checked> 3");
 			echo("<input type=\"radio\" name=\"rate\" id=\"r4\" value=\"4\" checked> 4");
 			echo("<input type=\"radio\" name=\"rate\" id=\"r5\" value=\"5\" checked> 5");
-			//echo("<input type=\"hidden\" name=\"restaurant_ID\" id=\"restarant_ID\" value=\"$rest_ID\" />");
-			//echo("<input type=\"hidden\" name=\"user_ID\" id=\"user_ID\" value=\"$user_ID\" />");
+
         echo("Date of your restaurant visit:");
         echo("<input type=\"date\" name=\"visitdate\">");
 	echo("<textarea class=\"no-resize-bar form-control\" name=\"review\" id=\"review\" rows=\"2\" placeholder=\"Write a review\"></textarea>");
 			echo("<input type=submit value=\"submit\">");
-                                echo("</form>");     
-					echo("</div>");
-                                    echo("</div>");
-                                echo("</div>");
-                    echo("<hr>");
-	?>
+?>
+
+			<input type="hidden" name="restaurant_ID" id="restarant_ID" value="<?php echo $rest_ID; ?>" />
+			<input type="hidden" name="user_ID" id="user_ID" value="<?php echo $user_ID; ?>" />
+                                </form>     
+					</div>
+                                    </div>
+                                </div>
+                    <hr>
+	
 		    <?php
 			$url = 'https://whatsdown-d627f.appspot.com/api/?restaurantReviews='.$rest_ID;
 			$ch = curl_init($url);
