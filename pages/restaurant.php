@@ -113,8 +113,8 @@ if($_SESSION['user_id']===""){
 			echo("<input type=\"radio\" name=\"rate\" id=\"r3\" value=\"3\" checked> 3");
 			echo("<input type=\"radio\" name=\"rate\" id=\"r4\" value=\"4\" checked> 4");
 			echo("<input type=\"radio\" name=\"rate\" id=\"r5\" value=\"5\" checked> 5");
-			echo("<input type=\"hidden\" name=\"restaurant_ID\" id=\"restarant_ID\" value=\"$rest_ID\" />");
-			echo("<input type=\"hidden\" name=\"user_ID\" id=\"user_ID\" value=\"$user_ID\" />");
+			//echo("<input type=\"hidden\" name=\"restaurant_ID\" id=\"restarant_ID\" value=\"$rest_ID\" />");
+			//echo("<input type=\"hidden\" name=\"user_ID\" id=\"user_ID\" value=\"$user_ID\" />");
         echo("Date of your restaurant visit:");
         echo("<input type=\"date\" name=\"visitdate\">");
 	echo("<textarea class=\"no-resize-bar form-control\" name=\"review\" id=\"review\" rows=\"2\" placeholder=\"Write a review\"></textarea>");
