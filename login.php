@@ -9,7 +9,7 @@ $user_name = json_decode($_POST['name']);
 $user_id = json_decode($_POST['id']);
 
 
-$_SESSION['user_id'] = "1";
+$_SESSION['user_id'] = "";
 $_SESSION['user_name'] = 'Jokke';
 $_SESSION['admin'] = false;
 
