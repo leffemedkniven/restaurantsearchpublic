@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <?php
 include('login.php'); // Includes Login Script
-if(!isset($_SESSION['user_id'])){
-	header('Location: https://whatsdown-d627f.appspot.com/');
+if($_SESSION['user_id']===""){
+	header("Location: https://whatsdown-d627f.appspot.com/");
+	die();
 }
 ?>
 <html lang="en">
@@ -47,7 +48,7 @@ if(!isset($_SESSION['user_id'])){
         <nav>
           <ul class="nav nav-pills pull-right">
 
-            <li role="presentation" class="active"><a href="https://whatsdown-d627f.appspot.com/admin/">Admin</a></li>
+           <?php if($_SESSION['admin']==true) {echo("<li role=\"presentation\" class=\"active\"><a href=\"https://whatsdown-d627f.appspot.com/admin/\">Admin</a></li>"); }?>
             <li role="presentation" class="active"><a href="https://whatsdown-d627f.appspot.com/browse/">Back</a></li>
 
       	<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" 			data-auto-logout-link="true"></div>
@@ -86,11 +87,17 @@ if(!isset($_SESSION['user_id'])){
                     <div class="imageupload">
                       <center>
                       <form id="data" method="POST" enctype="multipart/form-data">
-                        Upload image:<p/>
-                        <input name="file" type="file" /><p/>
+                        
                         <input type="hidden" name="restaurant_ID" id="restaurant_ID" value="<?php echo $rest_ID; ?>" />
+<<<<<<< HEAD
                         <?php
 				if(isset($_SESSION['user_id'])){
+=======
+                        <?php 
+				if($_SESSION['admin']==true){
+					echo("Upload image:<p/>");
+                       			echo("<input name=\"file\" type=\"file\" /><p/>");
+>>>>>>> faecb3db6f6668ae60ef679d4584c15366c857da
 					echo("<input type=\"submit\" value=\"Upload image\" />");
 				}
 			?>
@@ -98,30 +105,35 @@ if(!isset($_SESSION['user_id'])){
                       </center>
                     </div>
                 </div>
-
-                <div class="well">
+	
+               		<div class="well">
 			       <div class="row send-wrap">
                                     <div class="send-message">
                                         <div class="message-text">
         Write a review and rate the restaurant(Only for logged-in users): </br>
 				<form action="/pages/review.php" method="post" id="reviewform">
-        Rating:
-				<input type="radio" name="rate" id="r1" value="1" checked> 1
-  				<input type="radio" name="rate" id="r2" value="2"> 2
-  				<input type="radio" name="rate" id="r3" value="3"> 3
-				<input type="radio" name="rate" id="r4" value="4"> 4
-				<input type="radio" name="rate" id="r5" value="5"> 5
-				<input type="hidden" name="restaurant_ID" id="restarant_ID" value="<?php echo $rest_ID; ?>" />
-				<input type="hidden" name="user_ID" id="user_ID" value="<?php echo $user_ID; ?>" />
-        Date of your restaurant visit:
-        <input type="date" name="visitdate">
-				<textarea class="no-resize-bar form-control" name="review" id="review" rows="2" placeholder="Write a review"></textarea>
-			<input type=submit value="submit">
-                                </form>     </div>
+<?php
+        echo("Rating:");
+			echo("<input type=\"radio\" name=\"rate\" id=\"r1\" value=\"1\" checked> 1");
+			echo("<input type=\"radio\" name=\"rate\" id=\"r2\" value=\"2\" checked> 2");
+			echo("<input type=\"radio\" name=\"rate\" id=\"r3\" value=\"3\" checked> 3");
+			echo("<input type=\"radio\" name=\"rate\" id=\"r4\" value=\"4\" checked> 4");
+			echo("<input type=\"radio\" name=\"rate\" id=\"r5\" value=\"5\" checked> 5");
+
+        echo("Date of your restaurant visit:");
+        echo("<input type=\"date\" name=\"visitdate\">");
+	echo("<textarea class=\"no-resize-bar form-control\" name=\"review\" id=\"review\" rows=\"2\" placeholder=\"Write a review\"></textarea>");
+			echo("<input type=submit value=\"submit\">");
+?>
+
+			<input type="hidden" name="restaurant_ID" id="restarant_ID" value="<?php echo $rest_ID; ?>" />
+			<input type="hidden" name="user_ID" id="user_ID" value="<?php echo $user_ID; ?>" />
+                                </form>     
+					</div>
                                     </div>
                                 </div>
                     <hr>
-
+	
 		    <?php
 			$url = 'https://whatsdown-d627f.appspot.com/api/?restaurantReviews='.$rest_ID;
 			$ch = curl_init($url);
