@@ -68,10 +68,10 @@
 
   $helper = $fb->getRedirectLoginHelper();
 
-  //$permissions = ['email']; // Optional permissions
-  echo "dick1"
+  $permissions = ['email']; // Optional permissions
+  echo "dick1";
   $loginUrl = $helper->getLoginUrl('https://whatsdown-d627f.appspot.com/fb-callback.php', $permissions);
-  echo "dick2"
+  echo "dick2";
   echo "dick3".$loginUrl;
   echo '<a href="' . htmlspecialchars($loginUrl) . '">Log in with Facebook!</a>';
 ?>
