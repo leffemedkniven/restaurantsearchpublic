@@ -80,14 +80,13 @@
 	FB.api('/me', function(response) {
 		var name = JSON.stringify(response.name);
 		var id = JSON.stringify(response.id);
-
 		$.ajax({
 		  type: "POST",
 		  url: 'https://whatsdown-d627f.appspot.com/login.php',
-		  data: {'name':response.name, 'id':response.id},
-      error: function (XMLHttpRequest, error) {
+		  data: {'name':name, 'id':id},
+      error: function (request, error) {
         console.log(arguments);
-        alert(" Can't do because: " + );
+        alert(" Can't do because: " + error);
       },
 		  success: function(data,status){
                 	alert("Data" + data +"status"+status);
@@ -166,8 +165,8 @@
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
-      // document.getElementById('status').innerHTML =
-      //   'Thanks for logging in, ' + response.name + '!';
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
     });
   }
 </script>
