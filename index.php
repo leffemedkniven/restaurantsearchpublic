@@ -80,19 +80,18 @@
 	FB.api('/me', function(response) {
 		//var name = JSON.stringify(response.name);
 		//var id = JSON.stringify(response.id);
-     var test = "dick";
-    var stringresponse = JSON.stringify(response);
+    var test = "dick";
+    //var stringresponse = JSON.stringify(response);
 		$.ajax({
 		  type: "POST",
 		  url: 'https://whatsdown-d627f.appspot.com/login.php',
 		  data: {'test': test},
-      error: function (request, error) {
-        ///console.log(arguments);
-        alert(" Can't do because: " + error);
+      error: function(data, errorThrown){
+              alert('request failed :'+errorThrown);
       },
 		  success: function(data,status){
-                	alert("Data" + data +"status"+status);
-		              }
+        alert("Data" + data +"status"+status);
+		  }
 
 	  });
   });
