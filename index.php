@@ -77,15 +77,16 @@
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       testAPI();
+      response.name
 	FB.api('/me', function(response) {
-		//var name = JSON.stringify(response.name);
+		var name = JSON.stringify(response.name);
 		//var id = JSON.stringify(response.id);
-    var test = "dick";
+    var test = response.name;
     //var stringresponse = JSON.stringify(response);
 		$.ajax({
 		  type: "POST",
 		  url: 'https://whatsdown-d627f.appspot.com/login/',
-		  data: response,
+		  data: name,
       error: function(data, errorThrown){
               alert('request failed :'+errorThrown);
       },

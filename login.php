@@ -22,5 +22,6 @@ $data = $_POST['data'];
 print_r("hih".$y);
 print_r("hih2".$data);
 echo $data;
-
+$fb = $facebook->getUser();
+echo $fb;
 ?>
