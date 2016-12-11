@@ -71,6 +71,7 @@ if($_SESSION['user_id']===""){
 		$rest_desc = $row['description'];
 		$rest_loc = $row['location'];
 		$rest_pic = $row['picture'];
+
 	}
 ?>
 
@@ -88,9 +89,7 @@ if($_SESSION['user_id']===""){
                       <form id="data" method="POST" enctype="multipart/form-data">
 
                         <input type="hidden" name="restaurant_ID" id="restaurant_ID" value="<?php echo $rest_ID; ?>" />
-
                         <?php
-				if(isset($_SESSION['user_id'])){
 				if($_SESSION['admin']==true){
 					echo("Upload image:<p/>");
                        			echo("<input name=\"file\" type=\"file\" /><p/>");
@@ -115,6 +114,7 @@ if($_SESSION['user_id']===""){
 			echo("<input type=\"radio\" name=\"rate\" id=\"r3\" value=\"3\" checked> 3");
 			echo("<input type=\"radio\" name=\"rate\" id=\"r4\" value=\"4\" checked> 4");
 			echo("<input type=\"radio\" name=\"rate\" id=\"r5\" value=\"5\" checked> 5");
+
         echo("Date of your restaurant visit:");
         echo("<input type=\"date\" name=\"visitdate\">");
 	echo("<textarea class=\"no-resize-bar form-control\" name=\"review\" id=\"review\" rows=\"2\" placeholder=\"Write a review\"></textarea>");
@@ -181,6 +181,7 @@ if($_SESSION['user_id']===""){
     var rest_ID='<?php echo $rest_ID; ?>';
     $("#data").submit(function(e) {
             var formData = new FormData($(this)[0]);
+
             $.ajax({
                 url: "https://whatsdown-d627f.appspot.com/api/?uploadImage="+rest_ID,
                 type: "POST",
@@ -194,6 +195,7 @@ if($_SESSION['user_id']===""){
                 contentType: false,
                 processData: false
             });
+
             e.preventDefault();
         })
     </script>
