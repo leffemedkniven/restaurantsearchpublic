@@ -59,10 +59,10 @@
     </div> <!-- /container -->
 
 <?php
-  echo "dick";
+
   $fb = new Facebook\Facebook([
-          'app_id' => '{app-id}', // Replace {app-id} with your app id
-          'app_secret' => '{app-secret}',
+          'app_id' => '344026762636411', // Replace {app-id} with your app id
+          'app_secret' => '006b213f54e5c9d124167fdde6e8d29a',
           'default_graph_version' => 'v2.2',
   ]);
 
