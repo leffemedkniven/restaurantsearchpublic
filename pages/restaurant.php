@@ -143,10 +143,10 @@ if($_SESSION['user_id']===""){
 			foreach($response as $row){
 				echo("<div class=\"row\">");
 				echo("<div class=\"col-md-12\">");
-				echo("<p>".$row['displayname']."</p>");
-				echo("<p>Rating:".$row['rating']."</p>");
-				echo("<p>".$row['review']."</p>");
-        echo("<p>".$row['visitdate']."</p>");
+				echo("<p>Name: ".$row['displayname']."</p>");
+				echo("<p>Rating: ".$row['rating']."</p>");
+				echo("<p>Review: ".$row['review']."</p>");
+        echo("<p>Date of visit: ".$row['visitdate']."</p>");
 				echo("</div>");
 				echo("</div>");
 				echo("<hr>");
