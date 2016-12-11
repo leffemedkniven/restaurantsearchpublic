@@ -85,10 +85,10 @@
 		  type: "POST",
 		  url: 'https://whatsdown-d627f.appspot.com/login.php',
 		  data: stringresponse,
-      error: function (request, error) {
-        ///console.log(arguments);
-        alert(" Can't do because: " + error);
-      },
+      // error: function (request, error) {
+      //   ///console.log(arguments);
+      //   alert(" Can't do because: " + error);
+      // },
 		  success: function(data,status){
                 	alert("Data" + data +"status"+status);
 		              }
