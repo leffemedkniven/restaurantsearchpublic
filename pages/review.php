@@ -1,6 +1,7 @@
 <?php
 $user_ID=$_POST['user_ID'];
 $restaurant_ID=$_POST['restaurant_ID'];
+$displayname=$_POST['displayname'];
 $review=$_POST['review'];
 $rate=$_POST['rate'];
 $visitdate=$_POST['visitdate'];
@@ -8,6 +9,7 @@ $visitdate=$_POST['visitdate'];
 	$data=array(
 		'user_ID' => $user_ID,
 		'restaurant_ID' => $restaurant_ID,
+		'displayname' => $displayname,
 		'review' => $review,
 		'rating' => $rate,
 		'visitdate' => $visitdate,

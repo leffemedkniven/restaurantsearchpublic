@@ -122,7 +122,7 @@ if($_SESSION['user_id']===""){
 			echo("<input type=submit value=\"submit\">");
 ?>
 
-			<input type="hidden" name="restaurant_ID" id="restarant_ID" value="<?php echo $rest_ID; ?>" />
+			<input type="hidden" name="restaurant_ID" id="restaurant_ID" value="<?php echo $rest_ID; ?>" />
 			<input type="hidden" name="user_ID" id="user_ID" value="<?php echo $user_ID; ?>" />
 			<input type="hidden" name="displayname" id="displayname" value="<?php echo $displayname; ?>" />
 
