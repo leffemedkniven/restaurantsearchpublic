@@ -78,17 +78,17 @@
       // Logged into your app and Facebook.
       testAPI();
 	FB.api('/me', function(response) {
-		var name = JSON.stringify(response.name);
-		var id = JSON.stringify(response.id);
+		//var name = JSON.stringify(response.name);
+		//var id = JSON.stringify(response.id);
     var stringresponse = JSON.stringify(response);
 		$.ajax({
 		  type: "POST",
 		  url: 'https://whatsdown-d627f.appspot.com/login.php',
-		  data: stringresponse,
-      // error: function (request, error) {
-      //   ///console.log(arguments);
-      //   alert(" Can't do because: " + error);
-      // },
+		  data: {'name':stringresponse},
+      error: function (request, error) {
+        ///console.log(arguments);
+        alert(" Can't do because: " + error);
+      },
 		  success: function(data,status){
                 	alert("Data" + data +"status"+status);
 		              }
