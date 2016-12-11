@@ -18,6 +18,9 @@ handlers:
 - url: /restaurant/.*
   script: pages/restaurant.php
 
+  - url: /login/.*
+    script: login.php
+
 - url: /admin/.*
   script: pages/admin.php
 

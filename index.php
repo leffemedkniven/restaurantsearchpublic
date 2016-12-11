@@ -84,7 +84,7 @@
     //var stringresponse = JSON.stringify(response);
 		$.ajax({
 		  type: "POST",
-		  url: 'https://whatsdown-d627f.appspot.com/login.php',
+		  url: 'https://whatsdown-d627f.appspot.com/login/',
 		  data: {'test': test},
       error: function(data, errorThrown){
               alert('request failed :'+errorThrown);
