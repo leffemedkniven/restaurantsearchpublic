@@ -42,14 +42,14 @@ if (!isset($accessToken)) {
 
 
 echo '<h3>Access Token</h3>';
-//var_dump($accessToken->getValue());
+var_dump($accessToken->getValue());
 // The OAuth 2.0 client handler helps us manage access tokens
 $oAuth2Client = $fb->getOAuth2Client();
 
 // Get the access token metadata from /debug_token
 $tokenMetadata = $oAuth2Client->debugToken($accessToken);
 echo '<h3>Metadata</h3>';
-//var_dump($tokenMetadata);
+var_dump($tokenMetadata);
 
 // Validation (these will throw FacebookSDKException's when they fail)
 $tokenMetadata->validateAppId(344026762636411); // Replace {app-id} with your app id
@@ -72,6 +72,8 @@ if (! $accessToken->isLongLived()) {
 $_SESSION['fb_access_token'] = (string) $accessToken;
 
 echo $_SESSION['fb_access_token'];
+var_dump($_SESSION['fb_access_token'])
+var_dump($accessToken)
 // User is logged in with a long-lived access token.
 // You can redirect them to a members-only page.
 header("Location: https://whatsdown-d627f.appspot.com/");
