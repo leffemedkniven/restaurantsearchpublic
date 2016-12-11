@@ -70,6 +70,6 @@
 
   //$permissions = ['email']; // Optional permissions
   $loginUrl = $helper->getLoginUrl('https://example.com/fb-callback.php', $permissions);
-
+echo $loginUrl;
 echo '<a href="' . htmlspecialchars($loginUrl) . '">Log in with Facebook!</a>';
 ?>
