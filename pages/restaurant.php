@@ -58,7 +58,7 @@ if($_SESSION['user_id']===""){
      </div>
 <?php 	session_start();
 	$user_ID = 1;
-	$user_ID = "Daniel Ståhlberg";
+	$displayname = "Daniel Ståhlberg";
 	$rest_ID = $_GET['id'];
 	$url = 'https://whatsdown-d627f.appspot.com/api/?restaurant_ID='.$rest_ID;
 	$ch = curl_init($url);
@@ -123,7 +123,9 @@ if($_SESSION['user_id']===""){
 ?>
 
 			<input type="hidden" name="restaurant_ID" id="restarant_ID" value="<?php echo $rest_ID; ?>" />
+			<input type="hidden" name="user_ID" id="user_ID" value="<?php echo $user_ID; ?>" />
 			<input type="hidden" name="displayname" id="displayname" value="<?php echo $displayname; ?>" />
+
                                 </form>
 					</div>
                                     </div>

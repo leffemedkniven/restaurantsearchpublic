@@ -168,7 +168,7 @@
 		$query->bindParam(':location',$location);
 
     if($query->execute()){
-    	$response=array('info' =>'Restaurant added.');
+    	$response=array('status' => 1, 'info' =>'Restaurant added.');
     }
 		else{
 			$response=array('info' =>'Addition failed, please try again.');
@@ -181,15 +181,21 @@
 	function insert_review()
 	{
 		global $connection;
-		$displayname=$_POST['displayname'];
+		$user_ID=$_POST['user_ID'];
 		$restaurant_ID=$_POST['restaurant_ID'];
+		$displayname=$_POST['displayname'];
 		$review=$_POST['review'];
 		$rating=$_POST['rating'];
 		$visitdate=$_POST['visitdate'];
 
-		$query=$connection->prepare('INSERT INTO reviews(displayname, restaurant_ID, review, rating, visitdate) VALUES (:displayname, :restaurant_ID, :review, :rating, :visitdate)');
-		$query->bindParam(':displayname',$displayname);
+
+		$parts = explode('/',$visitdate);
+		$vdate = $parts[2] . '-' . $parts[0] . '-' . $parts[1];
+
+		$query=$connection->prepare('INSERT INTO reviews(user_ID, restaurant_ID, displayname, review, rating, visitdate) VALUES (:user_ID, :restaurant_ID, :displayname, :review, :rating, :visitdate)');
+		$query->bindParam(':user_ID',$user_ID);
 		$query->bindParam(':restaurant_ID',$restaurant_ID);
+		$query->bindParam(':displayname',$displayname);
 		$query->bindParam(':review',$review);
 		$query->bindParam(':rating',$rating);
 		$query->bindParam(':visitdate',$visitdate);
