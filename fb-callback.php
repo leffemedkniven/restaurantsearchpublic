@@ -56,9 +56,17 @@ var_dump($accessToken);
 $tokenMetadata->validateAppId(344026762636411); // Replace {app-id} with your app id
 // If you know the user ID this access token belongs to, you can validate it here
 //$tokenMetadata->validateUserId('123');
+echo '<h3>DAFAEF2</h3>';
+var_dump($accessToken);
 $tokenMetadata->validateExpiration();
+
+echo '<h3>DAFAEF3</h3>';
+var_dump($accessToken);
 if (! $accessToken->isLongLived()) {
   // Exchanges a short-lived access token for a long-lived one
+
+  echo '<h3>DAFAEF4</h3>';
+  var_dump($accessToken);
   try {
     $accessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
   } catch (Facebook\Exceptions\FacebookSDKException $e) {
