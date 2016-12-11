@@ -181,18 +181,14 @@
 	function insert_review()
 	{
 		global $connection;
-		$user_ID=$_POST['user_ID'];
+		$displayname=$_POST['displayname'];
 		$restaurant_ID=$_POST['restaurant_ID'];
 		$review=$_POST['review'];
 		$rating=$_POST['rating'];
 		$visitdate=$_POST['visitdate'];
 
-
-		$parts = explode('/',$visitdate);
-		$vdate = $parts[2] . '-' . $parts[0] . '-' . $parts[1];
-
-		$query=$connection->prepare('INSERT INTO reviews(user_ID, restaurant_ID, review, rating, visitdate) VALUES (:user_ID, :restaurant_ID, :review, :rating, :visitdate)');
-		$query->bindParam(':user_ID',$user_ID);
+		$query=$connection->prepare('INSERT INTO reviews(displayname, restaurant_ID, review, rating, visitdate) VALUES (:displayname, :restaurant_ID, :review, :rating, :visitdate)');
+		$query->bindParam(':displayname',$displayname);
 		$query->bindParam(':restaurant_ID',$restaurant_ID);
 		$query->bindParam(':review',$review);
 		$query->bindParam(':rating',$rating);

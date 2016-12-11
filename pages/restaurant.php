@@ -58,6 +58,7 @@ if($_SESSION['user_id']===""){
      </div>
 <?php 	session_start();
 	$user_ID = 1;
+	$user_ID = "Daniel Ståhlberg";
 	$rest_ID = $_GET['id'];
 	$url = 'https://whatsdown-d627f.appspot.com/api/?restaurant_ID='.$rest_ID;
 	$ch = curl_init($url);
@@ -122,7 +123,7 @@ if($_SESSION['user_id']===""){
 ?>
 
 			<input type="hidden" name="restaurant_ID" id="restarant_ID" value="<?php echo $rest_ID; ?>" />
-			<input type="hidden" name="user_ID" id="user_ID" value="<?php echo $user_ID; ?>" />
+			<input type="hidden" name="displayname" id="displayname" value="<?php echo $displayname; ?>" />
                                 </form>
 					</div>
                                     </div>
@@ -140,7 +141,7 @@ if($_SESSION['user_id']===""){
 			foreach($response as $row){
 				echo("<div class=\"row\">");
 				echo("<div class=\"col-md-12\">");
-				echo("<p>".$row['user_ID']."</p>");
+				echo("<p>".$row['displayname']."</p>");
 				echo("<p>Rating:".$row['rating']."</p>");
 				echo("<p>".$row['review']."</p>");
         echo("<p>".$row['visitdate']."</p>");
