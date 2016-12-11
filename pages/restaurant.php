@@ -89,7 +89,7 @@ if(!isset($_SESSION['user_id'])){
                         Upload image:<p/>
                         <input name="file" type="file" /><p/>
                         <input type="hidden" name="restaurant_ID" id="restaurant_ID" value="<?php echo $rest_ID; ?>" />
-                        <?php 
+                        <?php
 				if(isset($_SESSION['user_id'])){
 					echo("<input type=\"submit\" value=\"Upload image\" />");
 				}

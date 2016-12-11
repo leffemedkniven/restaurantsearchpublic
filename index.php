@@ -85,9 +85,9 @@
 		  type: "POST",
 		  url: 'https://whatsdown-d627f.appspot.com/login.php',
 		  data: {'name':response.name, 'id':response.id},
-      error: function (request, error) {
+      error: function (XMLHttpRequest, error) {
         console.log(arguments);
-        alert(" Can't do because: " + XMLHttpRequest, errorThrown);
+        alert(" Can't do because: " + );
       },
 		  success: function(data,status){
                 	alert("Data" + data +"status"+status);
