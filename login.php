@@ -19,9 +19,10 @@ $data = $_POST['data'];
 //
 // echo $user_id;
 // echo $x;
-print_r("hih".$y);
+
 print_r("hih2".$data);
 echo $data;
 $fb = $facebook->getUser();
 echo $fb;
+print_r("hih".$fb);
 ?>
