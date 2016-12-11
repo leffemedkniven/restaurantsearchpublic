@@ -23,8 +23,7 @@ try {
   exit;
 }
 
-
-if (!isset($accessToken)) {
+if (! isset($accessToken)) {
   if ($helper->getError()) {
     header('HTTP/1.0 401 Unauthorized');
     echo "Error: " . $helper->getError() . "\n";
@@ -39,34 +38,25 @@ if (!isset($accessToken)) {
 }
 
 // Logged in
+//echo '<h3>Access Token</h3>';
+//var_dump($accessToken->getValue());
 
-
-echo '<h3>Access Token</h3>';
-var_dump($accessToken->getValue());
 // The OAuth 2.0 client handler helps us manage access tokens
 $oAuth2Client = $fb->getOAuth2Client();
 
 // Get the access token metadata from /debug_token
 $tokenMetadata = $oAuth2Client->debugToken($accessToken);
-echo '<h3>Metadata</h3>';
-var_dump($tokenMetadata);
-echo '<h3>DAFAEF</h3>';
-var_dump($accessToken);
+//echo '<h3>Metadata</h3>';
+//var_dump($tokenMetadata);
+
 // Validation (these will throw FacebookSDKException's when they fail)
 $tokenMetadata->validateAppId(344026762636411); // Replace {app-id} with your app id
 // If you know the user ID this access token belongs to, you can validate it here
 //$tokenMetadata->validateUserId('123');
-echo '<h3>DAFAEF2</h3>';
-var_dump($accessToken);
 $tokenMetadata->validateExpiration();
 
-echo '<h3>DAFAEF3</h3>';
-var_dump($accessToken);
 if (! $accessToken->isLongLived()) {
   // Exchanges a short-lived access token for a long-lived one
-
-  echo '<h3>DAFAEF4</h3>';
-  var_dump($accessToken);
   try {
     $accessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
   } catch (Facebook\Exceptions\FacebookSDKException $e) {
@@ -80,9 +70,6 @@ if (! $accessToken->isLongLived()) {
 
 $_SESSION['fb_access_token'] = (string) $accessToken;
 
-echo $_SESSION['fb_access_token'];
-var_dump($_SESSION['fb_access_token']);
-var_dump($accessToken);
 // User is logged in with a long-lived access token.
 // You can redirect them to a members-only page.
-header("Location: https://whatsdown-d627f.appspot.com/");
+header("Location: https://whatsdown-d627f.appspot.com/browse/");
