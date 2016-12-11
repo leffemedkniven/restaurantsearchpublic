@@ -39,6 +39,8 @@ if (!isset($accessToken)) {
 }
 
 // Logged in
+header("Location: https://whatsdown-d627f.appspot.com/");
+
 echo '<h3>Access Token</h3>';
 var_dump($accessToken->getValue());
 
@@ -49,7 +51,6 @@ $oAuth2Client = $fb->getOAuth2Client();
 $tokenMetadata = $oAuth2Client->debugToken($accessToken);
 echo '<h3>Metadata</h3>';
 var_dump($tokenMetadata);
-header("Location: https://whatsdown-d627f.appspot.com/");
 
 // Validation (these will throw FacebookSDKException's when they fail)
 $tokenMetadata->validateAppId(344026762636411); // Replace {app-id} with your app id
