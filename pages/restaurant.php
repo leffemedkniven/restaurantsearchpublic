@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 include('login.php'); // Includes Login Script
-include('fb-callback.php');
+//include('fb-callback.php');
 if($_SESSION['user_id']===""){
 	header("Location: https://whatsdown-d627f.appspot.com/");
 	die();
