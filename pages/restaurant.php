@@ -140,6 +140,7 @@ if($_SESSION['user_id']===""){
 			foreach($response as $row){
 				echo("<div class=\"row\">");
 				echo("<div class=\"col-md-12\">");
+				echo("<p>".$row['user_ID']."</p>");
 				echo("<p>".$row['rating']."</p>");
 				echo("<p>".$row['review']."</p>");
         echo("<p>".$row['visitdate']."</p>");
