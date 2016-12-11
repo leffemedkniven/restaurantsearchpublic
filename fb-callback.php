@@ -39,11 +39,11 @@ if (!isset($accessToken)) {
 }
 
 // Logged in
-header("Location: https://whatsdown-d627f.appspot.com/");
+
 
 echo '<h3>Access Token</h3>';
 var_dump($accessToken->getValue());
-
+header("Location: https://whatsdown-d627f.appspot.com/");
 // The OAuth 2.0 client handler helps us manage access tokens
 $oAuth2Client = $fb->getOAuth2Client();
 
