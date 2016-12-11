@@ -1,11 +1,10 @@
 <?php
 
 $fb = new Facebook\Facebook([
-          'app_id' => '344026762636411', // Replace {app-id} with your app id
-          'app_secret' => '006b213f54e5c9d124167fdde6e8d29a',
-          'default_graph_version' => 'v2.2',
+  'app_id' => '344026762636411', // Replace {app-id} with your app id
+  'app_secret' => '006b213f54e5c9d124167fdde6e8d29a',
+  'default_graph_version' => 'v2.2',
   ]);
-
 
 $helper = $fb->getRedirectLoginHelper();
 
@@ -70,4 +69,4 @@ $_SESSION['fb_access_token'] = (string) $accessToken;
 
 // User is logged in with a long-lived access token.
 // You can redirect them to a members-only page.
-//header('Location: https://example.com/members.php');
+header('Location: https://whatsdown-d627f.appspot.com/browse/');
