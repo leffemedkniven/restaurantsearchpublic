@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-
+session_start();
 
 $fb = new Facebook\Facebook([
   'app_id' => '344026762636411', // Replace {app-id} with your app id
@@ -9,6 +9,7 @@ $fb = new Facebook\Facebook([
   ]);
 
 $helper = $fb->getRedirectLoginHelper();
+$_SESSION['FBRLH_state']=$_GET['state'];
 
 try {
   $accessToken = $helper->getAccessToken();
