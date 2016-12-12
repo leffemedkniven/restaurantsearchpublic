@@ -21,7 +21,7 @@ try {
   exit;
 }
 
-$user = $response->getGraphUser();
+//$user = $response->getGraphUser();
 
 echo 'Name: ' . $user['name'];
 
