@@ -79,7 +79,7 @@ if($_SESSION['user_id']===""){
         <h3 class="text-muted">Restaurantsearch</h3>
       </div>
 
-      <div class="jumbotron">
+      <div style="max-width: 400px" class="jumbotron">
         <img src="http://valand.nu/img/restaurang_valand.jpg">
       </div>
 
