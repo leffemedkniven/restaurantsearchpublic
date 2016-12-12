@@ -76,12 +76,12 @@
   $logoutUrl = $fb->getLogoutUrl();
   if(isset($_SESSION['fb_access_token'])){
     print_r($_SESSION['fb_access_token']);
-    echo '<a href="' . htmlspecialchars($loginUrl) . '">Logout</a>';
+    echo "dick4";
+    echo '<a href="https://whatsdown-d627f.appspot.com/browse/"">Logout</a>';
 
     }
 else
 {
   echo '<a href="' . htmlspecialchars($loginUrl) . '">Log in with Facebook!</a>';
-
 }
 ?>
