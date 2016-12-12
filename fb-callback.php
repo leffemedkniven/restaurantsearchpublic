@@ -1,16 +1,17 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 session_start();
-
+echo $_SESSION['fb_access_token'];
 $fb = new Facebook\Facebook([
   'app_id' => '1814790452137377', // Replace {app-id} with your app id
   'app_secret' => '006b213f54e5c9d124167fdde6e8d29a',
+  'status' => 'true',
   'default_graph_version' => 'v2.2',
   ]);
 
 $helper = $fb->getRedirectLoginHelper();
 $_SESSION['FBRLH_state']=$_GET['state'];
-
+if(!isset($_SESSION['fbuid'])){
 try {
   $accessToken = $helper->getAccessToken();
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
@@ -22,7 +23,7 @@ try {
   echo 'Facebook SDK returned an error: ' . $e->getMessage();
   exit;
 }
-
+}
 if (! isset($accessToken)) {
   if ($helper->getError()) {
     header('HTTP/1.0 401 Unauthorized');
