@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 session_start();
-echo "dickheheh".$_SESSION['fb_access_token'];
+echo $_SESSION['fb_access_token'];
 $fb = new Facebook\Facebook([
   'app_id' => '1814790452137377', // Replace {app-id} with your app id
   'app_secret' => '006b213f54e5c9d124167fdde6e8d29a',
@@ -24,7 +24,7 @@ if(! isset($_SESSION['fb_access_token'])){
     exit;
 }
 
-echo "HEHEHEHEHE";
+//echo "HEHEHEHEHE";
 if (! isset($accessToken)) {
   if ($helper->getError()) {
     header('HTTP/1.0 401 Unauthorized');
@@ -38,7 +38,7 @@ if (! isset($accessToken)) {
   }
   exit;
 }
-echo "HEHEHEHEHE2";
+//echo "HEHEHEHEHE2";
 // Logged in
 echo '<h3>Access Token</h3>';
 var_dump($accessToken->getValue());
@@ -57,7 +57,7 @@ var_dump($tokenMetadata);
 //$tokenMetadata->validateUserId('123');
 
 $tokenMetadata->validateExpiration();
-echo "HEHEHEHEHE3";
+//echo "HEHEHEHEHE3";
 if (! $accessToken->isLongLived()) {
   // Exchanges a short-lived access token for a long-lived one
   try {
