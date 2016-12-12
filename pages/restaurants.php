@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
+session_start();
 include('login.php'); // Includes Login Script'
 //include('fb-callback.php');
 echo $_SESSION['fb_access_token'];
