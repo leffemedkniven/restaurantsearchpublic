@@ -73,9 +73,9 @@
   $loginUrl = $helper->getLoginUrl('https://whatsdown-d627f.appspot.com/fb-callback.php', $permissions);
 
 
-  $logoutUrl = $fb->getLogoutUrl();
+  //$logoutUrl = $fb->getLogoutUrl();
   echo "dick2".$loginUrl;
-  echo "dick3".$logoutUrl;
+  //echo "dick3".$logoutUrl;
   if(isset($_SESSION['fb_access_token'])){
     print_r($_SESSION['fb_access_token']);
     echo "dick4";
