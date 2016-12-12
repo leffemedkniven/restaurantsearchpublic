@@ -3,7 +3,7 @@
 require_once '../vendor/autoload.php';
 include('login.php'); // Includes Login Script'
 //include('fb-callback.php');
-echo $_SESSION['fb_access_token'];
+//echo $_SESSION['fb_access_token'];
 
 
 $fb = new Facebook\Facebook([
@@ -12,7 +12,6 @@ $fb = new Facebook\Facebook([
   'default_graph_version' => 'v2.2',
   ]);
 
-	echo "dick1";
 $at = $_SESSION['fb_access_token'];
 try {
   // Returns a `Facebook\FacebookResponse` object
@@ -24,9 +23,9 @@ try {
   echo 'Facebook SDK returned an error: ' . $e->getMessage();
   exit;
 }
-echo "dick2";
+
 $user = $response->getGraphUser();
-echo "dick3";
+
 echo 'Name: ' . $user['name'];
 
 echo "dick4";
