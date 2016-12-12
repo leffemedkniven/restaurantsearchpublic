@@ -74,9 +74,11 @@
 
 
   //$logoutUrl = $fb->getLogoutUrl();
-  echo "dick2".$loginUrl;
+  echo "dick2";
+  echo "$_SESSION['fb_access_token']";
+  print_r($_SESSION['fb_access_token']);
   //echo "dick3".$logoutUrl;
-  if(isset($_SESSION['fb_access_token'])){
+if(isset($_SESSION['fb_access_token'])){
     print_r($_SESSION['fb_access_token']);
     echo "dick4";
     echo '<a href="https://whatsdown-d627f.appspot.com/browse/"">Logout</a>';
