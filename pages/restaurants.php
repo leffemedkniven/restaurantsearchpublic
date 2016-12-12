@@ -9,6 +9,8 @@ $fb = new Facebook\Facebook([
   'app_secret' => '006b213f54e5c9d124167fdde6e8d29a',
   'default_graph_version' => 'v2.2',
   ]);
+
+	echo "dick1";
 $at = $_SESSION['fb_access_token'];
 try {
   // Returns a `Facebook\FacebookResponse` object
@@ -20,12 +22,12 @@ try {
   echo 'Facebook SDK returned an error: ' . $e->getMessage();
   exit;
 }
-
+echo "dick2";
 $user = $response->getGraphUser();
-
+echo "dick3";
 echo 'Name: ' . $user['name'];
 
-echo "dick";
+echo "dick4";
 if($_SESSION['user_id']===""){
 	header("Location: https://whatsdown-d627f.appspot.com/");
 	die();
