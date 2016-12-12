@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
-require_once __ROOT__ . '/vendor/autoload.php';
+//require_once __ROOT__ . '/vendor/autoload.php';
+require_once('/vendor/autoload.php');
 include('login.php'); // Includes Login Script'
 //include('fb-callback.php');
 echo $_SESSION['fb_access_token'];
