@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 session_start();
-echo "dickheheh";
+echo "dickheheh".$_SESSION['fb_access_token'];
 $fb = new Facebook\Facebook([
   'app_id' => '1814790452137377', // Replace {app-id} with your app id
   'app_secret' => '006b213f54e5c9d124167fdde6e8d29a',
@@ -11,18 +11,19 @@ $fb = new Facebook\Facebook([
 
 $helper = $fb->getRedirectLoginHelper();
 $_SESSION['FBRLH_state']=$_GET['state'];
-
-try {
+if(!isset($_SESSION['fb_access_token'])){
+  try {
   $accessToken = $helper->getAccessToken();
-} catch(Facebook\Exceptions\FacebookResponseException $e) {
-  // When Graph returns an error
-  echo 'Graph returned an error: ' . $e->getMessage();
-  exit;
-} catch(Facebook\Exceptions\FacebookSDKException $e) {
-  // When validation fails or other local issues
-  echo 'Facebook SDK returned an error: ' . $e->getMessage();
-  exit;
+  } catch(Facebook\Exceptions\FacebookResponseException $e) {
+    // When Graph returns an error
+    echo 'Graph returned an error: ' . $e->getMessage();
+    exit;
+  } catch(Facebook\Exceptions\FacebookSDKException $e) {
+    // When validation fails or other local issues
+    echo 'Facebook SDK returned an error: ' . $e->getMessage();
+    exit;
 }
+
 
 if (! isset($accessToken)) {
   if ($helper->getError()) {
@@ -56,7 +57,7 @@ var_dump($tokenMetadata);
 //$tokenMetadata->validateUserId('123');
 $tokenMetadata->validateExpiration();
 
-if(!$accessToken->isLongLived()) {
+if (! $accessToken->isLongLived()) {
   // Exchanges a short-lived access token for a long-lived one
   try {
     $accessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
@@ -70,7 +71,7 @@ if(!$accessToken->isLongLived()) {
 }
 
 $_SESSION['fb_access_token'] = (string) $accessToken;
-
+}
 // User is logged in with a long-lived access token.
 // You can redirect them to a members-only page.
 header('Location: https://whatsdown-d627f.appspot.com/browse/');
