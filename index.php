@@ -75,7 +75,7 @@
 
   //$logoutUrl = $fb->getLogoutUrl();
   echo "dick2";
-  echo "$_SESSION['fb_access_token']";
+  echo $_SESSION['fb_access_token'];
   print_r($_SESSION['fb_access_token']);
   //echo "dick3".$logoutUrl;
 if(isset($_SESSION['fb_access_token'])){
