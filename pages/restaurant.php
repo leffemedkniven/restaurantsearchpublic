@@ -110,13 +110,13 @@ if($_SESSION['user_id']===""){
 				<form action="/pages/review.php" method="post" id="reviewform">
 <?php
         echo("Rating:");
-			echo("<input type=\"radio\" name=\"rate\" id=\"r1\" value=\"1\" checked> 1");
-			echo("<input type=\"radio\" name=\"rate\" id=\"r2\" value=\"2\" checked> 2");
-			echo("<input type=\"radio\" name=\"rate\" id=\"r3\" value=\"3\" checked> 3");
-			echo("<input type=\"radio\" name=\"rate\" id=\"r4\" value=\"4\" checked> 4");
-			echo("<input type=\"radio\" name=\"rate\" id=\"r5\" value=\"5\" checked> 5");
+			echo("<input type=\"radio\" name=\"rate\" id=\"r1\" value=\"1\" checked> 1 ");
+			echo("<input type=\"radio\" name=\"rate\" id=\"r2\" value=\"2\" checked> 2 ");
+			echo("<input type=\"radio\" name=\"rate\" id=\"r3\" value=\"3\" checked> 3 ");
+			echo("<input type=\"radio\" name=\"rate\" id=\"r4\" value=\"4\" checked> 4 ");
+			echo("<input type=\"radio\" name=\"rate\" id=\"r5\" value=\"5\" checked> 5 ");
 
-        echo("Date of your restaurant visit:");
+        echo(" Date of your restaurant visit: ");
         echo("<input type=\"date\" name=\"visitdate\">");
 	echo("<textarea class=\"no-resize-bar form-control\" name=\"review\" id=\"review\" rows=\"2\" placeholder=\"Write a review\"></textarea>");
 			echo("<input type=submit value=\"submit\">");
