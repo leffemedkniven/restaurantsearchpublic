@@ -3,7 +3,7 @@
 include('login.php'); // Includes Login Script'
 nclude('fb-callback.php');
 echo $_SESSION['fb_access_token'];
-echo "dick";x
+echo "dick";
 if($_SESSION['user_id']===""){
 	header("Location: https://whatsdown-d627f.appspot.com/");
 	die();
