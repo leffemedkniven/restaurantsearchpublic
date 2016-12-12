@@ -56,7 +56,7 @@ var_dump($tokenMetadata);
 //$tokenMetadata->validateUserId('123');
 $tokenMetadata->validateExpiration();
 
-if (!$accessToken->isLongLived()) {
+if(!$accessToken->isLongLived()) {
   // Exchanges a short-lived access token for a long-lived one
   try {
     $accessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
