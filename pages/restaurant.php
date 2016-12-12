@@ -146,7 +146,7 @@ if($_SESSION['user_id']===""){
 				echo("<p>Name: ".$row['displayname']."</p>");
 				echo("<p>Rating: ".$row['rating']."</p>");
 				echo("<p>Review: ".$row['review']."</p>");
-        echo("<p>Date of visit".$row['visitdate']."</p>");
+        echo("<p>Date of visit: ".$row['visitdate']."</p>");
 				echo("</div>");
 				echo("</div>");
 				echo("<hr>");
