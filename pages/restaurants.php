@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<?php
+	<!DOCTYPE html>
+	<?php
 include('login.php'); // Includes Login Script'
 //include('fb-callback.php');
 echo $_SESSION['fb_access_token'];
