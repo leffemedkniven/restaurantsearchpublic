@@ -11,7 +11,7 @@ $fb = new Facebook\Facebook([
 
 $helper = $fb->getRedirectLoginHelper();
 $_SESSION['FBRLH_state']=$_GET['state'];
-if(!isset($_SESSION['fb_access_token'])){
+//if(! isset($_SESSION['fb_access_token'])){
   try {
   $accessToken = $helper->getAccessToken();
   } catch(Facebook\Exceptions\FacebookResponseException $e) {
@@ -71,7 +71,7 @@ if (! $accessToken->isLongLived()) {
 }
 
 $_SESSION['fb_access_token'] = (string) $accessToken;
-}
+//}
 // User is logged in with a long-lived access token.
 // You can redirect them to a members-only page.
 header('Location: https://whatsdown-d627f.appspot.com/browse/');
