@@ -112,9 +112,7 @@ if($_SESSION['user_id']===""){
 
 
 
-      <footer class="footer">
-        <p>&copy; 2016 Restaurantsearch</p>
-      </footer>
+
    </div>
     </div> <!-- /container -->
 
