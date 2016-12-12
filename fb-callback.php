@@ -11,7 +11,7 @@ $fb = new Facebook\Facebook([
 
 $helper = $fb->getRedirectLoginHelper();
 $_SESSION['FBRLH_state']=$_GET['state'];
-if(!isset($_SESSION['FBRLH_state'])){
+if(! isset($_SESSION['fb_access_token'])){
   try {
   $accessToken = $helper->getAccessToken();
   } catch(Facebook\Exceptions\FacebookResponseException $e) {
@@ -55,6 +55,7 @@ var_dump($tokenMetadata);
 $tokenMetadata->validateAppId(344026762636411); // Replace {app-id} with your app id
 // If you know the user ID this access token belongs to, you can validate it here
 //$tokenMetadata->validateUserId('123');
+
 $tokenMetadata->validateExpiration();
 echo "HEHEHEHEHE3";
 if (! $accessToken->isLongLived()) {
