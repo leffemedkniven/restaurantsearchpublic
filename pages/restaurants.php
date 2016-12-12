@@ -80,7 +80,7 @@ if($_SESSION['user_id']===""){
       </div>
 
       <div class="jumbotron">
-        <img src="https://storage.googleapis.com/whatsdown-d627f.appspot.com/restaurang_valand.jpg style="max-width:100%;">
+        <img src="https://storage.googleapis.com/whatsdown-d627f.appspot.com/restaurang_valand.jpg ">
       </div>
 
       <div class="row marketing">
