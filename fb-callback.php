@@ -1,27 +1,29 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 session_start();
-
+echo "dickheheh".$_SESSION['fb_access_token'];
 $fb = new Facebook\Facebook([
   'app_id' => '1814790452137377', // Replace {app-id} with your app id
   'app_secret' => '006b213f54e5c9d124167fdde6e8d29a',
+  'status' => 'true',
   'default_graph_version' => 'v2.2',
   ]);
 
 $helper = $fb->getRedirectLoginHelper();
 $_SESSION['FBRLH_state']=$_GET['state'];
-
-try {
+if(!isset($_SESSION['fb_access_token'])){
+  try {
   $accessToken = $helper->getAccessToken();
-} catch(Facebook\Exceptions\FacebookResponseException $e) {
-  // When Graph returns an error
-  echo 'Graph returned an error: ' . $e->getMessage();
-  exit;
-} catch(Facebook\Exceptions\FacebookSDKException $e) {
-  // When validation fails or other local issues
-  echo 'Facebook SDK returned an error: ' . $e->getMessage();
-  exit;
+  } catch(Facebook\Exceptions\FacebookResponseException $e) {
+    // When Graph returns an error
+    echo 'Graph returned an error: ' . $e->getMessage();
+    exit;
+  } catch(Facebook\Exceptions\FacebookSDKException $e) {
+    // When validation fails or other local issues
+    echo 'Facebook SDK returned an error: ' . $e->getMessage();
+    exit;
 }
+
 
 if (! isset($accessToken)) {
   if ($helper->getError()) {
@@ -50,7 +52,7 @@ echo '<h3>Metadata</h3>';
 var_dump($tokenMetadata);
 
 // Validation (these will throw FacebookSDKException's when they fail)
-$tokenMetadata->validateAppId(344026762636411); // Replace {app-id} with your app id
+//$tokenMetadata->validateAppId(344026762636411); // Replace {app-id} with your app id
 // If you know the user ID this access token belongs to, you can validate it here
 //$tokenMetadata->validateUserId('123');
 $tokenMetadata->validateExpiration();
@@ -69,7 +71,7 @@ if (! $accessToken->isLongLived()) {
 }
 
 $_SESSION['fb_access_token'] = (string) $accessToken;
-
+}
 // User is logged in with a long-lived access token.
 // You can redirect them to a members-only page.
 header('Location: https://whatsdown-d627f.appspot.com/browse/');
