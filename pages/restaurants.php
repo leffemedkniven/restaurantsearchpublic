@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 include('login.php'); // Includes Login Script'
-nclude('fb-callback.php');
+include('fb-callback.php');
 echo $_SESSION['fb_access_token'];
 echo "dick";
 if($_SESSION['user_id']===""){
