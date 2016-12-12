@@ -65,7 +65,9 @@
           'app_secret' => '006b213f54e5c9d124167fdde6e8d29a',
           'default_graph_version' => 'v2.2',
   ]);
-session_start();
+  session_start();
+  $_SESSION['FBRLH_state']=$_GET['state'];
+
   $helper = $fb->getRedirectLoginHelper();
 
   $permissions = ['email']; // Optional permissions
