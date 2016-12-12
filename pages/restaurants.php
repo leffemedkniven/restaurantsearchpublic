@@ -3,8 +3,8 @@
 require_once '../vendor/autoload.php';
 include('login.php'); // Includes Login Script'
 //include('fb-callback.php');
-echo $_SESSION['fb_access_token'];
-echo "dick";
+//echo $_SESSION['fb_access_token'];
+
 
 $fb = new Facebook\Facebook([
   'app_id' => '1814790452137377', // Replace {app-id} with your app id
