@@ -11,7 +11,7 @@ $fb = new Facebook\Facebook([
 
 $helper = $fb->getRedirectLoginHelper();
 $_SESSION['FBRLH_state']=$_GET['state'];
-if(!isset($_SESSION['fb_access_token'])){
+if(! isset($_SESSION['fb_access_token'])){
   try {
   $accessToken = $helper->getAccessToken();
   } catch(Facebook\Exceptions\FacebookResponseException $e) {
@@ -24,7 +24,7 @@ if(!isset($_SESSION['fb_access_token'])){
     exit;
 }
 
-
+echo "HEHEHEHEHE";
 if (! isset($accessToken)) {
   if ($helper->getError()) {
     header('HTTP/1.0 401 Unauthorized');
@@ -38,7 +38,7 @@ if (! isset($accessToken)) {
   }
   exit;
 }
-
+echo "HEHEHEHEHE2";
 // Logged in
 echo '<h3>Access Token</h3>';
 var_dump($accessToken->getValue());
@@ -55,8 +55,9 @@ var_dump($tokenMetadata);
 //$tokenMetadata->validateAppId(344026762636411); // Replace {app-id} with your app id
 // If you know the user ID this access token belongs to, you can validate it here
 //$tokenMetadata->validateUserId('123');
-$tokenMetadata->validateExpiration();
 
+$tokenMetadata->validateExpiration();
+echo "HEHEHEHEHE3";
 if (! $accessToken->isLongLived()) {
   // Exchanges a short-lived access token for a long-lived one
   try {

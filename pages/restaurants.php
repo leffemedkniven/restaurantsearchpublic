@@ -12,7 +12,6 @@ $fb = new Facebook\Facebook([
   'default_graph_version' => 'v2.2',
   ]);
 
-	echo "dick1";
 $at = $_SESSION['fb_access_token'];
 try {
   // Returns a `Facebook\FacebookResponse` object
@@ -24,12 +23,10 @@ try {
   echo 'Facebook SDK returned an error: ' . $e->getMessage();
   exit;
 }
-echo "dick2";
 $user = $response->getGraphUser();
-echo "dick3";
+
 echo 'Name: ' . $user['name'];
 
-echo "dick4";
 if($_SESSION['user_id']===""){
 	header("Location: https://whatsdown-d627f.appspot.com/");
 	die();
@@ -73,7 +70,7 @@ if($_SESSION['user_id']===""){
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="https://whatsdown-d627f.appspot.com/memes">Memes</a></li>
+
             <?php if($_SESSION['admin']==true) {echo("<li role=\"presentation\" class=\"active\"><a href=\"https://whatsdown-d627f.appspot.com/admin/\">Admin</a></li>"); }?>
             <li role="presentation" class="active"><a href="https://whatsdown-d627f.appspot.com/browse/">Home</a></li>
       	<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
@@ -83,7 +80,7 @@ if($_SESSION['user_id']===""){
       </div>
 
       <div class="jumbotron">
-        <h1>Tjena kexet</h1>
+        <img src="https://storage.googleapis.com/whatsdown-d627f.appspot.com/restar.jpg">
       </div>
 
       <div class="row marketing">
