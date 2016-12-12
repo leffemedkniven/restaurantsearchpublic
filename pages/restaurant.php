@@ -58,6 +58,7 @@ if($_SESSION['user_id']===""){
      </div>
 <?php 	session_start();
 	$user_ID = 1;
+	$displayname = "Daniel Ståhlberg";
 	$rest_ID = $_GET['id'];
 	$url = 'https://whatsdown-d627f.appspot.com/api/?restaurant_ID='.$rest_ID;
 	$ch = curl_init($url);
@@ -87,9 +88,9 @@ if($_SESSION['user_id']===""){
                     <div class="imageupload">
                       <center>
                       <form id="data" method="POST" enctype="multipart/form-data">
-                        
+
                         <input type="hidden" name="restaurant_ID" id="restaurant_ID" value="<?php echo $rest_ID; ?>" />
-                        <?php 
+                        <?php
 				if($_SESSION['admin']==true){
 					echo("Upload image:<p/>");
                        			echo("<input name=\"file\" type=\"file\" /><p/>");
@@ -100,7 +101,7 @@ if($_SESSION['user_id']===""){
                       </center>
                     </div>
                 </div>
-	
+
                		<div class="well">
 			       <div class="row send-wrap">
                                     <div class="send-message">
@@ -121,14 +122,16 @@ if($_SESSION['user_id']===""){
 			echo("<input type=submit value=\"submit\">");
 ?>
 
-			<input type="hidden" name="restaurant_ID" id="restarant_ID" value="<?php echo $rest_ID; ?>" />
+			<input type="hidden" name="restaurant_ID" id="restaurant_ID" value="<?php echo $rest_ID; ?>" />
 			<input type="hidden" name="user_ID" id="user_ID" value="<?php echo $user_ID; ?>" />
-                                </form>     
+			<input type="hidden" name="displayname" id="displayname" value="<?php echo $displayname; ?>" />
+
+                                </form>
 					</div>
                                     </div>
                                 </div>
                     <hr>
-	
+
 		    <?php
 			$url = 'https://whatsdown-d627f.appspot.com/api/?restaurantReviews='.$rest_ID;
 			$ch = curl_init($url);
@@ -140,9 +143,10 @@ if($_SESSION['user_id']===""){
 			foreach($response as $row){
 				echo("<div class=\"row\">");
 				echo("<div class=\"col-md-12\">");
-				echo("<p>".$row['rating']."</p>");
-				echo("<p>".$row['review']."</p>");
-        echo("<p>".$row['visitdate']."</p>");
+				echo("<p>Name: ".$row['displayname']."</p>");
+				echo("<p>Rating: ".$row['rating']."</p>");
+				echo("<p>Review: ".$row['review']."</p>");
+        echo("<p>Date of visit: ".$row['visitdate']."</p>");
 				echo("</div>");
 				echo("</div>");
 				echo("<hr>");
