@@ -15,11 +15,11 @@ $_SESSION['admin'] = true;
 
 
 echo $user_name;
-echo ":Tjena:";
+//echo ":Tjena:";
 
 echo $user_id;
 echo $x;
-print_r("hih".$y);
+//print_r("hih".$y);
 
 
 ?>

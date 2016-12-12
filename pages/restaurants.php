@@ -23,12 +23,10 @@ try {
   echo 'Facebook SDK returned an error: ' . $e->getMessage();
   exit;
 }
-
 $user = $response->getGraphUser();
 
 echo 'Name: ' . $user['name'];
 
-echo "dick4";
 if($_SESSION['user_id']===""){
 	header("Location: https://whatsdown-d627f.appspot.com/");
 	die();
