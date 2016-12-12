@@ -79,8 +79,8 @@ if($_SESSION['user_id']===""){
         <h3 class="text-muted">Restaurantsearch</h3>
       </div>
 
-      <div style="max-width: 400px" class="jumbotron">
-        <img src="http://valand.nu/img/restaurang_valand.jpg">
+      <div class="jumbotron">
+        <img src="http://valand.nu/img/restaurang_valand.jpg style="max-width:100%;">
       </div>
 
       <div class="row marketing">
