@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-//require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 include('login.php'); // Includes Login Script'
 //include('fb-callback.php');
 echo $_SESSION['fb_access_token'];
@@ -12,21 +12,21 @@ $fb = new Facebook\Facebook([
   ]);
 
 	echo "dick1";
-$at = $_SESSION['fb_access_token'];
-try {
-  // Returns a `Facebook\FacebookResponse` object
-  $response = $fb->get('/me?fields=id,name', $at);
-} catch(Facebook\Exceptions\FacebookResponseException $e) {
-  echo 'Graph returned an error: ' . $e->getMessage();
-  exit;
-} catch(Facebook\Exceptions\FacebookSDKException $e) {
-  echo 'Facebook SDK returned an error: ' . $e->getMessage();
-  exit;
-}
-echo "dick2";
-$user = $response->getGraphUser();
-echo "dick3";
-echo 'Name: ' . $user['name'];
+// $at = $_SESSION['fb_access_token'];
+// try {
+//   // Returns a `Facebook\FacebookResponse` object
+//   $response = $fb->get('/me?fields=id,name', $at);
+// } catch(Facebook\Exceptions\FacebookResponseException $e) {
+//   echo 'Graph returned an error: ' . $e->getMessage();
+//   exit;
+// } catch(Facebook\Exceptions\FacebookSDKException $e) {
+//   echo 'Facebook SDK returned an error: ' . $e->getMessage();
+//   exit;
+// }
+// echo "dick2";
+// $user = $response->getGraphUser();
+// echo "dick3";
+// echo 'Name: ' . $user['name'];
 
 echo "dick4";
 if($_SESSION['user_id']===""){
