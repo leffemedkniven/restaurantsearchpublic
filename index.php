@@ -80,6 +80,6 @@
 
   $permissions = ['email']; // Optional permissions
   $loginUrl = $helper->getLoginUrl('https://whatsdown-d627f.appspot.com/fb-callback.php', $permissions);
-  <center>echo '<a href="' . htmlspecialchars($loginUrl) . '">Log in with Facebook!</a>'; </center>
+  echo '<a href="' . htmlspecialchars($loginUrl) . '"><center>Log in with Facebook!</center></a>'; 
 
 ?>
