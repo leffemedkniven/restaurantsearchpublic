@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+require_once '../vendor/autoload.php';
 include('login.php'); // Includes Login Script
 if($_SESSION['fb_access_token']===""){
 	header("Location: https://whatsdown-d627f.appspot.com/");
