@@ -73,7 +73,6 @@ if (! $accessToken->isLongLived()) {
   var_dump($accessToken->getValue());
 }
 //echo "hehehehe3";
-$_SESSION['access_granted'] = '1';
 $_SESSION['fb_access_token'] = (string) $accessToken;
 
 
@@ -103,7 +102,7 @@ $user = $response->getGraphUser();
 				'name' => $user['name'],
 				'user_ID' => $user['id'],
 				'admin' => 0,
-				
+
 			);
 
 		$url = 'https://whatsdown-d627f.appspot.com/api/?insertUser=1';
@@ -114,11 +113,11 @@ $user = $response->getGraphUser();
 		$response_json = curl_exec($ch);
 		curl_close($ch);
 		$response=json_decode($response_json, true);
-		
-		$_SESSION['user_name'] = $user['name'];		
+
+		$_SESSION['user_name'] = $user['name'];
 		$_SESSION['user_ID'] = $user['id'];
 		$_SESSION['admin'] = 0;
-	
+
 	} else {
 		foreach($response as $row){
 			$_SESSION['user_name'] = $row['displayname'];
