@@ -90,8 +90,8 @@ try {
 }
 $user = $response->getGraphUser();
 $userid = (string) $user['id'];
-echo $userid;
-	$url = 'https://whatsdown-d627f.appspot.com/api/?user_ID='.".$userid.";
+//echo $userid;
+	$url = 'https://whatsdown-d627f.appspot.com/api/?user_ID='.$userid.;
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_HTTPGET, true);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -107,7 +107,7 @@ echo $userid;
 		$data=array(
 				'displayname' => $user_name,
 				'user_ID' => $user_ID,
-				'admin' => 0,
+				'admin' => 1,
 
 			);
 
@@ -123,7 +123,7 @@ echo $userid;
 
 		$_SESSION['user_name'] = $user['name'];
 		$_SESSION['user_ID'] = $user['id'];
-		$_SESSION['admin'] = 0;
+		$_SESSION['admin'] = 1;
 
 	} else {
 		foreach($response as $row){
