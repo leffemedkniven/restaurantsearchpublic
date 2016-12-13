@@ -2,6 +2,7 @@
 require_once __DIR__ . '/vendor/autoload.php';
 session_start();
 echo $_SESSION['fb_access_token'];
+$_SESSION['access_granted'];
 $fb = new Facebook\Facebook([
   'app_id' => '1814790452137377', // Replace {app-id} with your app id
   'app_secret' => '006b213f54e5c9d124167fdde6e8d29a',
@@ -11,7 +12,7 @@ $fb = new Facebook\Facebook([
 
 $helper = $fb->getRedirectLoginHelper();
 $_SESSION['FBRLH_state']=$_GET['state'];
-if(! isset($_SESSION['fb_access_token'])){
+if(! isset($_SESSION['access_granted'])){
   try {
   $accessToken = $helper->getAccessToken();
   } catch(Facebook\Exceptions\FacebookResponseException $e) {
@@ -70,7 +71,7 @@ if (! $accessToken->isLongLived()) {
   echo '<h3>Long-lived</h3>';
   var_dump($accessToken->getValue());
 }
-
+$_SESSION['access_granted'] = '1';
 $_SESSION['fb_access_token'] = (string) $accessToken;
 }
 // User is logged in with a long-lived access token.
