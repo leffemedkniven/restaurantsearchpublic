@@ -2,7 +2,7 @@
 require_once __DIR__ . '/vendor/autoload.php';
 session_start();
 echo $_SESSION['fb_access_token'];
-$_SESSION['access_granted'];
+echo $_SESSION['access_granted'];
 $fb = new Facebook\Facebook([
   'app_id' => '1814790452137377', // Replace {app-id} with your app id
   'app_secret' => '006b213f54e5c9d124167fdde6e8d29a',
