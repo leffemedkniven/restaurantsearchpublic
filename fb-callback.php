@@ -97,6 +97,8 @@ $user = $response->getGraphUser();
 	$response_json = curl_exec($ch);
 	curl_close($ch);
 	$response=json_decode($response_json, true);
+	print_r($response);
+
 	if($response != []) {
 		$data=array(
 				'name' => $user['name'],
