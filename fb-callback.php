@@ -97,16 +97,14 @@ $user = $response->getGraphUser();
 	$response_json = curl_exec($ch);
 	curl_close($ch);
 	$response=json_decode($response_json, true);
-	print_r($response);
 
 	if(empty($response)){
 		$data=array(
-				'name' => $user['name'],
+				'displayname' => $user['name'],
 				'user_ID' => $user['id'],
 				'admin' => 0,
 
 			);
-		print_r($data);
 
 		$url = 'https://whatsdown-d627f.appspot.com/api/?insertUser=1';
 		$ch = curl_init($url);
