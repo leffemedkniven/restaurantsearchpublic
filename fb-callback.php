@@ -89,14 +89,16 @@ try {
   exit;
 }
 $user = $response->getGraphUser();
-
-	$url = 'https://whatsdown-d627f.appspot.com/api/?user_ID='.$user['id'];
+$userid = $user['id'];
+	$url = 'https://whatsdown-d627f.appspot.com/api/?user_ID='.$userid;
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_HTTPGET, true);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	$response_json = curl_exec($ch);
 	curl_close($ch);
 	$response=json_decode($response_json, true);
+
+  print_r($response);
 
 	if(empty($response)){
 		$user_name = $user['name'];
