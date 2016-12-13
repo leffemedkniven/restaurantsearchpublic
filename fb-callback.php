@@ -91,8 +91,7 @@ try {
 }
 $user = $response->getGraphUser();
 
-	$_SESSION['user_ID'] = $user['id'];
-/*	$url = 'https://whatsdown-d627f.appspot.com/api/?user_ID='.$userID;
+	$url = 'https://whatsdown-d627f.appspot.com/api/?user_ID='.$user['id'];
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_HTTPGET, true);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -117,17 +116,17 @@ $user = $response->getGraphUser();
 		$response=json_decode($response_json, true);
 		
 		$_SESSION['user_name'] = $user['name'];		
-		$_SESSION['picture'] = $user['id'];
+		$_SESSION['user_ID'] = $user['id'];
 		$_SESSION['admin'] = 0;
 	
 	} else {
 		foreach($response as $row){
 			$_SESSION['user_name'] = $row['displayname'];
-			$_SESSION['picture'] = $row['picture'];
+			$_SESSION['user_ID'] = $row['user_ID'];
 			$_SESSION['admin'] = $row['admin'];
 		}
 	}
-*/
+
 
 header('Location: https://whatsdown-d627f.appspot.com/browse/');
 exit();
