@@ -1,8 +1,8 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 session_start();
-echo $_SESSION['fb_access_token'];
-echo $_SESSION['access_granted'];
+//echo $_SESSION['fb_access_token'];
+//echo $_SESSION['access_granted'];
 $fb = new Facebook\Facebook([
   'app_id' => '1814790452137377', // Replace {app-id} with your app id
   'app_secret' => '006b213f54e5c9d124167fdde6e8d29a',
@@ -41,23 +41,24 @@ if (! isset($accessToken)) {
 }
 //echo "HEHEHEHEHE2";
 // Logged in
-echo '<h3>Access Token</h3>';
-var_dump($accessToken->getValue());
+//echo '<h3>Access Token</h3>';
+//var_dump($accessToken->getValue());
 
 // The OAuth 2.0 client handler helps us manage access tokens
 $oAuth2Client = $fb->getOAuth2Client();
-
+//echo "hehehehe";
 // Get the access token metadata from /debug_token
-$tokenMetadata = $oAuth2Client->debugToken($accessToken);
-echo '<h3>Metadata</h3>';
-var_dump($tokenMetadata);
+//$tokenMetadata = $oAuth2Client->debugToken($accessToken);
+//echo '<h3>Metadata</h3>';
+//var_dump($tokenMetadata);
 
 // Validation (these will throw FacebookSDKException's when they fail)
 //$tokenMetadata->validateAppId(1814790452137377); // Replace {app-id} with your app id
 // If you know the user ID this access token belongs to, you can validate it here
 //$tokenMetadata->validateUserId('123');
 
-$tokenMetadata->validateExpiration();
+//$tokenMetadata->validateExpiration();
+//echo "hehehehe2";
 //echo "HEHEHEHEHE3";
 if (! $accessToken->isLongLived()) {
   // Exchanges a short-lived access token for a long-lived one
@@ -71,12 +72,15 @@ if (! $accessToken->isLongLived()) {
   echo '<h3>Long-lived</h3>';
   var_dump($accessToken->getValue());
 }
+//echo "hehehehe3";
 $_SESSION['access_granted'] = '1';
 $_SESSION['fb_access_token'] = (string) $accessToken;
 header('Location: https://whatsdown-d627f.appspot.com/browse/');
+exit();
 }
 else{
   header('Location: https://whatsdown-d627f.appspot.com/browse/');
+  exit();
 }
 // User is logged in with a long-lived access token.
 // You can redirect them to a members-only page.
