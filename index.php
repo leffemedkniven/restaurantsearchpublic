@@ -4,7 +4,15 @@
 
     <title>Login</title>
 
-    <?php require_once __DIR__ . '/vendor/autoload.php'; ?>
+    <?php require_once __DIR__ . '/vendor/autoload.php';
+    if(isset($_SESSION['fb_access_token'])){
+
+        header('Location: https://whatsdown-d627f.appspot.com/browse/');
+
+        }
+
+
+    ?>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <meta charset="utf-8">
@@ -71,14 +79,6 @@ session_start();
 
   $permissions = ['email']; // Optional permissions
   $loginUrl = $helper->getLoginUrl('https://whatsdown-d627f.appspot.com/fb-callback.php', $permissions);
-
-if(isset($_SESSION['fb_access_token'])){
-
-    echo '<a href="logout.php">Logout</a>';
-
-    }
-else
-{
   echo '<a href="' . htmlspecialchars($loginUrl) . '">Log in with Facebook!</a>';
-}
+
 ?>

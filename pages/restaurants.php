@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 require_once '../vendor/autoload.php';
+session_start();
 //include('login.php'); // Includes Login Script'
 
 //include('fb-callback.php');
@@ -78,7 +79,7 @@ echo 'Name: ' . $user['name'];
             <li role="presentation" class="active"><a href="https://whatsdown-d627f.appspot.com/browse/">Home</a></li>
 
 	<li role="presentation" class="active"><a href="https://whatsdown-d627f.appspot.com/logout.php">Log out</a></li>
-      	
+
           </ul>
         </nav>
         <h3 class="text-muted">Restaurantsearch</h3>
