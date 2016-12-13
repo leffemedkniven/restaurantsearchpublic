@@ -46,7 +46,7 @@ if (! isset($accessToken)) {
 
 // The OAuth 2.0 client handler helps us manage access tokens
 $oAuth2Client = $fb->getOAuth2Client();
-echo "hehehehe";
+//echo "hehehehe";
 // Get the access token metadata from /debug_token
 //$tokenMetadata = $oAuth2Client->debugToken($accessToken);
 //echo '<h3>Metadata</h3>';
@@ -58,7 +58,7 @@ echo "hehehehe";
 //$tokenMetadata->validateUserId('123');
 
 //$tokenMetadata->validateExpiration();
-echo "hehehehe2";
+//echo "hehehehe2";
 //echo "HEHEHEHEHE3";
 if (! $accessToken->isLongLived()) {
   // Exchanges a short-lived access token for a long-lived one
