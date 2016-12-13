@@ -28,7 +28,7 @@ try {
 $user = $response->getGraphUser();
 
 echo 'Name: ' . $user['name'];
-echo 'ID: ' . $user['id'];
+echo 'ID: ' . $user['fbid'];
 ?>
 <html lang="en">
 <head>
