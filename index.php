@@ -5,6 +5,7 @@
     <title>Login</title>
 
     <?php require_once __DIR__ . '/vendor/autoload.php';
+    session_start();
     if(isset($_SESSION['fb_access_token'])){
 
         header('Location: https://whatsdown-d627f.appspot.com/browse/');
@@ -73,7 +74,7 @@
           'app_secret' => '006b213f54e5c9d124167fdde6e8d29a',
           'default_graph_version' => 'v2.2',
   ]);
-session_start();
+
 
   $helper = $fb->getRedirectLoginHelper();
 
