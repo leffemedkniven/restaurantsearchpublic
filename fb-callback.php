@@ -75,6 +75,60 @@ if (! $accessToken->isLongLived()) {
 //echo "hehehehe3";
 $_SESSION['access_granted'] = '1';
 $_SESSION['fb_access_token'] = (string) $accessToken;
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+try {
+  $at = $_SESSION['fb_access_token'];
+  // Returns a `Facebook\FacebookResponse` object
+  $response = $fb->get('/me?fields=id,name', $at);
+} catch(Facebook\Exceptions\FacebookResponseException $e) {
+  echo 'Graph returned an error: ' . $e->getMessage();
+  exit;
+} catch(Facebook\Exceptions\FacebookSDKException $e) {
+  echo 'Facebook SDK returned an error: ' . $e->getMessage();
+  exit;
+}
+$user = $response->getGraphUser();
+
+	$_SESSION['user_ID'] = $user['id'];
+/*	$url = 'https://whatsdown-d627f.appspot.com/api/?user_ID='.$userID;
+	$ch = curl_init($url);
+	curl_setopt($ch, CURLOPT_HTTPGET, true);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	$response_json = curl_exec($ch);
+	curl_close($ch);
+	$response=json_decode($response_json, true);
+	if(empty(response)) {
+		$data=array(
+				'name' => $user['name'],
+				'user_ID' => $user['id'],
+				'admin' => 0,
+				
+			);
+
+		$url = 'https://whatsdown-d627f.appspot.com/api/?insertUser=1';
+		$ch = curl_init($url);
+		curl_setopt($ch, CURLOPT_POST, true);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		$response_json = curl_exec($ch);
+		curl_close($ch);
+		$response=json_decode($response_json, true);
+		
+		$_SESSION['user_name'] = $user['name'];		
+		$_SESSION['picture'] = $user['id'];
+		$_SESSION['admin'] = 0;
+	
+	} else {
+		foreach($response as $row){
+			$_SESSION['user_name'] = $row['displayname'];
+			$_SESSION['picture'] = $row['picture'];
+			$_SESSION['admin'] = $row['admin'];
+		}
+	}
+*/
+
 header('Location: https://whatsdown-d627f.appspot.com/browse/');
 exit();
 }
