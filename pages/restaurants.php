@@ -75,6 +75,8 @@ if($_SESSION['user_id']===""){
 
             <?php if($_SESSION['admin']==true) {echo("<li role=\"presentation\" class=\"active\"><a href=\"https://whatsdown-d627f.appspot.com/admin/\">Admin</a></li>"); }?>
             <li role="presentation" class="active"><a href="https://whatsdown-d627f.appspot.com/browse/">Home</a></li>
+
+	<li role="presentation" class="active"><a href="https://whatsdown-d627f.appspot.com/logout.php">Log out</a></li>
       	<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
           </ul>
         </nav>
