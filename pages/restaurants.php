@@ -2,11 +2,17 @@
 <?php
 require_once '../vendor/autoload.php';
 include('login.php'); // Includes Login Script'
-echo $_SESSION['access_granted'];
 
 //include('fb-callback.php');
 //echo $_SESSION['fb_access_token'];
 
+
+
+
+if($_SESSION['fb_access_token']===""){
+	header("Location: https://whatsdown-d627f.appspot.com/");
+	die();
+}
 
 $fb = new Facebook\Facebook([
   'app_id' => '1814790452137377', // Replace {app-id} with your app id
@@ -28,11 +34,6 @@ try {
 $user = $response->getGraphUser();
 
 echo 'Name: ' . $user['name'];
-
-if($_SESSION['user_id']===""){
-	header("Location: https://whatsdown-d627f.appspot.com/");
-	die();
-}
 ?>
 <html lang="en">
   <head>
