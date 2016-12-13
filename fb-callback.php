@@ -72,13 +72,15 @@ if (! $accessToken->isLongLived()) {
   echo '<h3>Long-lived</h3>';
   var_dump($accessToken->getValue());
 }
-echo "hehehehe3";
+//echo "hehehehe3";
 $_SESSION['access_granted'] = '1';
 $_SESSION['fb_access_token'] = (string) $accessToken;
 header('Location: https://whatsdown-d627f.appspot.com/browse/');
+exit();
 }
 else{
   header('Location: https://whatsdown-d627f.appspot.com/browse/');
+  exit();
 }
 // User is logged in with a long-lived access token.
 // You can redirect them to a members-only page.
