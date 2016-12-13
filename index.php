@@ -47,7 +47,8 @@
 <body>
     <div class="container">
       <form class="form-signin">
-        <h2 class="form-signin-heading">Please sign in to view RestaurantSearch</h2>
+        <h2 class="form-signin-heading">Please sign in to view </h2>
+        <center><h2 class="form-signin-heading">RestaurantSearch</h2></center>
         <!--
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
