@@ -47,7 +47,7 @@
 <body>
     <div class="container">
       <form class="form-signin">
-        <h2 class="form-signin-heading">Please sign in</h2>
+        <h2 class="form-signin-heading">Please sign in to view RestaurantSearch</h2>
         <!--
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
@@ -80,6 +80,6 @@
 
   $permissions = ['email']; // Optional permissions
   $loginUrl = $helper->getLoginUrl('https://whatsdown-d627f.appspot.com/fb-callback.php', $permissions);
-  echo '<a href="' . htmlspecialchars($loginUrl) . '"><center>Log in with Facebook!</center></a>'; 
+  echo '<a href="' . htmlspecialchars($loginUrl) . '"><center>Log in with Facebook!</center></a>';
 
 ?>
