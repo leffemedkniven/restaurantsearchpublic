@@ -53,7 +53,7 @@ $oAuth2Client = $fb->getOAuth2Client();
 //var_dump($tokenMetadata);
 
 // Validation (these will throw FacebookSDKException's when they fail)
-//$tokenMetadata->validateAppId(1814790452137377); // Replace {app-id} with your app id
+$tokenMetadata->validateAppId(1814790452137377); // Replace {app-id} with your app id
 // If you know the user ID this access token belongs to, you can validate it here
 //$tokenMetadata->validateUserId('123');
 
