@@ -90,7 +90,7 @@ try {
 }
 $user = $response->getGraphUser();
 $userid = (string) $user['id'];
-
+echo $userid;
 	$url = 'https://whatsdown-d627f.appspot.com/api/?user_ID='.$userid;
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_HTTPGET, true);
