@@ -215,11 +215,13 @@
 	function insert_user()
 	{
 	  global $connection;
+		$user_ID = $_POST['user_ID'];
 	  $displayname=$_POST['displayname'];
 	  $profilepic=$_POST['profilepic'];
 		$admin=$_POST['admin'];
 
-	  $query=$connection->prepare('INSERT INTO users(displayname, profilepic, admin) VALUES (:displayname, :profilepic, :admin)');
+	  $query=$connection->prepare('INSERT INTO users(user_ID, displayname, profilepic, admin) VALUES (:user_ID, :displayname, :profilepic, :admin)');
+		$query->bindParam(':user_ID',$user_ID);
 	  $query->bindParam(':displayname',$displayname);
 	  $query->bindParam(':profilepic',$profilepic);
 		$query->bindParam(':admin',$admin);
