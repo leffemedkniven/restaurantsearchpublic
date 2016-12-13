@@ -2,30 +2,30 @@
 <?php
 require_once '../vendor/autoload.php';
 include('login.php'); // Includes Login Script'
-include('fb-callback.php');
-echo $_SESSION['fb_access_token'];
+//include('fb-callback.php');
+//echo $_SESSION['fb_access_token'];
 
 
-$fb = new Facebook\Facebook([
-  'app_id' => '1814790452137377', // Replace {app-id} with your app id
-  'app_secret' => '006b213f54e5c9d124167fdde6e8d29a',
-  'default_graph_version' => 'v2.2',
-  ]);
-
-$at = $_SESSION['fb_access_token'];
-try {
-  // Returns a `Facebook\FacebookResponse` object
-  $response = $fb->get('/me?fields=id,name', $at);
-} catch(Facebook\Exceptions\FacebookResponseException $e) {
-  echo 'Graph returned an error: ' . $e->getMessage();
-  exit;
-} catch(Facebook\Exceptions\FacebookSDKException $e) {
-  echo 'Facebook SDK returned an error: ' . $e->getMessage();
-  exit;
-}
-$user = $response->getGraphUser();
-
-echo 'Name: ' . $user['name'];
+// $fb = new Facebook\Facebook([
+//   'app_id' => '1814790452137377', // Replace {app-id} with your app id
+//   'app_secret' => '006b213f54e5c9d124167fdde6e8d29a',
+//   'default_graph_version' => 'v2.2',
+//   ]);
+//
+// $at = $_SESSION['fb_access_token'];
+// try {
+//   // Returns a `Facebook\FacebookResponse` object
+//   $response = $fb->get('/me?fields=id,name', $at);
+// } catch(Facebook\Exceptions\FacebookResponseException $e) {
+//   echo 'Graph returned an error: ' . $e->getMessage();
+//   exit;
+// } catch(Facebook\Exceptions\FacebookSDKException $e) {
+//   echo 'Facebook SDK returned an error: ' . $e->getMessage();
+//   exit;
+// }
+// $user = $response->getGraphUser();
+//
+// echo 'Name: ' . $user['name'];
 
 if($_SESSION['user_id']===""){
 	header("Location: https://whatsdown-d627f.appspot.com/");
