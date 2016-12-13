@@ -74,7 +74,7 @@ session_start();
 
 if(isset($_SESSION['fb_access_token'])){
 
-    header('Location: https://whatsdown-d627f.appspot.com/browse/');
+    echo '<a href="logout.php">Logout</a>';
 
     }
 else
