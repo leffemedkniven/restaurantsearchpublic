@@ -29,7 +29,7 @@ try {
 }
 $user = $response->getGraphUser();
 
-//echo 'Name: ' . $user['name'];
+echo 'Name: ' . $user['name'];
 
 ?>
 <html lang="en">
