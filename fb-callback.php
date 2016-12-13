@@ -79,6 +79,7 @@ $_SESSION['fb_access_token'] = (string) $accessToken;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 try {
+  $at = $_SESSION['fb_access_token'];
   // Returns a `Facebook\FacebookResponse` object
   $response = $fb->get('/me?fields=id,name', $at);
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
