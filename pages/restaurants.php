@@ -34,9 +34,9 @@ try {
   exit;
 }
 $user = $response->getGraphUser();
-echo $_SESSION['user_ID'];
-echo $_SESSION['user_name'];
-echo $_SESSION['admin'];
+// echo $_SESSION['user_ID'];
+// echo $_SESSION['user_name'];
+// echo $_SESSION['admin'];
 
 ?>
 <html lang="en">

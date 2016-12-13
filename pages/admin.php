@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
-include('login.php'); // Includes Login Script
+//include('login.php'); // Includes Login Script
+require_once '../vendor/autoload.php';
 if($_SESSION['admin'] != true){
 	header("Location: https://whatsdown-d627f.appspot.com/");
 	die();
