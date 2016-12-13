@@ -99,7 +99,7 @@ echo $userid;
 	curl_close($ch);
 	$response=json_decode($response_json, true);
 
-  var_dump($response);
+
 
 	if(empty($response)){
 		$user_name = $user['name'];
