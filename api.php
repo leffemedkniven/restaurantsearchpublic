@@ -217,12 +217,12 @@
 	  global $connection;
 	  $displayname=$_POST['displayname'];
 	  $profilepic=$_POST['profilepic'];
+		$admin=$_POST['admin'];
 
-
-	  $query=$connection->prepare('INSERT INTO users(displayname, profilepic) VALUES (:displayname, :profilepic)');
+	  $query=$connection->prepare('INSERT INTO users(displayname, profilepic, admin) VALUES (:displayname, :profilepic, :admin)');
 	  $query->bindParam(':displayname',$displayname);
 	  $query->bindParam(':profilepic',$profilepic);
-
+		$query->bindParam(':admin',$admin);
 
 	  if($query->execute()){
 	    $response=array('info' =>'user added.');
