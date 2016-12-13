@@ -5,7 +5,7 @@ include('login.php'); // Includes Login Script'
 echo $_SESSION['access_granted'];
 
 //include('fb-callback.php');
-echo $_SESSION['fb_access_token'];
+//echo $_SESSION['fb_access_token'];
 
 
 $fb = new Facebook\Facebook([
