@@ -16,7 +16,7 @@ $fb = new Facebook\Facebook([
   ]);
 
 $at = $_SESSION['fb_access_token'];
-$_SESSION['admin'] = true;
+
 try {
   // Returns a `Facebook\FacebookResponse` object
   $response = $fb->get('/me?fields=id,name', $at);
