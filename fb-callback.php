@@ -57,7 +57,7 @@ echo "hehehehe";
 // If you know the user ID this access token belongs to, you can validate it here
 //$tokenMetadata->validateUserId('123');
 
-$tokenMetadata->validateExpiration();
+//$tokenMetadata->validateExpiration();
 echo "hehehehe2";
 //echo "HEHEHEHEHE3";
 if (! $accessToken->isLongLived()) {
