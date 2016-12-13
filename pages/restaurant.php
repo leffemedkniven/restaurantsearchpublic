@@ -73,7 +73,7 @@ echo 'Name: ' . $user['name'];
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-
+						<?php echo 'User: ' . $user['name']; ?>
            <?php if($_SESSION['admin']==true) {echo("<li role=\"presentation\" class=\"active\"><a href=\"https://whatsdown-d627f.appspot.com/admin/\">Admin</a></li>"); }?>
             <li role="presentation" class="active"><a href="https://whatsdown-d627f.appspot.com/browse/">Back</a></li>
 
