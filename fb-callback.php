@@ -98,7 +98,7 @@ $userid = (string) $user['id'];
 	$response_json = curl_exec($ch);
 	curl_close($ch);
 	$response=json_decode($response_json, true);
-
+  echo $response;
 
 
 	if(empty($response)){
@@ -107,8 +107,6 @@ $userid = (string) $user['id'];
 		$data=array(
 				'displayname' => $user_name,
 				'user_ID' => $user_ID,
-				'admin' => 1,
-
 			);
 
 
@@ -123,7 +121,6 @@ $userid = (string) $user['id'];
 
 		$_SESSION['user_name'] = $user['name'];
 		$_SESSION['user_ID'] = $user['id'];
-		$_SESSION['admin'] = 1;
 
 	} else {
 		foreach($response as $row){
