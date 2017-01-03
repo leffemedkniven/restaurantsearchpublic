@@ -133,8 +133,8 @@ $data=array(
 			$_SESSION['admin'] = $row['admin'];
 		}
 	}
-
-
+echo $_SESSION['user_name'];
+echo $_SESSION['admin'];
 header('Location: https://whatsdown-d627f.appspot.com/browse/');
 exit();
 }
