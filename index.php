@@ -6,11 +6,10 @@
 
     <?php require_once __DIR__ . '/vendor/autoload.php';
     session_start();
-    if(isset($_SESSION['fb_access_token'])){
-
-        header('Location: https://whatsdown-d627f.appspot.com/browse/');
-
-        }
+    if($_SESSION['fb_access_token']===""){
+    	header("Location: https://whatsdown-d627f.appspot.com/");
+    	die();
+    }
 
 
     ?>
