@@ -4,7 +4,7 @@ password: d0bb3
 create database whatsdown;
 use whatsdown;
 
-create table users( user_ID bigint NOT NULL, displayname varchar(255) not null, profilepic varchar(255), admin boolean, primary key (user_ID));
+create table users( user_ID varchar(20) NOT NULL, displayname varchar(255) not null, profilepic varchar(255), admin boolean, primary key (user_ID));
 
 INSERT INTO users (displayname, admin) values ("Jokke", false);
 UPDATE users SET admin=true WHERE user_ID=1;
@@ -13,4 +13,4 @@ create table restaurants(restaurant_ID int NOT NULL AUTO_INCREMENT, name varchar
 
 INSERT INTO restaurants(name, description, location) values ("Leffes bodega", "En plats för veganer och andra dagdrivare", "PG26");
 
-create table reviews(review_ID int NOT NULL AUTO_INCREMENT, user_ID bigint not null, restaurant_ID int not null, displayname varchar(255), review varchar(255), rating int, visitdate date, primary key (review_ID), FOREIGN KEY (user_ID) REFERENCES users(user_ID), FOREIGN KEY (restaurant_ID) REFERENCES restaurants(restaurant_ID));
+create table reviews(review_ID int NOT NULL AUTO_INCREMENT, user_ID varchar(20) not null, restaurant_ID int not null, displayname varchar(255), review varchar(255), rating int, visitdate date, primary key (review_ID), FOREIGN KEY (user_ID) REFERENCES users(user_ID), FOREIGN KEY (restaurant_ID) REFERENCES restaurants(restaurant_ID));
