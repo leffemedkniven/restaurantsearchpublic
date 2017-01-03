@@ -30,10 +30,10 @@
 			else if(!empty($_GET["reviews"])){
 				get_reviews();
 			}
-			else if(!empty($_GET["user_ID"])){
-			  $user_ID=intval($_GET["user_ID"]);
-			  get_users($user_ID);
-			}
+			// else if(!empty($_GET["user_ID"])){
+			//   $user_ID=intval($_GET["user_ID"]);
+			//   get_users($user_ID);
+			// }
 			else if(!empty($_GET["users"])){
 			  get_users();
 			}
@@ -52,6 +52,10 @@
 			}
 			else if(!empty($_GET["insertUser"])){
 				insert_user();
+			}
+			else if(!empty($_GET["user_ID"])){
+				$user_ID=intval($_GET["user_ID"]);
+				get_users($user_ID);
 			}
 			else if(!empty($_GET["uploadImage"])){
 				$restaurant_ID=intval($_GET["uploadImage"]);
