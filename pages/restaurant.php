@@ -149,7 +149,7 @@ $user = $response->getGraphUser();
 ?>
 
 			<input type="hidden" name="restaurant_ID" id="restaurant_ID" value="<?php echo $rest_ID; ?>" />
-			<input type="hidden" name="user_ID" id="user_ID" value="<?php echo $user_ID; ?>" />
+			<input type="hidden" name="user_ID" id="user_ID" value="<?php echo $user['id']; ?>" />
 			<input type="hidden" name="displayname" id="displayname" value="<?php echo $user['name']; ?>" />
 
                                 </form>
