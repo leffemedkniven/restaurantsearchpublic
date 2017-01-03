@@ -44,9 +44,8 @@
 			if(!empty($_GET["insertRestaurant"])){
 				insert_restaurant();
 			}
-			else if(!empty($_GET["user_ID"])){
-				$user_ID=intval($_GET["user_ID"]);
-				get_users($user_ID);
+			else if(!empty($_GET["getUser"])){
+				get_users();
 			}
 			else if(!empty($_GET["insertReview"])){
 				insert_review();
