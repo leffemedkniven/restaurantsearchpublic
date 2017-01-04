@@ -1,32 +1,33 @@
 <!DOCTYPE html>
-<?php
-require_once '../vendor/autoload.php';
-session_start();
-if($_SESSION['fb_access_token']===""){
-	header("Location: https://whatsdown-d627f.appspot.com/");
-	die();
-}
+	<?php
+	require_once '../vendor/autoload.php';
+	session_start();
+	//Checking login-status
+	if($_SESSION['fb_access_token']===""){
+		header("Location: https://whatsdown-d627f.appspot.com/");
+		die();
+	}
 
-$fb = new Facebook\Facebook([
-  'app_id' => '1814790452137377', // Replace {app-id} with your app id
-  'app_secret' => '006b213f54e5c9d124167fdde6e8d29a',
-  'default_graph_version' => 'v2.2',
-  ]);
-
-$at = $_SESSION['fb_access_token'];
-
-try {
-  // Returns a `Facebook\FacebookResponse` object
-  $response = $fb->get('/me?fields=id,name', $at);
-} catch(Facebook\Exceptions\FacebookResponseException $e) {
-  echo 'Graph returned an error: ' . $e->getMessage();
-  exit;
-} catch(Facebook\Exceptions\FacebookSDKException $e) {
-  echo 'Facebook SDK returned an error: ' . $e->getMessage();
-  exit;
-}
-$user = $response->getGraphUser();
-
+	// //Establishing facebook app connection
+	// $fb = new Facebook\Facebook([
+  // 	'app_id' => '1814790452137377', // Replace {app-id} with your app id
+  // 	'app_secret' => '006b213f54e5c9d124167fdde6e8d29a',
+  // 	'default_graph_version' => 'v2.2',
+  // 	]);
+	//
+	// 	$at = $_SESSION['fb_access_token'];
+	// 	try {
+  // 	// Returns a `Facebook\FacebookResponse` object
+  // 	$response = $fb->get('/me?fields=id,name', $at);
+	// 	} catch(Facebook\Exceptions\FacebookResponseException $e) {
+  // 	echo 'Graph returned an error: ' . $e->getMessage();
+  // 	exit;
+	// 	} catch(Facebook\Exceptions\FacebookSDKException $e) {
+  // 	echo 'Facebook SDK returned an error: ' . $e->getMessage();
+  // 	exit;
+	// 	}
+	// 	$user = $response->getGraphUser();
+	//
 
 ?>
 <html lang="en">
@@ -81,6 +82,7 @@ $user = $response->getGraphUser();
 
       <div class="row marketing">
 	<?php
+		//List of the restaurants with corresponding redirect button to visit each.
 		$url = 'https://whatsdown-d627f.appspot.com/api/?restaurants=1';
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_HTTPGET, true);
@@ -94,8 +96,7 @@ $user = $response->getGraphUser();
 			echo("<p>".$row['description']."</p>");
 			echo("<p>".$row['location']."</p>");
         		echo("<p><a class=\"btn btn-default\" id=".$row[restaurant_ID]." onclick=\"myFunction(this.id)\" role=\"button\">View details </a></p>");
-			echo $user_name;
-			echo $user_id;
+
 			echo("</div>");
 	    	}
 	?>

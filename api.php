@@ -132,26 +132,6 @@
 		echo json_encode($response);
 	}
 
-	// function get_users($user_ID=0)
-	// {
-	//   global $connection;
-	//   $query=$connection->prepare("SELECT * FROM users");
-	//
-	//   if($user_ID != 0)
-	//   {
-	//     $query=$connection->prepare("SELECT * FROM users WHERE user_ID=:id");
-	//     $query->bindParam(':id',$user_ID);
-	//   }
-	//   $response=array();
-	//   $query->execute();
-	//   while($row=$query->fetch(PDO::FETCH_ASSOC))
-	//   {
-	//     $response[]=$row;
-	//   }
-	//
-	//   header('Content-Type: application/json');
-	//   echo json_encode($response);
-	// }
 	function get_users($user_ID=0)
 	{
 		global $connection;
