@@ -1,4 +1,5 @@
 <?php
+//Adds a restaurant via the API
 $name=$_POST['rest_name'];
 $location=$_POST['rest_loc'];
 $description=$_POST['rest_desc'];

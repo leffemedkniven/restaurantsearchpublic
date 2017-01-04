@@ -1,4 +1,6 @@
 <?php
+//Adds a review via the API
+
 $user_ID=$_POST['user_ID'];
 $restaurant_ID=$_POST['restaurant_ID'];
 $displayname=$_POST['displayname'];
@@ -24,12 +26,6 @@ $visitdate=$_POST['visitdate'];
 	curl_close($ch);
 	$response=json_decode($response_json, true);
 
-  //   if ($response['status']==1){
-  header("Location: https://whatsdown-d627f.appspot.com/restaurant/?id=".$restaurant_ID);
-//
-  //     exit;
-  //    } else {
-	//  echo "Something went wrong";
-  //  }
 
+  header("Location: https://whatsdown-d627f.appspot.com/restaurant/?id=".$restaurant_ID);
 ?>

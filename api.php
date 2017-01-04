@@ -14,23 +14,25 @@
 	switch($request_method)
 	{
 		case 'GET':
-			// Retrive restaurants
+			// Retrive one restaurant with specific ID
 			if(!empty($_GET["restaurant_ID"])){
 				$restaurant_ID=intval($_GET["restaurant_ID"]);
 				get_restaurants($restaurant_ID);
 			}
+			//Retrieve all of the restaurants
 			else if(!empty($_GET["restaurants"])){
 				get_restaurants();
 			}
-			//RestaurantRevies takes the value of the restaurant_ID
+			//Retrieve all of the reviews of a specific restaurant
 			else if(!empty($_GET["restaurantReviews"])){
 				$restaurantReviews=intval($_GET["restaurantReviews"]);
 				get_reviews($restaurantReviews);
 			}
+			//Retrieve all of the reviews
 			else if(!empty($_GET["reviews"])){
 				get_reviews();
 			}
-
+			//Retrieve all users
 			else if(!empty($_GET["users"])){
 			  get_users();
 			}
@@ -44,15 +46,19 @@
 			if(!empty($_GET["insertRestaurant"])){
 				insert_restaurant();
 			}
+			//Retrieve a specific user
 			else if(!empty($_GET["getUser"])){
 				get_users();
 			}
+			//Insert review
 			else if(!empty($_GET["insertReview"])){
 				insert_review();
 			}
+			//Insert user
 			else if(!empty($_GET["insertUser"])){
 				insert_user();
 			}
+			//Uploading image to restaurant
 			else if(!empty($_GET["uploadImage"])){
 				$restaurant_ID=intval($_GET["uploadImage"]);
 
@@ -75,10 +81,12 @@
 				$restaurant_ID=intval($_GET["restaurant_ID"]);
 				delete_restaurant($restaurant_ID);
 			}
+			//Delete review
 			else if(!empty($_GET["review_ID"])){
 				$review_ID=intval($_GET["review_ID"]);
 				delete_review($review_ID);
 			}
+			//Delete user
 			else if(!empty($_GET["user_ID"])){
 				$user_ID=intval($_GET["user_ID"]);
 				delete_user($user_ID);
@@ -89,7 +97,7 @@
 			header("HTTP/1.0 405 Method Not Allowed");
 			break;
 	}
-
+	//Getting one or all restaurants.
 	function get_restaurants($restaurant_ID=0)
 	{
 		global $connection;
@@ -110,7 +118,7 @@
 		header('Content-Type: application/json');
 		echo json_encode($response);
   }
-
+	//Get reviews for a restaurant or all of them
 	function get_reviews($restaurantReviews=0)
 	{
 		global $connection;
@@ -131,7 +139,7 @@
 		header('Content-Type: application/json');
 		echo json_encode($response);
 	}
-
+	//Get one or all users
 	function get_users($user_ID=0)
 	{
 		global $connection;
@@ -153,7 +161,7 @@
 		header('Content-Type: application/json');
 		echo json_encode($response);
 	}
-
+	//Insert restaurant to database
 	function insert_restaurant()
 	{
 		global $connection;
@@ -178,7 +186,7 @@
 	 	header('Content-Type: application/json');
 	 	echo json_encode($response);
 	}
-
+	//Insert review to database
 	function insert_review()
 	{
 		global $connection;
@@ -212,7 +220,7 @@
 		header('Content-Type: application/json');
 		echo json_encode($response);
 	}
-
+	//Insert user into the database
 	function insert_user()
 	{
 	  global $connection;
@@ -237,7 +245,7 @@
 	  header('Content-Type: application/json');
 	  echo json_encode($response);
 	}
-
+	//Delete a restaurant from the database
 	function delete_restaurant($restaurant_ID)
 	{
 		global $connection;
@@ -255,7 +263,7 @@
 		header('Content-Type: application/json');
 		echo json_encode($response);
 	}
-
+	//Delete a review from the database
 	function delete_review($review_ID)
 	{
 	  global $connection;
@@ -273,7 +281,7 @@
 	  header('Content-Type: application/json');
 	  echo json_encode($response);
 	}
-
+	//Delete a user from the database
 	function delete_user($user_ID)
 	{
 	  global $connection;
@@ -291,7 +299,7 @@
 	  header('Content-Type: application/json');
 	  echo json_encode($response);
 	}
-
+	//Update a restaurant
 	function update_restaurant($restaurant_ID)
 	{
 		global $connection;
@@ -319,7 +327,7 @@
 		header('Content-Type: application/json');
 		echo json_encode($response);
 	}
-
+	//Upload a image to a restaurant.
 	function upload_image($restaurant_ID)
 	{
 		global $connection;
@@ -358,7 +366,7 @@
 
 				}
 				else {
-		    echo "Possible file upload attack!\n";
+		    echo "Something went wrong!\n";
 		    }
 
 		} else {
