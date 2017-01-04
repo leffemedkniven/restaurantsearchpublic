@@ -81,8 +81,6 @@ $user = $response->getGraphUser();
         <h3 class="text-muted">Restaurantsearch</h3>
      </div>
 <?php 	session_start();
-	$user_ID = 1;
-	$displayname = "Daniel Ståhlberg";
 	$rest_ID = $_GET['id'];
 	$url = 'https://whatsdown-d627f.appspot.com/api/?restaurant_ID='.$rest_ID;
 	$ch = curl_init($url);
