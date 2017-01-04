@@ -1,35 +1,33 @@
 <!DOCTYPE html>
-<?php
-session_start();
-require_once '../vendor/autoload.php';
-//include('login.php'); // Includes Login Script
-if($_SESSION['fb_access_token']===""){
-	header("Location: https://whatsdown-d627f.appspot.com/");
-	die();
-}
+	<?php
+	require_once '../vendor/autoload.php';
+	session_start();
+	//Checking login-status
+	if($_SESSION['fb_access_token']===""){
+		header("Location: https://whatsdown-d627f.appspot.com/");
+		die();
+	}
 
+	//Establishing Facebook connection
+	$fb = new Facebook\Facebook([
+  	'app_id' => '1814790452137377', // Replace {app-id} with your app id
+  	'app_secret' => '006b213f54e5c9d124167fdde6e8d29a',
+  	'default_graph_version' => 'v2.2',
+  	]);
 
-$fb = new Facebook\Facebook([
-  'app_id' => '1814790452137377', // Replace {app-id} with your app id
-  'app_secret' => '006b213f54e5c9d124167fdde6e8d29a',
-  'default_graph_version' => 'v2.2',
-  ]);
-
-$at = $_SESSION['fb_access_token'];
-
-try {
-  // Returns a `Facebook\FacebookResponse` object
-  $response = $fb->get('/me?fields=id,name', $at);
-} catch(Facebook\Exceptions\FacebookResponseException $e) {
-  echo 'Graph returned an error: ' . $e->getMessage();
-  exit;
-} catch(Facebook\Exceptions\FacebookSDKException $e) {
-  echo 'Facebook SDK returned an error: ' . $e->getMessage();
-  exit;
-}
+		//Fetching userid and name from facebook
+		$at = $_SESSION['fb_access_token'];
+		try {
+  		// Returns a `Facebook\FacebookResponse` object
+  		$response = $fb->get('/me?fields=id,name', $at);
+		} catch(Facebook\Exceptions\FacebookResponseException $e) {
+  		echo 'Graph returned an error: ' . $e->getMessage();
+  		exit;
+		} catch(Facebook\Exceptions\FacebookSDKException $e) {
+  		echo 'Facebook SDK returned an error: ' . $e->getMessage();
+  		exit;
+		}
 $user = $response->getGraphUser();
-
-//echo 'Name: ' . $user['name'];
 
 ?>
 <html lang="en">
@@ -80,26 +78,26 @@ $user = $response->getGraphUser();
         </nav>
         <h3 class="text-muted">Restaurantsearch</h3>
      </div>
-<?php 	session_start();
-	$rest_ID = $_GET['id'];
-	$url = 'https://whatsdown-d627f.appspot.com/api/?restaurant_ID='.$rest_ID;
-	$ch = curl_init($url);
-	curl_setopt($ch, CURLOPT_HTTPGET, true);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	$response_json = curl_exec($ch);
-	curl_close($ch);
-	$response=json_decode($response_json, true);
-	foreach($response as $row){
-		$rest_name = $row['name'];
-		$rest_desc = $row['description'];
-		$rest_loc = $row['location'];
-		$rest_pic = $row['picture'];
 
-	}
+		 <?php
+		 //Getting restaurant information
+		 session_start();
+		 $rest_ID = $_GET['id'];
+		 $url = 'https://whatsdown-d627f.appspot.com/api/?restaurant_ID='.$rest_ID;
+		 $ch = curl_init($url);
+		 curl_setopt($ch, CURLOPT_HTTPGET, true);
+		 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		 $response_json = curl_exec($ch);
+		 curl_close($ch);
+		 $response=json_decode($response_json, true);
+		 foreach($response as $row){
+			 $rest_name = $row['name'];
+			 $rest_desc = $row['description'];
+			 $rest_loc = $row['location'];
+			 $rest_pic = $row['picture'];
+		 }
 ?>
-
         <div class="row">
-
                 <div class="thumbnail">
                     <img class="img-responsive" src="<?php echo $rest_pic ?>" alt="">
                     <div class="caption-full">
@@ -107,54 +105,54 @@ $user = $response->getGraphUser();
                         <h4><?php echo $rest_name;?></h4>
                         <p><?php echo $rest_desc;?> </p>
                     </div>
-                    <div class="imageupload">
-                      <center>
-                      <form id="data" method="POST" enctype="multipart/form-data">
+    								<div class="imageupload">
+      								<center>
+      									<form id="data" method="POST" enctype="multipart/form-data">
+												<input type="hidden" name="restaurant_ID" id="restaurant_ID" value="<?php echo $rest_ID; ?>" />
+      									<?php
+												if($_SESSION['admin']==true){
+												echo("Upload image:<p/>");
+          							echo("<input name=\"file\" type=\"file\" /><p/>");
+												echo("<input type=\"submit\" value=\"Upload image\" />");
+												}
+												?>
+    										</form>
+    									</center>
+      							</div>
+  						</div>
 
-                        <input type="hidden" name="restaurant_ID" id="restaurant_ID" value="<?php echo $rest_ID; ?>" />
-                        <?php
-				if($_SESSION['admin']==true){
-					echo("Upload image:<p/>");
-                       			echo("<input name=\"file\" type=\"file\" /><p/>");
-					echo("<input type=\"submit\" value=\"Upload image\" />");
-				}
-			?>
-                      </form>
-                      </center>
-                    </div>
-                </div>
-
-               		<div class="well">
-			       <div class="row send-wrap">
-                                    <div class="send-message">
-                                        <div class="message-text">
+            <div class="well">
+			       	<div class="row send-wrap">
+                  <div class="send-message">
+                      <div class="message-text">
         Write a review and rate the restaurant(Only for logged-in users): </br>
 				<form action="/pages/review.php" method="post" id="reviewform">
-<?php
-        echo("Rating:");
-			echo("<input type=\"radio\" name=\"rate\" id=\"r1\" value=\"1\" checked> 1 ");
-			echo("<input type=\"radio\" name=\"rate\" id=\"r2\" value=\"2\" checked> 2 ");
-			echo("<input type=\"radio\" name=\"rate\" id=\"r3\" value=\"3\" checked> 3 ");
-			echo("<input type=\"radio\" name=\"rate\" id=\"r4\" value=\"4\" checked> 4 ");
-			echo("<input type=\"radio\" name=\"rate\" id=\"r5\" value=\"5\" checked> 5 ");
+					<?php
+      		echo("Rating:");
+					echo("<input type=\"radio\" name=\"rate\" id=\"r1\" value=\"1\" checked> 1 ");
+					echo("<input type=\"radio\" name=\"rate\" id=\"r2\" value=\"2\" checked> 2 ");
+					echo("<input type=\"radio\" name=\"rate\" id=\"r3\" value=\"3\" checked> 3 ");
+					echo("<input type=\"radio\" name=\"rate\" id=\"r4\" value=\"4\" checked> 4 ");
+					echo("<input type=\"radio\" name=\"rate\" id=\"r5\" value=\"5\" checked> 5 ");
 
-        echo(" Date of your restaurant visit: ");
-        echo("<input type=\"date\" name=\"visitdate\">");
-	echo("<textarea class=\"no-resize-bar form-control\" name=\"review\" id=\"review\" rows=\"2\" placeholder=\"Write a review\"></textarea>");
-			echo("<input type=submit value=\"submit\">");
-?>
+        	echo(" Date of your restaurant visit: ");
+        	echo("<input type=\"date\" name=\"visitdate\">");
+					echo("<textarea class=\"no-resize-bar form-control\" name=\"review\" id=\"review\" rows=\"2\" placeholder=\"Write a review\"></textarea>");
+					echo("<input type=submit value=\"submit\">");
+					?>
 
-			<input type="hidden" name="restaurant_ID" id="restaurant_ID" value="<?php echo $rest_ID; ?>" />
-			<input type="hidden" name="user_ID" id="user_ID" value="<?php echo $user['id']; ?>" />
-			<input type="hidden" name="displayname" id="displayname" value="<?php echo $user['name']; ?>" />
+					<input type="hidden" name="restaurant_ID" id="restaurant_ID" value="<?php echo $rest_ID; ?>" />
+					<input type="hidden" name="user_ID" id="user_ID" value="<?php echo $user['id']; ?>" />
+					<input type="hidden" name="displayname" id="displayname" value="<?php echo $user['name']; ?>" />
 
-                                </form>
-					</div>
-                                    </div>
-                                </div>
-                    <hr>
+          </form>
+											</div>
+                    </div>
+                  </div>
+                <hr>
 
-		    <?php
+		  <?php
+			//Getting all reviews placed corresponding to the restaurant and listing them.
 			$url = 'https://whatsdown-d627f.appspot.com/api/?restaurantReviews='.$rest_ID;
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_HTTPGET, true);
@@ -204,6 +202,7 @@ $user = $response->getGraphUser();
     <script src="js/bootstrap.min.js"></script>
 
     <script>
+		//Upload image function.
     var rest_ID='<?php echo $rest_ID; ?>';
     $("#data").submit(function(e) {
             var formData = new FormData($(this)[0]);
