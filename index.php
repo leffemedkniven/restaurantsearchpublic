@@ -50,17 +50,16 @@
       </form>
 
     </div> <!-- /container -->
-
+    
     <?php
+    //Establishing facebook app connection
       $fb = new Facebook\Facebook([
           'app_id' => '1814790452137377', // Replace {app-id} with your app id
           'app_secret' => '006b213f54e5c9d124167fdde6e8d29a',
           'default_graph_version' => 'v2.2',
         ]);
-
-
+    //Login
       $helper = $fb->getRedirectLoginHelper();
-
       $permissions = ['email']; // Optional permissions
       $loginUrl = $helper->getLoginUrl('https://whatsdown-d627f.appspot.com/fb-callback.php', $permissions);
       echo '<h2><a href="' . htmlspecialchars($loginUrl) . '"><center>Log in with Facebook!</center></a></h2>';

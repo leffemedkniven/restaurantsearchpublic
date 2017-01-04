@@ -74,7 +74,7 @@ $user = $response->getGraphUser();
         <nav>
           <ul class="nav nav-pills pull-right">
            <?php if($_SESSION['admin']==true) {echo("<li role=\"presentation\" class=\"active\"><a href=\"https://whatsdown-d627f.appspot.com/admin/\">Admin</a></li>"); }?>
-            <li role="presentation" class="active"><a href="https://whatsdown-d627f.appspot.com/browse/">Back</a></li>
+            <li role="presentation" class="active"><a href="https://whatsdown-d627f.appspot.com/browse/">Home</a></li>
 						<li role="presentation" class="active"><a href="https://whatsdown-d627f.appspot.com/logout.php">Log out</a></li>
           </ul>
         </nav>

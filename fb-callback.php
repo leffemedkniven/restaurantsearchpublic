@@ -1,32 +1,33 @@
 <?php
-require_once __DIR__ . '/vendor/autoload.php';
-session_start();
-//echo $_SESSION['fb_access_token'];
-//echo $_SESSION['access_granted'];
-$fb = new Facebook\Facebook([
+  require_once __DIR__ . '/vendor/autoload.php';
+  session_start();
+
+  //Establishing Facebook connection
+  $fb = new Facebook\Facebook([
   'app_id' => '1814790452137377', // Replace {app-id} with your app id
   'app_secret' => '006b213f54e5c9d124167fdde6e8d29a',
   'status' => 'true',
   'default_graph_version' => 'v2.2',
   ]);
 
-$helper = $fb->getRedirectLoginHelper();
-$_SESSION['FBRLH_state']=$_GET['state'];
-if(! isset($_SESSION['access_granted'])){
-  try {
-  $accessToken = $helper->getAccessToken();
-  } catch(Facebook\Exceptions\FacebookResponseException $e) {
+  //Checking if access is granted else throws exception explaing why not.
+  $helper = $fb->getRedirectLoginHelper();
+  $_SESSION['FBRLH_state']=$_GET['state'];
+  if(! isset($_SESSION['access_granted'])){
+    try {
+      $accessToken = $helper->getAccessToken();
+    } catch(Facebook\Exceptions\FacebookResponseException $e) {
     // When Graph returns an error
     echo 'Graph returned an error: ' . $e->getMessage();
     exit;
-  } catch(Facebook\Exceptions\FacebookSDKException $e) {
+    } catch(Facebook\Exceptions\FacebookSDKException $e) {
     // When validation fails or other local issues
     echo 'Facebook SDK returned an error: ' . $e->getMessage();
     exit;
-}
+  }
 
-//echo "HEHEHEHEHE";
-if (! isset($accessToken)) {
+  //Checking if accesstoken is set else throws exception explaing why not.
+  if (! isset($accessToken)) {
   if ($helper->getError()) {
     header('HTTP/1.0 401 Unauthorized');
     echo "Error: " . $helper->getError() . "\n";
@@ -38,29 +39,10 @@ if (! isset($accessToken)) {
     echo 'Bad request';
   }
   exit;
-}
-//echo "HEHEHEHEHE2";
-// Logged in
-//echo '<h3>Access Token</h3>';
-//var_dump($accessToken->getValue());
+  }
+  $oAuth2Client = $fb->getOAuth2Client();
 
-// The OAuth 2.0 client handler helps us manage access tokens
-$oAuth2Client = $fb->getOAuth2Client();
-//echo "hehehehe";
-// Get the access token metadata from /debug_token
-//$tokenMetadata = $oAuth2Client->debugToken($accessToken);
-//echo '<h3>Metadata</h3>';
-//var_dump($tokenMetadata);
-
-// Validation (these will throw FacebookSDKException's when they fail)
-//$tokenMetadata->validateAppId(1814790452137377); // Replace {app-id} with your app id
-// If you know the user ID this access token belongs to, you can validate it here
-//$tokenMetadata->validateUserId('123');
-
-//$tokenMetadata->validateExpiration();
-//echo "hehehehe2";
-//echo "HEHEHEHEHE3";
-if (! $accessToken->isLongLived()) {
+  if(! $accessToken->isLongLived()) {
   // Exchanges a short-lived access token for a long-lived one
   try {
     $accessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
@@ -71,29 +53,30 @@ if (! $accessToken->isLongLived()) {
 
   echo '<h3>Long-lived</h3>';
   var_dump($accessToken->getValue());
-}
-//echo "hehehehe3";
-$_SESSION['fb_access_token'] = (string) $accessToken;
+  }
 
+  $_SESSION['fb_access_token'] = (string) $accessToken;
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-try {
-  $at = $_SESSION['fb_access_token'];
-  // Returns a `Facebook\FacebookResponse` object
-  $response = $fb->get('/me?fields=id,name', $at);
-} catch(Facebook\Exceptions\FacebookResponseException $e) {
-  echo 'Graph returned an error: ' . $e->getMessage();
-  exit;
-} catch(Facebook\Exceptions\FacebookSDKException $e) {
-  echo 'Facebook SDK returned an error: ' . $e->getMessage();
-  exit;
-}
-$user = $response->getGraphUser();
-$userid = (string) $user['id'];
-$data=array(
-  'user_ID' => $userid,
-);
-//echo $userid;
+  //Fetches userid and name of the user from Facebook.
+  try {
+    $at = $_SESSION['fb_access_token'];
+    // Returns a `Facebook\FacebookResponse` object
+    $response = $fb->get('/me?fields=id,name', $at);
+  } catch(Facebook\Exceptions\FacebookResponseException $e) {
+    echo 'Graph returned an error: ' . $e->getMessage();
+    exit;
+  } catch(Facebook\Exceptions\FacebookSDKException $e) {
+    echo 'Facebook SDK returned an error: ' . $e->getMessage();
+    exit;
+  }
+
+  //Checks if user already exists in the database.
+  $user = $response->getGraphUser();
+  $userid = (string) $user['id'];
+  $data=array(
+    'user_ID' => $userid,
+  );
+
 	$url = 'https://whatsdown-d627f.appspot.com/api/?getUser=1';
   $ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_POST, true);
@@ -103,8 +86,8 @@ $data=array(
 	curl_close($ch);
 	$response=json_decode($response_json, true);
 
-
-
+  //If user doesn't exist(request returns an empty response) adds the user to the database and
+  //adds user credentials as session tokens.
 	if(empty($response)){
 		$user_name = $user['name'];
 		$user_ID = $user['id'];
@@ -127,18 +110,17 @@ $data=array(
 		$_SESSION['user_ID'] = $user['id'];
 
 	} else {
+    //Fetches user credentials from the database and adds them as session tokens.
 		foreach($response as $row){
 			$_SESSION['user_name'] = $row['displayname'];
 			$_SESSION['user_ID'] = $row['user_ID'];
 			$_SESSION['admin'] = $row['admin'];
 		}
 	}
-header('Location: https://whatsdown-d627f.appspot.com/browse/');
-exit();
-}
-else{
   header('Location: https://whatsdown-d627f.appspot.com/browse/');
   exit();
-}
-// User is logged in with a long-lived access token.
-// You can redirect them to a members-only page.
+  }
+  else{
+    header('Location: https://whatsdown-d627f.appspot.com/browse/');
+    exit();
+  }
