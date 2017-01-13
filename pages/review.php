@@ -16,8 +16,8 @@ $visitdate=$_POST['visitdate'];
 		'rating' => $rate,
 		'visitdate' => $visitdate,
 	);
-
-	$url = 'https://whatsdown-d627f.appspot.com/api/?insertReview=1';
+	$ini = parse_ini_file('configURL.ini');
+	$url = $ini[app_url] . '/api/?insertReview=1';
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_POST, true);
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
@@ -27,6 +27,5 @@ $visitdate=$_POST['visitdate'];
 	$response=json_decode($response_json, true);
 
 
-
-	  header("Location: https://whatsdown-d627f.appspot.com/restaurant/?id=".$restaurant_ID,true,303);
+	  header("Location: " . $ini[app_url] . "/restaurant/?id=".$restaurant_ID,true,303);
 ?>
