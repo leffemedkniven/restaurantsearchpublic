@@ -60,13 +60,13 @@
       </div>
 
       <div class="jumbotron">
-        <img src="<?php "https://storage.googleapis.com/".$ini[app_url]."/restar.jpg">
+        <img src="https://storage.googleapis.com/whatsdown-d627f.appspot.com/restar.jpg">
       </div>
 
       <div class="row marketing">
 	<?php
 		//List of the restaurants with corresponding redirect button to visit each.
-		$url = 'https://whatsdown-d627f.appspot.com/api/?restaurants=1';
+		$url = $ini[app_url] . '/api/?restaurants=1';
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_HTTPGET, true);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -86,7 +86,7 @@
 
 		<script>
 		function myFunction(id) {
-			window.location = "https://whatsdown-d627f.appspot.com/restaurant/?id="+id;
+			window.location = "<?php $ini[app_url]?>"+"/restaurant/?id="+id;
 		}
 		</script>
 
