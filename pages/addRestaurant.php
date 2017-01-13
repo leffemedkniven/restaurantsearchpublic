@@ -10,8 +10,9 @@ $description=$_POST['rest_desc'];
 		'description' => $description,
 		'location' => $location,
 	);
+	$ini = parse_ini_file('configURL.ini');
 
-	$url = 'https://whatsdown-d627f.appspot.com/api/?insertRestaurant=1';
+	$url = $ini[app_url] . '/api/?insertRestaurant=1';
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_POST, true);
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
@@ -20,7 +21,7 @@ $description=$_POST['rest_desc'];
 	curl_close($ch);
 	$response=json_decode($response_json, true);
   //var_dump($response);
-	header("Location: https://whatsdown-d627f.appspot.com/browse/",true,303);
+    header('Location: ' . $ini[app_url] . '/browse/',true,303);
 	die();
 
 
