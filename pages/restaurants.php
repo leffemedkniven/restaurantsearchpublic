@@ -2,13 +2,14 @@
 	<?php
 	require_once '../vendor/autoload.php';
 	session_start();
+	$ini = parse_ini_file('../configURL.ini');
 	//Checking login-status
 	if($_SESSION['fb_access_token']===""){
-		header("Location: https://whatsdown-d627f.appspot.com/");
+		header("Location: " . $ini[app_url]);
 		die();
 	}
 
-	$ini = parse_ini_file('../configURL.ini');
+
 
 ?>
 <html lang="en">
@@ -59,7 +60,7 @@
       </div>
 
       <div class="jumbotron">
-        <img src="https://storage.googleapis.com/whatsdown-d627f.appspot.com/restar.jpg">
+        <img src="<?php "https://storage.googleapis.com/".$ini[app_url]."/restar.jpg">
       </div>
 
       <div class="row marketing">
