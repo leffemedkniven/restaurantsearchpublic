@@ -27,5 +27,5 @@ $visitdate=$_POST['visitdate'];
 	$response=json_decode($response_json, true);
 
 
-	//  header("Location: https://whatsdown-d627f.appspot.com/restaurant/?id=".$restaurant_ID);
+	header("Location: " . $_SERVER['REQUEST_URI']);
 ?>
