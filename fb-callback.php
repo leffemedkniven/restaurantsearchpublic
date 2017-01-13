@@ -77,7 +77,7 @@
     'user_ID' => $userid,
   );
   $ini = parse_ini_file('configURL.ini');
-	$url = $ini[app_url] . '/api/?getUser=';
+	$url = $ini[app_url] . '/api/?getUser=1';
   $ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_POST, true);
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
