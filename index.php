@@ -4,12 +4,14 @@
   <title>Login</title>
 
   <?php require_once __DIR__ . '/vendor/autoload.php';
-  //Checking login-status
     session_start();
-    if($_SESSION['fb_access_token']===""){
-    	header("Location: https://whatsdown-d627f.appspot.com/browse/");
-    	die();
-    }
+    $ini = parse_ini_file('../configURL.ini');
+  	//Checking login-status
+  	if($_SESSION['fb_access_token']===""){
+  		header("Location: " . $ini[app_url]);
+  		die();
+  	}
+
     ?>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

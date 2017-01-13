@@ -2,11 +2,13 @@
 	<?php
 	require_once '../vendor/autoload.php';
 	session_start();
+	$ini = parse_ini_file('../configURL.ini');
 	//Checking login-status
 	if($_SESSION['fb_access_token']===""){
-		header("Location: https://whatsdown-d627f.appspot.com/");
+		header("Location: " . $ini[app_url]);
 		die();
 	}
+
 
 	//Establishing Facebook connection
 	$fb = new Facebook\Facebook([
@@ -84,7 +86,7 @@ $user = $response->getGraphUser();
 		 //Getting restaurant information
 		 session_start();
 		 $rest_ID = $_GET['id'];
-		 $url = 'https://whatsdown-d627f.appspot.com/api/?restaurant_ID='.$rest_ID;
+		 $url = $ini[app_url] . '/api/?restaurant_ID='.$rest_ID;
 		 $ch = curl_init($url);
 		 curl_setopt($ch, CURLOPT_HTTPGET, true);
 		 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -154,7 +156,7 @@ $user = $response->getGraphUser();
 
 		  <?php
 			//Getting all reviews placed corresponding to the restaurant and listing them.
-			$url = 'https://whatsdown-d627f.appspot.com/api/?restaurantReviews='.$rest_ID;
+			$url = $ini[app_url] . '/api/?restaurantReviews='.$rest_ID;
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_HTTPGET, true);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -205,17 +207,18 @@ $user = $response->getGraphUser();
     <script>
 		//Upload image function.
     var rest_ID='<?php echo $rest_ID; ?>';
+		var app_url='<?php echo $ini[app_url]?>';
     $("#data").submit(function(e) {
             var formData = new FormData($(this)[0]);
 
             $.ajax({
-                url: "https://whatsdown-d627f.appspot.com/api/?uploadImage="+rest_ID,
+                url: app_url+"/api/?uploadImage="+rest_ID,
                 type: "POST",
                 data: formData,
                 async: false,
                 success: function (data) {
                     alert(data)
-                    window.location = "https://whatsdown-d627f.appspot.com/restaurant/?id="+rest_ID;
+                    window.location = app_url+"/restaurant/?id="+rest_ID;
                 },
                 cache: false,
                 contentType: false,

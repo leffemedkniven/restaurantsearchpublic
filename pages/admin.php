@@ -2,10 +2,11 @@
 	<?php
 	require_once '../vendor/autoload.php';
 	session_start();
+	$ini = parse_ini_file('../configURL.ini');
 	//Checking login-status
-	if($_SESSION['admin'] != true){
-	header("Location: https://whatsdown-d627f.appspot.com/");
-	die();
+	if($_SESSION['fb_access_token']===""){
+		header("Location: " . $ini[app_url]);
+		die();
 	}
 	?>
 	<html lang="en">
