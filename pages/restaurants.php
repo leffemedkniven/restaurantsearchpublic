@@ -49,9 +49,10 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <?php if($_SESSION['admin']==true) {echo("<li role=\"presentation\" class=\"active\"><a href=\"$ini[app_url].'/admin/'\">Admin</a></li>"); }?>
-            <li role="presentation" class="active"><a href="https://whatsdown-d627f.appspot.com/browse/">Home</a></li>
-						<li role="presentation" class="active"><a href="https://whatsdown-d627f.appspot.com/logout.php">Log out</a></li>
+            <?php
+						if($_SESSION['admin']==true) {echo("<li role=\"presentation\" class=\"active\"><a href=\"$ini[app_url]./admin/\">Admin</a></li>"); }
+						echo("<li role=\"presentation\" class=\"active\"><a href=\"$ini[app_url].'/browse/'\">Home</a></li>");
+						echo("<li role=\"presentation\" class=\"active\"><a href=\"$ini[app_url].'/logout.php/'\">Logout</a></li>");?>
           </ul>
         </nav>
         <h3 class="text-muted">Restaurantsearch</h3>
