@@ -64,6 +64,8 @@
 
 				upload_image($restaurant_ID);
 			}
+
+			header("Location: " . $_SERVER['REQUEST_URI']);
 			else {
 				header("HTTP/1.0 405 Method Not Allowed");
 				break;
@@ -327,7 +329,7 @@
 		header('Content-Type: application/json');
 		echo json_encode($response);
 	}
-	//Upload a image to a restaurant.
+	//Upload a ii
 	function upload_image($restaurant_ID)
 	{
 		global $connection;
@@ -366,7 +368,7 @@
 
 				}
 				else {
-		    echo "Something went wrong!\n";
+		    echo "Possible file upload attack!\n";
 		    }
 
 		} else {
