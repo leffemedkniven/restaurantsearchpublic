@@ -8,7 +8,7 @@
 		die();
 	}
 
-	$ini = parse_ini_file('configURL.ini');
+	$ini = parse_ini_file('../configURL.ini');
 
 ?>
 <html lang="en">
