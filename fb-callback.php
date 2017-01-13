@@ -76,8 +76,8 @@
   $data=array(
     'user_ID' => $userid,
   );
-
-	$url = 'https://whatsdown-d627f.appspot.com/api/?getUser=1';
+  $ini = parse_ini_file('configURL.ini');
+	$url = $ini[app_url] . '/api/?getUser=';
   $ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_POST, true);
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
@@ -97,7 +97,7 @@
 			);
 
 
-		$url = 'https://whatsdown-d627f.appspot.com/api/?insertUser=1';
+		$url = $ini[app_url] . '/api/?insertUser=1';
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_POST, true);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
@@ -117,10 +117,10 @@
 			$_SESSION['admin'] = $row['admin'];
 		}
 	}
-  header('Location: https://whatsdown-d627f.appspot.com/browse/');
+  header('Location: ' $ini[app_url] . 'browse/');
   exit();
   }
   else{
-    header('Location: https://whatsdown-d627f.appspot.com/browse/');
+    header('Location: ' $ini[app_url] . 'browse/');
     exit();
   }
