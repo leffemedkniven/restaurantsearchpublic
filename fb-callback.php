@@ -117,10 +117,10 @@
 			$_SESSION['admin'] = $row['admin'];
 		}
 	}
-  header('Location: ' . $ini[app_url] . 'browse/');
+  header('Location: ' . $ini[app_url] . '/browse/');
   exit();
   }
   else{
-    header('Location: ' . $ini[app_url] . 'browse/');
+    header('Location: ' . $ini[app_url] . '/browse/');
     exit();
   }
