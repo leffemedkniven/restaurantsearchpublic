@@ -64,12 +64,12 @@
 
 				upload_image($restaurant_ID);
 			}
-
-			header("Location: " . $_SERVER['REQUEST_URI']);
 			else {
 				header("HTTP/1.0 405 Method Not Allowed");
 				break;
+
 			}
+			//header("Location: " . $_SERVER['REQUEST_URI']);
 			break;
 		case 'PUT':
 			// Update restaurant
