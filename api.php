@@ -69,7 +69,7 @@
 				break;
 
 			}
-			//header("Location: " . $_SERVER['REQUEST_URI']);
+			header("Location: " . $_SERVER['REQUEST_URI']);
 			break;
 		case 'PUT':
 			// Update restaurant
