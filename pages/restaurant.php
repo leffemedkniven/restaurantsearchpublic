@@ -129,7 +129,7 @@ $user = $response->getGraphUser();
                   <div class="send-message">
                       <div class="message-text">
         Write a review and rate the restaurant(Only for logged-in users): </br>
-				<form action="/pages/review.php" method="post" id="reviewform">
+				<form action="/pages/review.php" method="post" id="reviewform" autocomplete="off">
 					<?php
       		echo("Rating:");
 					echo("<input type=\"radio\" name=\"rate\" id=\"r1\" value=\"1\" checked> 1 ");

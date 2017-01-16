@@ -54,7 +54,7 @@
         <h3 class="text-muted">Restaurantsearch</h3>
       </div>
 
-		<form class="form-horizontal" action="/pages/addRestaurant.php" method="post" id="addRestform">
+		<form class="form-horizontal" action="/pages/addRestaurant.php" method="post" id="addRestform" autocomplete="off">
 		<fieldset>
 
 		<!-- Form for adding a restaurant to the database -->
